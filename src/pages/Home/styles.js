@@ -59,7 +59,7 @@ export const Banner = styled.div`
 
     h1 {
       font-size: 1.8rem;
-      font-weight: 500;
+      font-weight: 600;
       color: ${({ theme }) => theme.COLORS.LIGHT_300};
     }
 
