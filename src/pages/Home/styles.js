@@ -13,61 +13,63 @@ export const Container = styled.div`
     'content';
 
   > main {
+    width: 100%;
     grid-area: content;
+    display: flex;
+    flex-direction: column;
     overflow-y: auto;
-
-    padding: 4.4rem 0px 0px;
-    border: 1px solid red;
+    padding: 4.4rem 1.6rem 1.6rem;
   }
-`
-
-export const Content = styled.div`
-  width: 100%;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-
-  padding: 0 1.6rem;
 `
 
 export const Banner = styled.div`
   width: 100%;
-  height: 12rem;
+  height: 16.4rem;
   display: flex;
+  background: transparent;
+
   align-items: center;
-  gap: 1.6rem;
-  justify-content: space-between;
-
   position: relative;
-  background: ${({ theme }) => theme.COLORS.GRADIENT_200};
-  border-radius: 8px;
 
-  > img {
+  > .imgBanner {
+    width: 25rem;
+    height: 16.4rem;
     position: absolute;
-    left: -2rem;
-    top: -3rem;
+    top: -2.2rem;
+    left: -1.6rem;
+    overflow: hidden;
+
+    > img {
+      width: 100%;
+      filter: brightness(1.2);
+    }
   }
 
-  > div {
+  > .textBanner {
+    width: 100%;
+    height: 12rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 21.5rem;
-    justify-content: end;
-    position: absolute;
-    right: 0;
+    align-items: end;
+    gap: 0.3rem;
+    background: ${({ theme }) => theme.COLORS.GRADIENT_200};
+    border-radius: 8px;
 
-    h1 {
-      font-size: 1.8rem;
-      font-weight: 600;
-      color: ${({ theme }) => theme.COLORS.LIGHT_300};
-    }
+    > .infoBanner {
+      width: 25rem;
 
-    p {
-      font-size: 1.2rem;
-      font-weight: 400;
-      color: ${({ theme }) => theme.COLORS.LIGHT_300};
-      font-family: 'Roboto', sans-serif;
+      h1 {
+        font-size: 1.8rem;
+        font-weight: 600;
+        color: ${({ theme }) => theme.COLORS.LIGHT_300};
+      }
+
+      p {
+        font-size: 1.2rem;
+        font-weight: 400;
+        color: ${({ theme }) => theme.COLORS.LIGHT_300};
+      }
     }
   }
 `
