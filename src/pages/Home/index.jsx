@@ -1,8 +1,46 @@
 import { Header } from '../../components/Header'
 import { Banner, Container } from './styles'
 import bannerSVG from '../../assets/banner.svg'
+import { Section } from '../../components/Section'
+import { Slider } from '../../components/Slider'
+import { Card } from '../../components/Card'
 
 export function Home() {
+  const isAdmin = false
+
+  const dishList = [
+    {
+      id: 1,
+      title: 'Bolo de cenoura',
+      description: 'Delicioso bolo de cenoura com cobertura de chocolate',
+      price: '15,00'
+    },
+    {
+      id: 2,
+      title: 'Bolo de cenoura',
+      description: 'Delicioso bolo de cenoura com cobertura de chocolate',
+      price: '19,99'
+    },
+    {
+      id: 3,
+      title: 'Bolo de cenoura',
+      description: 'Delicioso bolo de cenoura com cobertura de chocolate',
+      price: '19,99'
+    },
+    {
+      id: 4,
+      title: 'Bolo de cenoura',
+      description: 'Delicioso bolo de cenoura com cobertura de chocolate',
+      price: '19,99'
+    },
+    {
+      id: 5,
+      title: 'Bolo de cenoura',
+      description: 'Delicioso bolo de cenoura com cobertura de chocolate',
+      price: '19,99'
+    }
+  ]
+
   return (
     <Container>
       <Header />
@@ -19,7 +57,51 @@ export function Home() {
             </div>
           </div>
         </Banner>
-        <div>Teste</div>
+        <Section title="Refeições">
+          <Slider>
+            {dishList &&
+              dishList.map((dish) => {
+                return (
+                  <Card
+                    key={String(dish.id)}
+                    data={dish}
+                    isAdmin={isAdmin}
+                    className="item"
+                  />
+                )
+              })}
+          </Slider>
+        </Section>
+        <Section title="Sobremesas">
+          <Slider>
+            {dishList &&
+              dishList.map((dish) => {
+                return (
+                  <Card
+                    key={String(dish.id)}
+                    data={dish}
+                    isAdmin={isAdmin}
+                    className="item"
+                  />
+                )
+              })}
+          </Slider>
+        </Section>
+        <Section title="Bebidas">
+          <Slider>
+            {dishList &&
+              dishList.map((dish) => {
+                return (
+                  <Card
+                    key={String(dish.id)}
+                    data={dish}
+                    isAdmin={isAdmin}
+                    className="item"
+                  />
+                )
+              })}
+          </Slider>
+        </Section>
       </main>
     </Container>
   )
