@@ -19,6 +19,7 @@ export const Container = styled.div`
     flex-direction: column;
     overflow-y: auto;
     padding: 4.4rem 1.6rem 1.6rem;
+    margin: 1.6rem 0;
   }
 `
 
@@ -26,22 +27,21 @@ export const Banner = styled.div`
   width: 100%;
   height: 16.4rem;
   display: flex;
-  background: transparent;
-
-  align-items: center;
   position: relative;
+  background: transparent;
+  align-items: center;
 
   > .imgBanner {
     width: 25rem;
     height: 16.4rem;
     position: absolute;
-    top: -2.2rem;
+    bottom: 0;
     left: -1.6rem;
     overflow: hidden;
 
     > img {
       width: 100%;
-      filter: brightness(1.2);
+      filter: brightness(1.3);
     }
   }
 

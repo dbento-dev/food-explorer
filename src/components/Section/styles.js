@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const Container = styled.section`
-  margin: 5.6rem 0 2.8rem;
+  margin: 3.6rem 0 2.8rem;
 
   > h2 {
     font-size: 1.8rem;
