@@ -68,8 +68,8 @@ export const ReceiptButton = styled.button`
   border: none;
   background: none;
 
-  > svg {
-    font-size: 2.4rem;
-    color: ${({ theme }) => theme.COLORS.LIGHT_100};
+  > img {
+    width: 2.2rem;
+    height: 2.2rem;
   }
 `

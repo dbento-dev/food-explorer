@@ -1,6 +1,6 @@
 import logoSVG from '../../assets/logo.svg'
 import { AiOutlineMenu } from 'react-icons/ai'
-import { TfiReceipt } from 'react-icons/tfi'
+import ReceiptSVG from '../../assets/icons/Receipt.svg'
 
 import { Container, ExplorerLogo, Menu, ReceiptButton } from './styles'
 
@@ -17,7 +17,7 @@ export function Header() {
         </div>
       </ExplorerLogo>
       <ReceiptButton>
-        <TfiReceipt />
+        <img src={ReceiptSVG} alt="Ícone de receita" />
       </ReceiptButton>
     </Container>
   )
