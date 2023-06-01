@@ -1,9 +1,10 @@
 import { Header } from '../../components/Header'
-import { Banner, Container } from './styles'
+import { Banner, Container, Content } from './styles'
 import bannerSVG from '../../assets/banner.svg'
 import { Section } from '../../components/Section'
 import { Slider } from '../../components/Slider'
 import { Card } from '../../components/Card'
+import { Footer } from '../../components/Footer'
 
 export function Home() {
   const isAdmin = false
@@ -46,62 +47,65 @@ export function Home() {
       <Header />
 
       <main>
-        <Banner>
-          <div className="imgBanner">
-            <img src={bannerSVG} alt="Imagem de frutas e sobremesas" />
-          </div>
-          <div className="textBanner">
-            <div className="infoBanner">
-              <h1>Sabores inigualáveis</h1>
-              <p>Sinta o cuidado do preparo com ingredientes selecionados</p>
+        <Content>
+          <Banner>
+            <div className="imgBanner">
+              <img src={bannerSVG} alt="Imagem de frutas e sobremesas" />
             </div>
-          </div>
-        </Banner>
-        <Section title="Refeições">
-          <Slider>
-            {dishList &&
-              dishList.map((dish) => {
-                return (
-                  <Card
-                    key={String(dish.id)}
-                    data={dish}
-                    isAdmin={isAdmin}
-                    className="item"
-                  />
-                )
-              })}
-          </Slider>
-        </Section>
-        <Section title="Sobremesas">
-          <Slider>
-            {dishList &&
-              dishList.map((dish) => {
-                return (
-                  <Card
-                    key={String(dish.id)}
-                    data={dish}
-                    isAdmin={isAdmin}
-                    className="item"
-                  />
-                )
-              })}
-          </Slider>
-        </Section>
-        <Section title="Bebidas">
-          <Slider>
-            {dishList &&
-              dishList.map((dish) => {
-                return (
-                  <Card
-                    key={String(dish.id)}
-                    data={dish}
-                    isAdmin={isAdmin}
-                    className="item"
-                  />
-                )
-              })}
-          </Slider>
-        </Section>
+            <div className="textBanner">
+              <div className="infoBanner">
+                <h1>Sabores inigualáveis</h1>
+                <p>Sinta o cuidado do preparo com ingredientes selecionados</p>
+              </div>
+            </div>
+          </Banner>
+          <Section title="Refeições">
+            <Slider>
+              {dishList &&
+                dishList.map((dish) => {
+                  return (
+                    <Card
+                      key={String(dish.id)}
+                      data={dish}
+                      isAdmin={isAdmin}
+                      className="item"
+                    />
+                  )
+                })}
+            </Slider>
+          </Section>
+          <Section title="Sobremesas">
+            <Slider>
+              {dishList &&
+                dishList.map((dish) => {
+                  return (
+                    <Card
+                      key={String(dish.id)}
+                      data={dish}
+                      isAdmin={isAdmin}
+                      className="item"
+                    />
+                  )
+                })}
+            </Slider>
+          </Section>
+          <Section title="Bebidas">
+            <Slider>
+              {dishList &&
+                dishList.map((dish) => {
+                  return (
+                    <Card
+                      key={String(dish.id)}
+                      data={dish}
+                      isAdmin={isAdmin}
+                      className="item"
+                    />
+                  )
+                })}
+            </Slider>
+          </Section>
+        </Content>
+        <Footer />
       </main>
     </Container>
   )

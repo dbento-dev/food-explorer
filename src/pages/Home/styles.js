@@ -18,9 +18,11 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     overflow-y: auto;
-    padding: 4.4rem 1.6rem 1.6rem;
-    margin: 1.6rem 0;
   }
+`
+
+export const Content = styled.div`
+  padding: 4.4rem 1.6rem 1.6rem;
 `
 
 export const Banner = styled.div`
