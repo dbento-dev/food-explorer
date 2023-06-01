@@ -16,12 +16,12 @@ export function Details() {
       <main>
         <Content>
           <ButtonText title="voltar" icon={RxCaretLeft} />
-          <div>
-            <div>
+          <div className="dish">
+            <div className="dishImage">
               <img src={dishPNG} alt="Imagem do prato selecionado" />
             </div>
 
-            <div>
+            <div className="dishDetails">
               <h2>Salada Ravanello</h2>
               <p>
                 Rabanetes, folhas verdes e molho agridoce salpicados com
@@ -37,6 +37,15 @@ export function Details() {
                 <Tag title="feijão" />
                 <Tag title="ovos" />
                 <Tag title="maçã" />
+                <Tag title="tomate" />
+                <Tag title="cenoura" />
+                <Tag title="manteiga" />
+                <Tag title="pimentão" />
+                <Tag title="couve" />
+                <Tag title="couve-flor" />
+                <Tag title="cravo" />
+                <Tag title="batata-doce" />
+                <Tag title="farinha" />
               </div>
 
               <div>
