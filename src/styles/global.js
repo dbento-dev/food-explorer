@@ -18,7 +18,7 @@ export default createGlobalStyle`
     -webkit-font-smoothing: antialiased;
 
   }
-
+  
   body, input, textarea, button {
     font-family: 'Poppins', sans-serif;
     font-size: 1.6rem;
@@ -38,4 +38,20 @@ export default createGlobalStyle`
   button:hover, a:hover {
     filter: brightness(0.9);    
   }
+
+
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 0.6rem;
+}
+
+*::-webkit-scrollbar-track {
+  background: ${({ theme }) => theme.COLORS.DARK_400};
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: ${({ theme }) => theme.COLORS.LIGHT_600};
+  border-radius: 2rem;
+  border: 1px solid ${({ theme }) => theme.COLORS.LIGHT_600};
+}
 `
