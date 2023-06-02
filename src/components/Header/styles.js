@@ -35,11 +35,16 @@ export const Container = styled.header`
     > .logo {
       display: flex;
       width: 20%;
+
+      > div {
+        display: flex;
+        justify-content: flex-start;
+      }
     }
 
     > .search-input {
       display: flex;
-      width: 50%;
+      width: 65%;
     }
 
     > .receipt-button {
