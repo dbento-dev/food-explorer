@@ -44,12 +44,12 @@ export const Container = styled.header`
 
     > .search-input {
       display: flex;
-      width: 65%;
+      width: 60%;
     }
 
     > .receipt-button {
       display: flex;
-      width: 15%;
+      width: 20%;
     }
 
     > .receipt-icon {
