@@ -105,10 +105,14 @@ export const Content = styled.div`
   }
 
   @media ${device.laptop} {
+    padding: 4.4rem 12rem 1.6rem;
+    height: 100%;
+
     > button:first-child {
       align-self: flex-start;
       font-weight: 700;
       font-size: 2.4rem;
+      margin-bottom: 4rem;
     }
 
     > .dish {
