@@ -25,7 +25,6 @@ export const Container = styled.header`
   }
 
   @media (min-width: 1024px) {
-    border: 1px solid red;
     display: flex;
     align-items: center;
 
