@@ -53,7 +53,6 @@ export const Form = styled.form`
     > label {
       font-family: 'Roboto', sans-serif;
       font-size: 1.6rem;
-
       font-weight: 400;
       color: ${({ theme }) => theme.COLORS.LIGHT_400};
       margin-top: 3.2rem;
@@ -73,7 +72,7 @@ export const Form = styled.form`
 
   @media ${device.laptop} {
     > div {
-      height: 54rem;
+      height: 65rem;
 
       > h1 {
         font-size: 3.2rem;
