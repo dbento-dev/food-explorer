@@ -24,11 +24,48 @@ export const Container = styled.header`
     display: none;
   }
 
+  > .overlay {
+    width: 0;
+    height: calc(100% - 9rem);
+    z-index: 9;
+    position: absolute;
+    top: 9rem;
+    left: 0;
+    overflow-x: hidden;
+    transition: all 0.3s;
+
+    > .overlay-content {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      padding: 3.2rem;
+      gap: 3.6rem;
+      background-color: ${({ theme }) => theme.COLORS.DARK_400};
+
+      > button {
+        font-weight: 300;
+      }
+    }
+  }
+
+  > .overlay.active {
+    width: 100%;
+    height: calc(100% - 9rem);
+    z-index: 9;
+    position: absolute;
+    top: 9rem;
+    left: 0;
+    overflow-x: hidden;
+    transition: all 0.5s;
+  }
+
   @media (min-width: 1024px) {
     display: flex;
     align-items: center;
 
-    > .menu {
+    > .menu-button {
       display: none;
     }
 
