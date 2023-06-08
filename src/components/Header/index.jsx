@@ -8,7 +8,6 @@ import { Input } from '../../components/Input'
 import { ExplorerLogo } from '../../components/ExplorerLogo'
 import { Button } from '../../components/Button'
 import { LogoutButton } from '../../components/LogoutButton'
-import { ButtonText } from '../../components/ButtonText'
 
 export function Header() {
   const handleLogout = () => {
@@ -35,7 +34,9 @@ export function Header() {
               <ExplorerLogo />
             </div>
 
-            <ButtonText title="Sair" onClick={handleLogout} />
+            <div className="logout-button">
+              <LogoutButton onClick={handleLogout} />
+            </div>
           </div>
 
           <div className="menu-content">

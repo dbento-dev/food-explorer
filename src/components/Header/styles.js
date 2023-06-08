@@ -24,14 +24,14 @@ export const Container = styled.header`
   }
 
   > .overlay {
-    width: 0;
-    height: 100vh;
+    width: 100%;
+    height: 0;
     z-index: 9;
     position: absolute;
     top: 0;
     left: 0;
-    overflow-x: hidden;
-    transition: all 0.3s;
+    overflow: hidden;
+    transition: all 0.5s;
 
     > .overlay-content {
       position: relative;
@@ -74,7 +74,7 @@ export const Container = styled.header`
     position: absolute;
     top: 0;
     left: 0;
-    overflow-x: hidden;
+    overflow: hidden;
     transition: all 0.5s;
   }
 
