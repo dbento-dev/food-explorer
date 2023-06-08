@@ -10,32 +10,42 @@ import { Button } from '../../components/Button'
 import { LogoutButton } from '../../components/LogoutButton'
 import { ButtonText } from '../../components/ButtonText'
 
-import { useState } from 'react'
-
 export function Header() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-
   const handleLogout = () => {
     console.log('Logout')
   }
 
-  const handleMenu = () => {
+  const handleCloseMenu = () => {
+    document.getElementById('navbar').classList.remove('active')
+  }
+
+  const handleOpenMenu = () => {
     document.getElementById('navbar').classList.toggle('active')
-    setIsMenuOpen(!isMenuOpen)
   }
 
   return (
     <Container>
       <div id="navbar" className="overlay">
         <div className="overlay-content">
-          <Input placeholder="Pesquisar" />
+          <div className="menu-header">
+            <Menu className="menu-button" onClick={handleCloseMenu}>
+              <AiOutlineClose />
+            </Menu>
+            <div className="logo">
+              <ExplorerLogo />
+            </div>
 
-          <ButtonText title="Sair" />
+            <ButtonText title="Sair" onClick={handleLogout} />
+          </div>
+
+          <div className="menu-content">
+            <Input placeholder="Pesquisar" />
+          </div>
         </div>
       </div>
 
-      <Menu className="menu-button" onClick={handleMenu}>
-        {isMenuOpen ? <AiOutlineClose /> : <AiOutlineMenu />}
+      <Menu className="menu-button" onClick={handleOpenMenu}>
+        <AiOutlineMenu />
       </Menu>
 
       <div className="logo">

@@ -4,7 +4,6 @@ export const Container = styled.header`
   grid-area: header;
   height: 9rem;
   width: 100%;
-
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -26,10 +25,10 @@ export const Container = styled.header`
 
   > .overlay {
     width: 0;
-    height: calc(100% - 9rem);
+    height: 100vh;
     z-index: 9;
     position: absolute;
-    top: 9rem;
+    top: 0;
     left: 0;
     overflow-x: hidden;
     transition: all 0.3s;
@@ -37,25 +36,43 @@ export const Container = styled.header`
     > .overlay-content {
       position: relative;
       width: 100%;
-      height: 100%;
+      height: 100vh;
       display: flex;
       flex-direction: column;
-      padding: 3.2rem;
       gap: 3.6rem;
       background-color: ${({ theme }) => theme.COLORS.DARK_400};
 
-      > button {
-        font-weight: 300;
+      > .menu-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        height: 9rem;
+        padding: 3.2rem;
+
+        background-color: ${({ theme }) => theme.COLORS.DARK_700};
+
+        > button {
+          font-weight: 300;
+        }
+      }
+
+      > .menu-content {
+        display: flex;
+        display: flex;
+        flex-direction: column;
+        gap: 3.6rem;
+        padding: 0 3.2rem;
       }
     }
   }
 
   > .overlay.active {
     width: 100%;
-    height: calc(100% - 9rem);
+    height: 100vh;
     z-index: 9;
     position: absolute;
-    top: 9rem;
+    top: 0;
     left: 0;
     overflow-x: hidden;
     transition: all 0.5s;
