@@ -5,14 +5,13 @@ import { ThemeProvider } from 'styled-components'
 import theme from './styles/theme'
 import GlobalStyles from './styles/global'
 
-import { FormDish } from './pages/FormDish'
+import { Routes } from './routes'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
       <GlobalStyles />
-
-      <FormDish />
+      <Routes />
     </ThemeProvider>
   </React.StrictMode>
 )
