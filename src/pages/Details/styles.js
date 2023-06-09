@@ -30,24 +30,28 @@ export const Content = styled.div`
     font-size: 2rem;
   }
 
-  > div {
+  > .dish {
+    width: 100%;
+    height: auto;
     display: flex;
     flex-direction: column;
     gap: 4.7rem;
     align-items: center;
 
-    img {
-      width: 26.4rem;
-      height: 26.4rem;
+    > .dishImage {
+      img {
+        width: 26.4rem;
+        height: 26.4rem;
+        border-radius: 50%;
+      }
     }
 
-    div {
+    > .dishDetails {
       display: flex;
       gap: 1.6rem;
 
       flex-direction: column;
       text-align: center;
-      /* margin-top: 1.6rem; */
 
       h2 {
         text-align: center;

@@ -75,7 +75,7 @@ export function FormDish() {
 
       <main>
         <Content>
-          <ButtonText title="voltar" icon={RxCaretLeft} to="/" />
+          <ButtonText to="/" title="voltar" icon={RxCaretLeft} />
           <h2>Adicionar prato</h2>
 
           <Form id="form-dish" name="form-dish">

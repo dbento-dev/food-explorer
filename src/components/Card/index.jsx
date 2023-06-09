@@ -3,6 +3,7 @@ import { RxMinus, RxPlus } from 'react-icons/rx'
 import { RiPencilLine } from 'react-icons/ri'
 import { Button } from '../Button'
 import { Container } from './styles'
+import { Link } from 'react-router-dom'
 
 export function Card({ data, isAdmin, ...rest }) {
   return (
@@ -14,9 +15,12 @@ export function Card({ data, isAdmin, ...rest }) {
           <RiPencilLine onClick={() => console.log('Editar')} />
         )}
 
-        <a>
-          <img src="https://source.unsplash.com/random" alt="Imagem do prato" />
-        </a>
+        <Link to={`/details/${data?.id}`}>
+          <img
+            src="https://source.unsplash.com/88x88/?food"
+            alt="Imagem do prato"
+          />
+        </Link>
         <h2>{data?.title}</h2>
         {/* <p>{data?.description}</p> */}
         <span>R$ {data?.price}</span>

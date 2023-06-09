@@ -7,18 +7,19 @@ import { RxCaretLeft, RxMinus, RxPlus } from 'react-icons/rx'
 
 import { Container, Content } from './styles'
 
-import dishPNG from '../../assets/mask-group-3.png'
-
 export function Details() {
   return (
     <Container>
       <Header />
       <main>
         <Content>
-          <ButtonText title="voltar" icon={RxCaretLeft} />
+          <ButtonText to="/" title="voltar" icon={RxCaretLeft} />
           <div className="dish">
             <div className="dishImage">
-              <img src={dishPNG} alt="Imagem do prato selecionado" />
+              <img
+                src="https://source.unsplash.com/265x265/?food"
+                alt="Imagem do prato selecionado"
+              />
             </div>
 
             <div className="dishDetails">
