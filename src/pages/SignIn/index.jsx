@@ -4,6 +4,8 @@ import { Background, Container, Form } from './styles'
 import { Input } from '../../components/Input'
 import { Button } from '../../components/Button'
 
+import { Link } from 'react-router-dom'
+
 export function SignIn() {
   // eslint-disable-next-line no-unused-vars
   const [email, setEmail] = useState('')
@@ -38,7 +40,7 @@ export function SignIn() {
 
           <Button title="Entrar" onClick={handleSignIn} />
 
-          <a to="/register">Criar uma conta</a>
+          <Link to="/register">Criar uma conta</Link>
         </div>
       </Form>
     </Container>
