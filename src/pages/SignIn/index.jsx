@@ -1,19 +1,23 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { Background, Container, Form } from './styles'
 
 import { Input } from '../../components/Input'
 import { Button } from '../../components/Button'
 
-import { Link } from 'react-router-dom'
+import { useAuth } from '../../hooks/auth'
 
 export function SignIn() {
-  // eslint-disable-next-line no-unused-vars
   const [email, setEmail] = useState('')
-  // eslint-disable-next-line no-unused-vars
   const [password, setPassword] = useState('')
 
+  const { signIn } = useAuth()
+
   const handleSignIn = () => {
-    console.log('handleSignIn')
+    signIn({
+      email,
+      password
+    })
   }
 
   return (
