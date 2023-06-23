@@ -1,22 +1,41 @@
 import { useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import { api } from '../../services/api'
 
 import { Background, Container, Form } from './styles'
 
 import { Input } from '../../components/Input'
 import { Button } from '../../components/Button'
 
-import { Link } from 'react-router-dom'
-
 export function SignUp() {
-  // eslint-disable-next-line no-unused-vars
   const [name, setName] = useState('')
-  // eslint-disable-next-line no-unused-vars
   const [email, setEmail] = useState('')
-  // eslint-disable-next-line no-unused-vars
   const [password, setPassword] = useState('')
 
+  const navigate = useNavigate()
+
   const handleSignUp = () => {
-    console.log('handleSignUp')
+    if (!name || !email || !password) {
+      return alert('Preencha todos os campos')
+    }
+
+    api
+      .post('/users', {
+        name,
+        email,
+        password
+      })
+      .then(() => {
+        alert('Usuário criado com sucesso')
+        navigate('/')
+      })
+      .catch((error) => {
+        if (error.response) {
+          alert(error.response.data.message)
+        } else {
+          alert('Ocorreu um erro inesperado')
+        }
+      })
   }
 
   return (
