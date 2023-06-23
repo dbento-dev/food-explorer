@@ -1,3 +1,5 @@
+import { useNavigate } from 'react-router-dom'
+
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai'
 import { FiSearch } from 'react-icons/fi'
 import ReceiptSVG from '../../assets/icons/Receipt.svg'
@@ -9,10 +11,26 @@ import { ExplorerLogo } from '../../components/ExplorerLogo'
 import { Button } from '../../components/Button'
 import { LogoutButton } from '../../components/LogoutButton'
 
+import { useAuth } from '../../hooks/auth'
+
 export function Header() {
+  const { signOut } = useAuth()
+  // const { is_admin: isAdmin } = user
+  const navigate = useNavigate()
+
   const handleLogout = () => {
-    console.log('Logout')
+    signOut()
+    navigate('/')
   }
+
+  // function handleAddDish() {
+  //   // navigate('/add-dish')
+  //   console.log('handleAddDish')
+  // }
+
+  // const handleOrders = () => {
+  //   console.log('Meus pedidos')
+  // }
 
   const handleCloseMenu = () => {
     document.getElementById('navbar').classList.remove('active')
