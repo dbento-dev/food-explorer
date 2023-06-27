@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { device } from '../../styles/theme'
 
 export const Container = styled.div`
   width: 21rem;
@@ -52,12 +53,19 @@ export const Container = styled.div`
       text-align: center;
     }
 
-    /* p {
-      color: ${({ theme }) => theme.COLORS.LIGHT_400};
-      font-size: 14px;
-      font-weight: 400;
-      text-align: center;
-    } */
+    p {
+      display: none;
+    }
+
+    @media ${device.laptop} {
+      p {
+        color: ${({ theme }) => theme.COLORS.LIGHT_400};
+        font-size: 14px;
+        font-weight: 400;
+        text-align: center;
+        display: block;
+      }
+    }
 
     span {
       color: ${({ theme }) => theme.COLORS.BLUE_100};

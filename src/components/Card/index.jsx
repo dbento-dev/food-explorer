@@ -1,9 +1,13 @@
+import { Link } from 'react-router-dom'
+
 import { FiHeart } from 'react-icons/fi'
 import { RxMinus, RxPlus } from 'react-icons/rx'
 import { RiPencilLine } from 'react-icons/ri'
-import { Button } from '../Button'
 import { Container } from './styles'
-import { Link } from 'react-router-dom'
+
+import { Button } from '../Button'
+
+import { generateImageUrl } from '../../helpers/helpers'
 
 export function Card({ data, isAdmin, ...rest }) {
   return (
@@ -16,13 +20,10 @@ export function Card({ data, isAdmin, ...rest }) {
         )}
 
         <Link to={`/details/${data?.id}`}>
-          <img
-            src="https://source.unsplash.com/88x88/?food"
-            alt="Imagem do prato"
-          />
+          <img src={generateImageUrl(data?.image)} alt="Imagem do prato" />
         </Link>
-        <h2>{data?.title}</h2>
-        {/* <p>{data?.description}</p> */}
+        <h2>{data?.name}</h2>
+        <p>{data?.description}</p>
         <span>R$ {data?.price}</span>
 
         {!isAdmin && (
