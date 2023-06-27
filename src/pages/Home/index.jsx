@@ -1,46 +1,53 @@
-import { Header } from '../../components/Header'
+import { useEffect, useState } from 'react'
 import { Banner, Container, Content } from './styles'
 import bannerSVG from '../../assets/banner.svg'
-import { Section } from '../../components/Section'
+
 import { Slider } from '../../components/Slider'
 import { Card } from '../../components/Card'
 import { Footer } from '../../components/Footer'
+import { Section } from '../../components/Section'
+import { Header } from '../../components/Header'
+import { Empty } from '../../components/Empty'
+
+import { api } from '../../services/api'
+import { useAuth } from '../../hooks/auth'
 
 export function Home() {
-  const isAdmin = false
+  const { user } = useAuth()
 
-  const dishList = [
-    {
-      id: 1,
-      title: 'Bolo de cenoura',
-      description: 'Delicioso bolo de cenoura com cobertura de chocolate',
-      price: '15,00'
-    },
-    {
-      id: 2,
-      title: 'Bolo de cenoura',
-      description: 'Delicioso bolo de cenoura com cobertura de chocolate',
-      price: '19,99'
-    },
-    {
-      id: 3,
-      title: 'Bolo de cenoura',
-      description: 'Delicioso bolo de cenoura com cobertura de chocolate',
-      price: '19,99'
-    },
-    {
-      id: 4,
-      title: 'Bolo de cenoura',
-      description: 'Delicioso bolo de cenoura com cobertura de chocolate',
-      price: '19,99'
-    },
-    {
-      id: 5,
-      title: 'Bolo de cenoura',
-      description: 'Delicioso bolo de cenoura com cobertura de chocolate',
-      price: '19,99'
+  const { is_admin: isAdmin } = user
+
+  // eslint-disable-next-line no-unused-vars
+  const [search, setSearch] = useState('')
+  const [recipesList, setRecipesList] = useState([])
+
+  const [dishList, setDishList] = useState([])
+  const [drinkList, setDrinkList] = useState([])
+  const [dessertList, setDessertList] = useState([])
+
+  useEffect(() => {
+    async function getDishRecipes() {
+      const response = await api.get(`/recipes?filter=${search}`)
+
+      setRecipesList(response.data)
     }
-  ]
+
+    getDishRecipes()
+  }, [search])
+
+  useEffect(() => {
+    const _dishList = recipesList.filter((recipe) => recipe.category === 'dish')
+    const _drinkList = recipesList.filter(
+      (recipe) => recipe.category === 'drink'
+    )
+    const _dessertList = recipesList.filter(
+      (recipe) => recipe.category === 'dessert'
+    )
+
+    setDishList(_dishList)
+    setDrinkList(_drinkList)
+    setDessertList(_dessertList)
+  }, [recipesList])
 
   return (
     <Container>
@@ -74,36 +81,46 @@ export function Home() {
                 })}
             </Slider>
           </Section>
-          <Section title="Sobremesas">
-            <Slider>
-              {dishList &&
-                dishList.map((dish) => {
-                  return (
-                    <Card
-                      key={String(dish.id)}
-                      data={dish}
-                      isAdmin={isAdmin}
-                      className="item"
-                    />
-                  )
-                })}
-            </Slider>
-          </Section>
-          <Section title="Bebidas">
-            <Slider>
-              {dishList &&
-                dishList.map((dish) => {
-                  return (
-                    <Card
-                      key={String(dish.id)}
-                      data={dish}
-                      isAdmin={isAdmin}
-                      className="item"
-                    />
-                  )
-                })}
-            </Slider>
-          </Section>
+          {dessertList?.length > 0 && (
+            <Section title="Sobremesas">
+              <Slider>
+                {dessertList &&
+                  dessertList.map((dessert) => {
+                    return (
+                      <Card
+                        key={String(dessert.id)}
+                        data={dessert}
+                        isAdmin={isAdmin}
+                        className="item"
+                      />
+                    )
+                  })}
+              </Slider>
+            </Section>
+          )}
+
+          {drinkList?.length > 0 && (
+            <Section title="Bebidas">
+              <Slider>
+                {drinkList &&
+                  drinkList.map((drink) => {
+                    return (
+                      <Card
+                        key={String(drink.id)}
+                        data={drink}
+                        isAdmin={isAdmin}
+                        className="item"
+                      />
+                    )
+                  })}
+              </Slider>
+            </Section>
+          )}
+          {recipesList?.length === 0 && (
+            <Section>
+              <Empty />
+            </Section>
+          )}
         </Content>
         <Footer />
       </main>
