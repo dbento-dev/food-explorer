@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-
+import { Tooltip } from 'react-tooltip'
 import { FiHeart } from 'react-icons/fi'
 import { RxMinus, RxPlus } from 'react-icons/rx'
 import { RiPencilLine } from 'react-icons/ri'
@@ -7,9 +7,17 @@ import { Container } from './styles'
 
 import { Button } from '../Button'
 
-import { generateImageUrl } from '../../helpers/helpers'
+import { generateImageUrl, transformPrice } from '../../helpers/helpers'
 
 export function Card({ data, isAdmin, ...rest }) {
+  const truncateDescription = (description) => {
+    if (description.length > 15) {
+      return `${description.substring(0, 15)}...`
+    } else {
+      return description
+    }
+  }
+
   return (
     <Container {...rest}>
       <div>
@@ -23,11 +31,18 @@ export function Card({ data, isAdmin, ...rest }) {
           <img src={generateImageUrl(data?.image)} alt="Imagem do prato" />
         </Link>
         <h2>{data?.name}</h2>
-        <p>{data?.description}</p>
-        <span>R$ {data?.price}</span>
+        <p
+          id="description-tooltip"
+          data-tooltip-id="description-tooltip"
+          data-tooltip-content={data?.description}
+        >
+          {truncateDescription(data?.description)}
+        </p>
+        <Tooltip id="description-tooltip" />
+        <span>{transformPrice(data?.price)}</span>
 
         {!isAdmin && (
-          <div>
+          <div className="card-buttons">
             <div className="counterControl">
               <RxMinus />
               <span>01</span>

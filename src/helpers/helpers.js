@@ -10,3 +10,12 @@ export function generateImageUrl(image) {
 
   return imageUrl
 }
+
+export function transformPrice(price) {
+  let priceValue = parseFloat(price.replace(',', '.'))
+
+  return priceValue.toLocaleString('pt-BR', {
+    style: 'currency',
+    currency: 'BRL'
+  })
+}

@@ -3,7 +3,6 @@ import { device } from '../../styles/theme'
 
 export const Container = styled.div`
   width: 21rem;
-  height: 29rem;
 
   background-color: ${({ theme }) => theme.COLORS.DARK_200};
 
@@ -15,7 +14,7 @@ export const Container = styled.div`
     flex-direction: column;
 
     padding: 2.4rem;
-    gap: 1.6rem;
+    gap: 1.2rem;
 
     align-items: center;
     justify-content: center;
@@ -58,9 +57,11 @@ export const Container = styled.div`
     }
 
     @media ${device.laptop} {
-      p {
+      gap: 1.5rem;
+
+      #description-tooltip {
         color: ${({ theme }) => theme.COLORS.LIGHT_400};
-        font-size: 14px;
+        font-size: 1.4rem;
         font-weight: 400;
         text-align: center;
         display: block;
@@ -74,7 +75,7 @@ export const Container = styled.div`
       text-align: center;
     }
 
-    > div {
+    > .card-buttons {
       width: 100%;
       display: flex;
       flex-direction: column;
@@ -82,7 +83,10 @@ export const Container = styled.div`
       justify-content: center;
       gap: 1.6rem;
 
-      /* gap: 18px; */
+      @media ${device.laptop} {
+        flex-direction: row;
+      }
+
       > .counterControl {
         width: 100%;
         display: flex;
