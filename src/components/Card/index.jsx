@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { Tooltip } from 'react-tooltip'
 import { FiHeart } from 'react-icons/fi'
 import { RxMinus, RxPlus } from 'react-icons/rx'
@@ -10,6 +10,12 @@ import { Button } from '../Button'
 import { generateImageUrl, transformPrice } from '../../helpers/helpers'
 
 export function Card({ data, isAdmin, ...rest }) {
+  const navigate = useNavigate()
+
+  const handleEditRecipe = (id) => {
+    navigate(`/edit/${id}`)
+  }
+
   const truncateDescription = (description) => {
     if (description.length > 15) {
       return `${description.substring(0, 15)}...`
@@ -24,7 +30,7 @@ export function Card({ data, isAdmin, ...rest }) {
         {!isAdmin ? (
           <FiHeart />
         ) : (
-          <RiPencilLine onClick={() => console.log('Editar')} />
+          <RiPencilLine onClick={() => handleEditRecipe(data?.id)} />
         )}
 
         <Link to={`/details/${data?.id}`}>
