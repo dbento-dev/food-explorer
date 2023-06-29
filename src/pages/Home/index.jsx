@@ -13,9 +13,8 @@ import { api } from '../../services/api'
 import { useAuth } from '../../hooks/auth'
 
 export function Home() {
-  const { user } = useAuth()
-
-  const { is_admin: isAdmin } = user
+  // eslint-disable-next-line no-unused-vars
+  const { user, isAdmin } = useAuth()
 
   // eslint-disable-next-line no-unused-vars
   const [search, setSearch] = useState('')
