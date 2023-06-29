@@ -43,7 +43,7 @@ export function Card({ data, isAdmin, ...rest }) {
 
         {!isAdmin && (
           <div className="card-buttons">
-            <div className="counterControl">
+            <div id="counter-buttons">
               <RxMinus />
               <span>01</span>
               <RxPlus />
