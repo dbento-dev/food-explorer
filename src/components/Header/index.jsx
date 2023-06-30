@@ -12,10 +12,11 @@ import { Button } from '../../components/Button'
 import { LogoutButton } from '../../components/LogoutButton'
 
 import { useAuth } from '../../hooks/auth'
+import { ButtonText } from '../ButtonText'
 
 export function Header() {
-  const { signOut } = useAuth()
-  // const { is_admin: isAdmin } = user
+  const { signOut, isAdmin } = useAuth()
+
   const navigate = useNavigate()
 
   const handleLogout = () => {
@@ -23,14 +24,13 @@ export function Header() {
     navigate('/')
   }
 
-  // function handleAddDish() {
-  //   // navigate('/add-dish')
-  //   console.log('handleAddDish')
-  // }
+  function handleAddDish() {
+    navigate('/add-dish')
+  }
 
-  // const handleOrders = () => {
-  //   console.log('Meus pedidos')
-  // }
+  const handleOrders = () => {
+    console.log('Meus pedidos')
+  }
 
   const handleCloseMenu = () => {
     document.getElementById('navbar').classList.remove('active')
@@ -59,6 +59,19 @@ export function Header() {
 
           <div className="menu-content">
             <Input placeholder="Pesquisar" />
+
+            <div className="menu-buttons">
+              {isAdmin && (
+                <>
+                  <ButtonText
+                    id="add-dish-button"
+                    title="Novo prato"
+                    to="/add-dish"
+                  />
+                  <div className="divider" />
+                </>
+              )}
+            </div>
           </div>
         </div>
       </div>
@@ -81,9 +94,9 @@ export function Header() {
 
       <Button
         className="receipt-button"
-        title="Pedidos (0)"
-        icon={ReceiptSVG}
-        onClick={() => console.log('Pedidos')}
+        title={isAdmin ? 'Novo prato' : 'Pedidos (0)'}
+        icon={!isAdmin && ReceiptSVG}
+        onClick={isAdmin ? handleAddDish : handleOrders}
       />
 
       <ReceiptIcon className="receipt-icon">

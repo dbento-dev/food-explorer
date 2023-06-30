@@ -4,7 +4,7 @@ import styled from 'styled-components'
 export const Container = styled(Link)`
   background: none;
   border: none;
-  font-size: 24px;
+  font-size: 2.4rem;
   color: ${({ theme }) => theme.COLORS.LIGHT_300};
 
   display: flex;
@@ -12,6 +12,6 @@ export const Container = styled(Link)`
   justify-content: flex-start;
 
   > svg {
-    font-size: 32px;
+    font-size: 3.2rem;
   }
 `

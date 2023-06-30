@@ -39,15 +39,14 @@ export const Container = styled.header`
       height: 100vh;
       display: flex;
       flex-direction: column;
-      gap: 3.6rem;
       background-color: ${({ theme }) => theme.COLORS.DARK_400};
 
       > .menu-header {
+        width: 100%;
+        height: 9rem;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        width: 100%;
-        height: 9rem;
         padding: 3.2rem;
 
         background-color: ${({ theme }) => theme.COLORS.DARK_700};
@@ -59,10 +58,22 @@ export const Container = styled.header`
 
       > .menu-content {
         display: flex;
-        display: flex;
         flex-direction: column;
-        gap: 3.6rem;
-        padding: 0 3.2rem;
+        margin: 3.6rem 3.2rem 0;
+
+        > .menu-buttons {
+          margin-top: 3.6rem;
+
+          #add-dish-button {
+            font-weight: 300;
+            padding: 1rem;
+          }
+
+          .divider {
+            width: 100%;
+            border-top: 1px solid ${({ theme }) => theme.COLORS.DARK_1000};
+          }
+        }
       }
     }
   }

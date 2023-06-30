@@ -10,11 +10,11 @@ import { Header } from '../../components/Header'
 import { Empty } from '../../components/Empty'
 
 import { api } from '../../services/api'
-import { useAuth } from '../../hooks/auth'
+// import { useAuth } from '../../hooks/auth'
 
 export function Home() {
   // eslint-disable-next-line no-unused-vars
-  const { user, isAdmin } = useAuth()
+  // const { isAdmin } = useAuth()
 
   // eslint-disable-next-line no-unused-vars
   const [search, setSearch] = useState('')
@@ -70,12 +70,7 @@ export function Home() {
               {dishList &&
                 dishList.map((dish) => {
                   return (
-                    <Card
-                      key={String(dish.id)}
-                      data={dish}
-                      isAdmin={isAdmin}
-                      className="item"
-                    />
+                    <Card key={String(dish.id)} data={dish} className="item" />
                   )
                 })}
             </Slider>
@@ -89,7 +84,6 @@ export function Home() {
                       <Card
                         key={String(dessert.id)}
                         data={dessert}
-                        isAdmin={isAdmin}
                         className="item"
                       />
                     )
@@ -107,7 +101,6 @@ export function Home() {
                       <Card
                         key={String(drink.id)}
                         data={drink}
-                        isAdmin={isAdmin}
                         className="item"
                       />
                     )
