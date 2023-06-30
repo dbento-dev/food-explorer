@@ -17,8 +17,11 @@ import { FiCamera } from 'react-icons/fi'
 import { CurrencyInput } from '../../components/CurrencyInput'
 
 import avatarPlaceholderPng from '../../assets/upload-placeholder.png'
+import { useNavigate } from 'react-router-dom'
+import { api } from '../../services/api'
 
 export function FormDish() {
+  const navigate = useNavigate()
   // eslint-disable-next-line no-unused-vars
   const [image, setImage] = useState(null)
   const [name, setName] = useState('')
@@ -30,8 +33,9 @@ export function FormDish() {
 
   const [description, setDescription] = useState('')
 
-  const imageURL = avatarPlaceholderPng
-  const isAdmin = true
+  const imageURL = image
+    ? `${api.defaults.baseURL}/files/${image}`
+    : avatarPlaceholderPng
 
   const [avatar, setAvatar] = useState(imageURL)
   // eslint-disable-next-line no-unused-vars
@@ -53,15 +57,59 @@ export function FormDish() {
   }
 
   function handleRemoveIngredient(deletedIngredient) {
-    console.log(deletedIngredient)
+    setIngredients((prevState) =>
+      prevState.filter((ingredient) => ingredient !== deletedIngredient)
+    )
   }
 
   async function handleNewDish() {
-    console.log('handleNewDish')
+    if (!avatarFile || !name || !category || !price || !description) {
+      alert('Preencha todos os campos!')
+      return
+    }
+
+    if (newIngredient) {
+      alert(
+        'Existe um ingrediente que não foi adicionado corretamente, verifique e tente novamente!'
+      )
+      return
+    }
+
+    try {
+      if (avatarFile) {
+        const formData = new FormData()
+        formData.append('image', avatarFile)
+        formData.append('name', name)
+        formData.append('category', category)
+        formData.append('price', price)
+        formData.append('description', description)
+
+        ingredients.map((ingredient) => {
+          formData.append('ingredients', ingredient)
+        })
+
+        await api.post('/recipes', formData)
+
+        alert('Prato cadastrado com sucesso!')
+        navigate('/')
+      }
+    } catch (error) {
+      if (error.response) {
+        alert(error.response.data.message)
+      } else {
+        alert('Não foi possível adicionar o prato, tente novamente mais tarde.')
+      }
+    }
   }
 
-  function handleChangeAvatar() {
-    console.log('handleChangeAvatar')
+  function handleChangeAvatar(e) {
+    const file = e.target.files[0]
+
+    setAvatarFile(file)
+
+    const imagePreview = URL.createObjectURL(file)
+
+    setAvatar(imagePreview)
   }
 
   useEffect(() => {
@@ -71,7 +119,7 @@ export function FormDish() {
 
   return (
     <Container>
-      <Header isAdmin={isAdmin} />
+      <Header />
 
       <main>
         <Content>
