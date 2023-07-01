@@ -152,6 +152,7 @@ export function FormDish() {
                   placeholder="Ex.: Salada Ceasar"
                   type="text"
                   onChange={(e) => setName(e.target.value)}
+                  value={name}
                 />
               </div>
               <div className="form-group category">
@@ -160,6 +161,7 @@ export function FormDish() {
                   name="category"
                   id="category"
                   onChange={(e) => setCategory(e.target.value)}
+                  value={category}
                 >
                   <option value="">Selecione</option>
                   <option value="drink">Bebida</option>
@@ -208,6 +210,7 @@ export function FormDish() {
                   placeholder="Fale brevemente sobre o prato, seus ingredientes e composição"
                   label="Descrição"
                   onChange={(e) => setDescription(e.target.value)}
+                  value={description}
                 />
               </div>
             </div>

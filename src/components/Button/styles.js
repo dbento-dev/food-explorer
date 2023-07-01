@@ -10,7 +10,8 @@ export const Container = styled.button`
 
   gap: 16px;
 
-  background-color: ${({ theme }) => theme.COLORS.RED_100};
+  background-color: ${({ theme, buttontype }) =>
+    buttontype === 'warning' ? theme.COLORS.RED_100 : theme.COLORS.DARK_800};
   color: ${({ theme }) => theme.COLORS.LIGHT_100};
 
   border: 0;

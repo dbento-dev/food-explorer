@@ -97,6 +97,7 @@ export function Header() {
         title={isAdmin ? 'Novo prato' : 'Pedidos (0)'}
         icon={!isAdmin && ReceiptSVG}
         onClick={isAdmin ? handleAddDish : handleOrders}
+        buttontype="warning"
       />
 
       <ReceiptIcon className="receipt-icon">
