@@ -51,7 +51,7 @@ export function Card({ data, ...rest }) {
               <RxPlus />
             </div>
 
-            <Button title="Incluir" />
+            <Button title="Incluir" buttontype="warning" />
           </div>
         )}
       </div>

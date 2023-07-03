@@ -190,9 +190,9 @@ export const Content = styled.div`
           }
 
           > button {
-            margin-left: 1.6rem;
-            width: 18.8rem;
-            height: 3.8rem;
+            /* margin-left: 1.6rem; */
+            width: 13rem;
+            height: 4.8rem;
           }
         }
       }

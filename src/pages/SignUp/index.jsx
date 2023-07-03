@@ -69,7 +69,11 @@ export function SignUp() {
             onChange={(e) => setPassword(e.target.value)}
           />
 
-          <Button title="Criar conta" onClick={handleSignUp} />
+          <Button
+            title="Criar conta"
+            onClick={handleSignUp}
+            buttontype="warning"
+          />
 
           <Link to="/">Já tenho uma conta</Link>
         </div>

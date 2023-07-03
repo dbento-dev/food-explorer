@@ -69,13 +69,17 @@ export function Details() {
                   <span>01</span>
                   <RxPlus />
 
-                  <Button title={`incluir ∙ R$ ${data?.price}`} />
+                  <Button
+                    title={`incluir ∙ R$ ${data?.price}`}
+                    buttontype="warning"
+                  />
                 </div>
               ) : (
                 <div>
                   <Button
                     title="Editar prato"
                     onClick={() => handleEditRecipe(data?.id)}
+                    buttontype="warning"
                   />
                 </div>
               )}
