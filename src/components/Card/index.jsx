@@ -19,6 +19,10 @@ export function Card({ data, ...rest }) {
     navigate(`/edit/${id}`)
   }
 
+  const handleFavoriteRecipe = (id) => {
+    console.log('id', id)
+  }
+
   const truncateDescription = (description) => {
     if (description.length > 50) {
       return `${description.substring(0, 50)}...`
@@ -31,7 +35,7 @@ export function Card({ data, ...rest }) {
     <Container {...rest}>
       <div>
         {!isAdmin ? (
-          <FiHeart />
+          <FiHeart onClick={() => handleFavoriteRecipe(data?.id)} />
         ) : (
           <RiPencilLine onClick={() => handleEditRecipe(data?.id)} />
         )}
