@@ -27,7 +27,7 @@ export const Content = styled.div`
 
 export const Banner = styled.div`
   width: 100%;
-  height: 16.4rem;
+  height: 12rem;
   display: flex;
   position: relative;
   background: transparent;
@@ -35,7 +35,7 @@ export const Banner = styled.div`
 
   > .imgBanner {
     width: 25rem;
-    height: 16.4rem;
+    height: 15.4rem;
     position: absolute;
     bottom: 0;
     left: -1.6rem;
@@ -49,7 +49,7 @@ export const Banner = styled.div`
 
   > .textBanner {
     width: 100%;
-    height: 12rem;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
