@@ -33,8 +33,6 @@ export function EditFormDish() {
   const [price, setPrice] = useState('')
   const [description, setDescription] = useState('')
 
-  const [currentFormData, setCurrentFormData] = useState()
-
   const imageURL = image
     ? `${api.defaults.baseURL}/files/${image}`
     : avatarPlaceholderPng
@@ -116,15 +114,6 @@ export function EditFormDish() {
         setIngredients(ingredients.map((ingredient) => ingredient.name))
         setPrice(price)
         setDescription(description)
-
-        setCurrentFormData({
-          image,
-          name,
-          category,
-          ingredients,
-          price,
-          description
-        })
       } catch (error) {
         console.log(error)
       }
@@ -171,21 +160,6 @@ export function EditFormDish() {
     setAvatar(imageURL)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [image])
-
-  useEffect(() => {
-    console.log('currentFormData', currentFormData)
-  }, [currentFormData])
-
-  // useEffect(() => {
-  //   console.log({
-  //     image,
-  //     name,
-  //     category,
-  //     ingredients,
-  //     price,
-  //     description
-  //   })
-  // }, [image, name, category, ingredients, price, description])
 
   return (
     <Container>
