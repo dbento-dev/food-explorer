@@ -1,4 +1,5 @@
 import { styled } from 'styled-components'
+import { device } from '../../styles/theme'
 
 export const Container = styled.div`
   width: 100%;
@@ -15,7 +16,9 @@ export const Container = styled.div`
 
   > div {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.8rem;
 
     > span:first-child {
       font-size: 2.1rem;
@@ -25,12 +28,22 @@ export const Container = styled.div`
       color: ${({ theme }) => theme.COLORS.LIGHT_100};
     }
 
-    /* > span:nth-child(2) {
+    > span:nth-child(2) {
       font-size: 1.2rem;
       font-weight: 400;
       font-family: 'Roboto', sans-serif;
       color: ${({ theme }) => theme.COLORS.BLUE_100};
+    }
+  }
+
+  @media ${device.laptop} {
+    > div {
+      flex-direction: column;
+      align-items: end;
+    }
+
+    > span:nth-child(2) {
       text-align: end;
-    } */
+    }
   }
 `
