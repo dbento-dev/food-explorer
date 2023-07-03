@@ -47,6 +47,7 @@ export const Content = styled.div`
     }
 
     > .dishDetails {
+      width: 100%;
       display: flex;
       gap: 1.6rem;
 
@@ -101,7 +102,7 @@ export const Content = styled.div`
         }
 
         > button {
-          width: 18.8rem;
+          width: 100%;
           height: 3.8rem;
         }
       }
@@ -190,7 +191,6 @@ export const Content = styled.div`
           }
 
           > button {
-            /* margin-left: 1.6rem; */
             width: 13rem;
             height: 4.8rem;
           }
