@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { device } from '../../styles/theme'
 
 export const Container = styled.div`
   width: 100%;
@@ -57,20 +58,52 @@ export const Banner = styled.div`
     gap: 0.3rem;
     background: ${({ theme }) => theme.COLORS.GRADIENT_200};
     border-radius: 8px;
+    padding: 0 2.4rem;
 
     > .infoBanner {
-      width: 25rem;
+      width: 100%;
 
       h1 {
         font-size: 1.8rem;
         font-weight: 600;
         color: ${({ theme }) => theme.COLORS.LIGHT_300};
+        display: flex;
+        justify-content: flex-end;
       }
 
       p {
         font-size: 1.2rem;
         font-weight: 400;
         color: ${({ theme }) => theme.COLORS.LIGHT_300};
+        display: flex;
+        justify-content: flex-end;
+      }
+    }
+  }
+
+  @media ${device.laptop} {
+    height: 38rem;
+
+    > .imgBanner {
+      width: 50rem;
+      height: 34rem;
+      bottom: 6rem;
+    }
+
+    > .textBanner {
+      width: 100%;
+      height: 26rem;
+
+      > .infoBanner {
+        h1 {
+          font-size: 4rem;
+          font-weight: 500;
+        }
+
+        p {
+          font-size: 1.6rem;
+          font-weight: 400;
+        }
       }
     }
   }
