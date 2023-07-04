@@ -48,9 +48,13 @@ export function Home() {
     setDessertList(_dessertList)
   }, [recipesList])
 
+  useEffect(() => {
+    console.log('search', search)
+  }, [search])
+
   return (
     <Container>
-      <Header />
+      <Header setSearch={setSearch} />
 
       <main>
         <Content>
@@ -65,16 +69,22 @@ export function Home() {
               </div>
             </div>
           </Banner>
-          <Section title="Refeições">
-            <Slider>
-              {dishList &&
-                dishList.map((dish) => {
-                  return (
-                    <Card key={String(dish.id)} data={dish} className="item" />
-                  )
-                })}
-            </Slider>
-          </Section>
+          {dishList?.length > 0 && (
+            <Section title="Refeições">
+              <Slider>
+                {dishList &&
+                  dishList.map((dish) => {
+                    return (
+                      <Card
+                        key={String(dish.id)}
+                        data={dish}
+                        className="item"
+                      />
+                    )
+                  })}
+              </Slider>
+            </Section>
+          )}
           {dessertList?.length > 0 && (
             <Section title="Sobremesas">
               <Slider>

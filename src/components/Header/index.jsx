@@ -14,7 +14,7 @@ import { LogoutButton } from '../../components/LogoutButton'
 import { useAuth } from '../../hooks/auth'
 import { ButtonText } from '../ButtonText'
 
-export function Header() {
+export function Header({ setSearch }) {
   const { signOut, isAdmin } = useAuth()
 
   const navigate = useNavigate()
@@ -58,7 +58,10 @@ export function Header() {
           </div>
 
           <div className="menu-content">
-            <Input placeholder="Pesquisar" />
+            {/* <Input
+              placeholder="Busque por pratos ou ingredientes"
+              onChange={(e) => setSearch(e.target.value)}
+            /> */}
 
             <div className="menu-buttons">
               {isAdmin && (
@@ -88,7 +91,7 @@ export function Header() {
         <Input
           placeholder="Busque por pratos ou ingredientes"
           icon={FiSearch}
-          onChange={(e) => console.log(e.target.value)}
+          onChange={(e) => setSearch(e.target.value)}
         />
       </div>
 
