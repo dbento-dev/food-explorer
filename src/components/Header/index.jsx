@@ -13,6 +13,7 @@ import { LogoutButton } from '../../components/LogoutButton'
 
 import { useAuth } from '../../hooks/auth'
 import { ButtonText } from '../ButtonText'
+import { InputSearchBox } from '../InputSearchBox'
 
 export function Header({ setSearch }) {
   const { signOut, isAdmin } = useAuth()
@@ -40,6 +41,14 @@ export function Header({ setSearch }) {
     document.getElementById('navbar').classList.toggle('active')
   }
 
+  const handleOpenInputSearch = () => {
+    document.getElementById('menu-logo').classList.add('search-open')
+  }
+
+  const handleCloseInputSearch = () => {
+    document.getElementById('menu-logo').classList.remove('search-open')
+  }
+
   return (
     <Container>
       <div id="navbar" className="overlay">
@@ -58,11 +67,6 @@ export function Header({ setSearch }) {
           </div>
 
           <div className="menu-content">
-            {/* <Input
-              placeholder="Busque por pratos ou ingredientes"
-              onChange={(e) => setSearch(e.target.value)}
-            /> */}
-
             <div className="menu-buttons">
               {isAdmin && (
                 <>
@@ -83,7 +87,7 @@ export function Header({ setSearch }) {
         <AiOutlineMenu />
       </Menu>
 
-      <div className="logo">
+      <div id="menu-logo">
         <ExplorerLogo />
       </div>
 
@@ -91,9 +95,15 @@ export function Header({ setSearch }) {
         <Input
           placeholder="Busque por pratos ou ingredientes"
           icon={FiSearch}
-          onChange={(e) => setSearch(e.target.value)}
+          // onChange={handleInputSearch}
         />
       </div>
+
+      <InputSearchBox
+        handleOpenInputSearch={handleOpenInputSearch}
+        handleCloseInputSearch={handleCloseInputSearch}
+        setSearch={setSearch}
+      />
 
       <Button
         className="receipt-button"

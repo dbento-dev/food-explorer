@@ -23,6 +23,10 @@ export const Container = styled.header`
     display: none;
   }
 
+  > #menu-logo[class*='search-open'] {
+    display: none;
+  }
+
   > .overlay {
     width: 100%;
     height: 0;
@@ -48,6 +52,7 @@ export const Container = styled.header`
         align-items: center;
         justify-content: space-between;
         padding: 3.2rem;
+        border: 1px solid red;
 
         background-color: ${({ theme }) => theme.COLORS.DARK_700};
 
@@ -97,7 +102,7 @@ export const Container = styled.header`
       display: none;
     }
 
-    > .logo {
+    > #menu-logo {
       display: flex;
       width: 20%;
 
@@ -110,6 +115,10 @@ export const Container = styled.header`
     > .search-input {
       display: flex;
       width: 60%;
+    }
+
+    > #input-box {
+      display: none;
     }
 
     > .receipt-button {
