@@ -11,19 +11,22 @@ export const Container = styled.header`
   background-color: ${({ theme }) => theme.COLORS.DARK_700};
   gap: 3.2rem;
 
-  > .search-input {
-    display: none;
+  > #small-header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    > #menu-logo {
+      width: 100%;
+    }
+
+    > #menu-logo[class*='search-open'] {
+      display: none;
+    }
   }
 
-  > .receipt-button {
-    display: none;
-  }
-
-  > .logout-button {
-    display: none;
-  }
-
-  > #menu-logo[class*='search-open'] {
+  > #large-header {
     display: none;
   }
 
@@ -52,19 +55,34 @@ export const Container = styled.header`
         align-items: center;
         justify-content: space-between;
         padding: 3.2rem;
-        border: 1px solid red;
-
+        gap: 3.2rem;
         background-color: ${({ theme }) => theme.COLORS.DARK_700};
 
-        > button {
-          font-weight: 300;
+        > .small-header {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: space-around;
+
+          > #menu-logo {
+            width: 100%;
+          }
+
+          > #menu-logo[class*='search-open'] {
+            display: none;
+          }
+        }
+
+        > .logout-button {
+          width: 3.2rem;
+          display: flex;
         }
       }
 
       > .menu-content {
         display: flex;
         flex-direction: column;
-        margin: 3.6rem 3.2rem 0;
+        margin: 0 3.2rem 0;
 
         > .menu-buttons {
           margin-top: 3.6rem;
@@ -95,44 +113,51 @@ export const Container = styled.header`
   }
 
   @media (min-width: 1024px) {
-    display: flex;
-    align-items: center;
+    > #small-header {
+      display: none;
+    }
 
     > .menu-button {
       display: none;
     }
-
-    > #menu-logo {
-      display: flex;
-      width: 20%;
-
-      > div {
-        display: flex;
-        justify-content: flex-start;
-      }
-    }
-
-    > .search-input {
-      display: flex;
-      width: 60%;
-    }
-
-    > #input-box {
-      display: none;
-    }
-
-    > .receipt-button {
-      display: flex;
-      width: 20%;
-    }
-
     > .receipt-icon {
       display: none;
     }
 
-    > .logout-button {
-      width: 3.2rem;
+    > #large-header {
+      width: 100%;
       display: flex;
+      align-items: center;
+      gap: 3.2rem;
+
+      > #menu-logo {
+        display: flex;
+        width: 25%;
+
+        > div {
+          display: flex;
+          justify-content: flex-start;
+        }
+      }
+
+      > .search-input {
+        display: flex;
+        width: 65%;
+      }
+
+      > #input-box {
+        display: none;
+      }
+
+      > .receipt-button {
+        display: flex;
+        width: 15%;
+      }
+
+      > .logout-button {
+        width: 3.2rem;
+        display: flex;
+      }
     }
   }
 `

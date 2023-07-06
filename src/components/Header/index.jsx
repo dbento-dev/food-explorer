@@ -87,39 +87,48 @@ export function Header({ setSearch }) {
         <AiOutlineMenu />
       </Menu>
 
-      <div id="menu-logo">
-        <ExplorerLogo />
+      <div id="small-header">
+        <div id="menu-logo">
+          <ExplorerLogo />
+        </div>
+
+        <div id="search-box">
+          <InputSearchBox
+            handleOpenInputSearch={handleOpenInputSearch}
+            handleCloseInputSearch={handleCloseInputSearch}
+            setSearch={setSearch}
+          />
+        </div>
       </div>
 
-      <div className="search-input">
-        <Input
-          placeholder="Busque por pratos ou ingredientes"
-          icon={FiSearch}
-          // onChange={handleInputSearch}
+      <div id="large-header">
+        <div id="menu-logo">
+          <ExplorerLogo />
+        </div>
+
+        <div className="search-input">
+          <Input
+            placeholder="Busque por pratos ou ingredientes"
+            icon={FiSearch}
+            // onChange={handleInputSearch}
+          />
+        </div>
+
+        <Button
+          className="receipt-button"
+          title={isAdmin ? 'Novo prato' : 'Pedidos (0)'}
+          icon={!isAdmin && ReceiptSVG}
+          onClick={isAdmin ? handleAddDish : handleOrders}
+          buttontype="warning"
         />
+        <div className="logout-button">
+          <LogoutButton onClick={handleLogout} />
+        </div>
       </div>
-
-      <InputSearchBox
-        handleOpenInputSearch={handleOpenInputSearch}
-        handleCloseInputSearch={handleCloseInputSearch}
-        setSearch={setSearch}
-      />
-
-      <Button
-        className="receipt-button"
-        title={isAdmin ? 'Novo prato' : 'Pedidos (0)'}
-        icon={!isAdmin && ReceiptSVG}
-        onClick={isAdmin ? handleAddDish : handleOrders}
-        buttontype="warning"
-      />
 
       <ReceiptIcon className="receipt-icon">
         <img src={ReceiptSVG} alt="Ícone de receita" />
       </ReceiptIcon>
-
-      <div className="logout-button">
-        <LogoutButton onClick={handleLogout} />
-      </div>
     </Container>
   )
 }
