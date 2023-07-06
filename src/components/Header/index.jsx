@@ -15,7 +15,7 @@ import { useAuth } from '../../hooks/auth'
 import { ButtonText } from '../ButtonText'
 import { InputSearchBox } from '../InputSearchBox'
 
-export function Header({ setSearch }) {
+export function Header({ search, setSearch }) {
   const { signOut, isAdmin } = useAuth()
 
   const navigate = useNavigate()
@@ -33,6 +33,10 @@ export function Header({ setSearch }) {
     console.log('Meus pedidos')
   }
 
+  const handleInputSearch = (e) => {
+    setSearch(e.target.value)
+  }
+
   const handleCloseMenu = () => {
     document.getElementById('navbar').classList.remove('active')
   }
@@ -47,6 +51,7 @@ export function Header({ setSearch }) {
 
   const handleCloseInputSearch = () => {
     document.getElementById('menu-logo').classList.remove('search-open')
+    setSearch('')
   }
 
   return (
@@ -54,13 +59,12 @@ export function Header({ setSearch }) {
       <div id="navbar" className="overlay">
         <div className="overlay-content">
           <div className="menu-header">
-            <Menu className="menu-button" onClick={handleCloseMenu}>
-              <AiOutlineClose />
-            </Menu>
-            <div className="logo">
-              <ExplorerLogo />
+            <div className="menu">
+              <Menu className="menu-button" onClick={handleCloseMenu}>
+                <AiOutlineClose />
+              </Menu>
+              <span>Menu</span>
             </div>
-
             <div className="logout-button">
               <LogoutButton onClick={handleLogout} />
             </div>
@@ -96,7 +100,8 @@ export function Header({ setSearch }) {
           <InputSearchBox
             handleOpenInputSearch={handleOpenInputSearch}
             handleCloseInputSearch={handleCloseInputSearch}
-            setSearch={setSearch}
+            handleInputSearch={handleInputSearch}
+            value={search}
           />
         </div>
       </div>
@@ -110,7 +115,8 @@ export function Header({ setSearch }) {
           <Input
             placeholder="Busque por pratos ou ingredientes"
             icon={FiSearch}
-            // onChange={handleInputSearch}
+            onChange={handleInputSearch}
+            value={search}
           />
         </div>
 

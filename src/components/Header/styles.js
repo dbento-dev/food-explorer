@@ -58,21 +58,18 @@ export const Container = styled.header`
         gap: 3.2rem;
         background-color: ${({ theme }) => theme.COLORS.DARK_700};
 
-        > .small-header {
-          width: 100%;
+        > .menu {
           display: flex;
           align-items: center;
-          justify-content: space-around;
+          gap: 1.6rem;
 
-          > #menu-logo {
-            width: 100%;
-          }
-
-          > #menu-logo[class*='search-open'] {
-            display: none;
+          span {
+            font-size: 2.1rem;
+            font-weight: 400;
+            color: ${({ theme }) => theme.COLORS.LIGHT_100};
+            cursor: default;
           }
         }
-
         > .logout-button {
           width: 3.2rem;
           display: flex;

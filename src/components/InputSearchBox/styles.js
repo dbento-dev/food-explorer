@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const InputBox = styled.div`
   position: relative;
   width: 100%;
-  height: 5.5rem;
+  height: 4.8rem;
   display: flex;
   align-items: center;
   max-width: 60px;
@@ -18,6 +18,7 @@ export const InputBox = styled.div`
     outline: none;
     border: 0;
     border-radius: 6px;
+    color: ${({ theme }) => theme.COLORS.LIGHT_100};
     background-color: ${({ theme }) => theme.COLORS.DARK_900};
     transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   }

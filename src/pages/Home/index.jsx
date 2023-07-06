@@ -48,13 +48,9 @@ export function Home() {
     setDessertList(_dessertList)
   }, [recipesList])
 
-  useEffect(() => {
-    console.log('search', search)
-  }, [search])
-
   return (
     <Container>
-      <Header setSearch={setSearch} />
+      <Header search={search} setSearch={setSearch} />
 
       <main>
         <Content>

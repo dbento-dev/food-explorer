@@ -4,7 +4,8 @@ import { InputBox } from './styles'
 export function InputSearchBox({
   handleOpenInputSearch,
   handleCloseInputSearch,
-  setSearch,
+  handleInputSearch,
+  value,
   ...rest
 }) {
   const handleSearch = () => {
@@ -22,7 +23,8 @@ export function InputSearchBox({
       <input
         type="text"
         placeholder="Pesquise por pratos ou ingredientes"
-        onChange={(e) => setSearch(e.target.value)}
+        onChange={handleInputSearch}
+        value={value}
       />
       <span id="input-box-search" onClick={handleSearch}>
         <FiSearch />
