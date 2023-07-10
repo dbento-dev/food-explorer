@@ -9,18 +9,20 @@ import { Button } from '../Button'
 
 import { generateImageUrl, transformPrice } from '../../helpers/helpers'
 import { useAuth } from '../../hooks/auth'
+import { useFavorite } from '../../hooks/useFavorites'
 
 export function Card({ data, ...rest }) {
   const { isAdmin } = useAuth()
+
+  const { favorites, handleFavoriteRecipe, handleRemoveFavoriteRecipe } =
+    useFavorite()
+
+  const isFavorite = favorites?.find((item) => item?.id === data?.id)
 
   const navigate = useNavigate()
 
   const handleEditRecipe = (id) => {
     navigate(`/edit/${id}`)
-  }
-
-  const handleFavoriteRecipe = (id) => {
-    console.log('id', id)
   }
 
   const truncateDescription = (description) => {
@@ -35,7 +37,14 @@ export function Card({ data, ...rest }) {
     <Container {...rest}>
       <div>
         {!isAdmin ? (
-          <FiHeart onClick={() => handleFavoriteRecipe(data?.id)} />
+          <FiHeart
+            className={isFavorite ? 'is-favorite' : ''}
+            onClick={
+              isFavorite
+                ? () => handleRemoveFavoriteRecipe(data?.id)
+                : () => handleFavoriteRecipe({ recipe: data })
+            }
+          />
         ) : (
           <RiPencilLine onClick={() => handleEditRecipe(data?.id)} />
         )}

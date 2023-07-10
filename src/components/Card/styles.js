@@ -33,6 +33,10 @@ export const Container = styled.div`
       &:hover {
         cursor: pointer;
       }
+
+      &[class*='is-favorite'] {
+        fill: ${({ theme }) => theme.COLORS.LIGHT_100};
+      }
     }
 
     img {
