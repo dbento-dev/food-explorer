@@ -22,7 +22,12 @@ export const Container = styled.div`
 `
 
 export const Content = styled.div`
-  padding: 4.4rem 1.6rem 1.6rem;
+  padding: 1.6rem 1.6rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  justify-content: center;
 
   > button:first-child {
     align-self: flex-start;
@@ -32,7 +37,6 @@ export const Content = styled.div`
 
   > .dish {
     width: 100%;
-    height: auto;
     display: flex;
     flex-direction: column;
     gap: 4.7rem;
