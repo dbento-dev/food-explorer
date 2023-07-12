@@ -10,13 +10,8 @@ import { Header } from '../../components/Header'
 import { Empty } from '../../components/Empty'
 
 import { api } from '../../services/api'
-// import { useAuth } from '../../hooks/auth'
 
 export function Home() {
-  // eslint-disable-next-line no-unused-vars
-  // const { isAdmin } = useAuth()
-
-  // eslint-disable-next-line no-unused-vars
   const [search, setSearch] = useState('')
   const [recipesList, setRecipesList] = useState([])
 
@@ -25,13 +20,29 @@ export function Home() {
   const [dessertList, setDessertList] = useState([])
 
   useEffect(() => {
-    async function getDishRecipes() {
-      const response = await api.get(`/recipes?filter=${search}`)
+    async function loadData() {
+      const [recipesList, favoriteRecipes] = await Promise.all([
+        api.get(`/recipes?filter=${search}`),
+        api.get('/favorites')
+      ])
 
-      setRecipesList(response.data)
+      const { data: recipesListData } = recipesList
+      const { data: favoriteRecipesData } = favoriteRecipes
+
+      const recipesWithFavoriteFlag = recipesListData.map((recipe) => {
+        const favorite = favoriteRecipesData.some(
+          (favoriteRecipe) => favoriteRecipe.recipe_id === recipe.id
+        )
+        return {
+          ...recipe,
+          favorite
+        }
+      })
+
+      setRecipesList(recipesWithFavoriteFlag)
     }
 
-    getDishRecipes()
+    loadData()
   }, [search])
 
   useEffect(() => {
