@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useState } from 'react'
+import { createContext, useContext, useState } from 'react'
 
 export const FavoriteContext = createContext()
 
@@ -15,11 +15,11 @@ function FavoriteProvider({ children }) {
     setFavorites((prevState) => prevState.filter((item) => item.id !== id))
   }
 
-  useEffect(() => {
-    if (favorites) {
-      localStorage.setItem('@foodexplorer:favorites', JSON.stringify(favorites))
-    }
-  }, [favorites])
+  // useEffect(() => {
+  //   if (favorites) {
+  //     localStorage.setItem('@foodexplorer:favorites', JSON.stringify(favorites))
+  //   }
+  // }, [favorites])
 
   return (
     <FavoriteContext.Provider
