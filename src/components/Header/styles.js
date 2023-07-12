@@ -129,7 +129,7 @@ export const Container = styled.header`
 
       > #menu-logo {
         display: flex;
-        width: 25%;
+        width: 30rem;
 
         > div {
           display: flex;
@@ -139,7 +139,7 @@ export const Container = styled.header`
 
       > .search-input {
         display: flex;
-        width: 65%;
+        width: 100%;
       }
 
       > #input-box {
@@ -148,7 +148,7 @@ export const Container = styled.header`
 
       > .receipt-button {
         display: flex;
-        width: 15%;
+        width: 30rem;
       }
 
       > .logout-button {
