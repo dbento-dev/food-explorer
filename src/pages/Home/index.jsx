@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Banner, Container, Content } from './styles'
+import { Banner, Container, Content, StDetails } from './styles'
 import bannerSVG from '../../assets/banner.svg'
 
 import { Slider } from '../../components/Slider'
@@ -10,6 +10,7 @@ import { Header } from '../../components/Header'
 import { Empty } from '../../components/Empty'
 
 import { api } from '../../services/api'
+import { Spinner } from '../../components/Spinner'
 
 export function Home() {
   const [search, setSearch] = useState('')
@@ -19,8 +20,12 @@ export function Home() {
   const [drinkList, setDrinkList] = useState([])
   const [dessertList, setDessertList] = useState([])
 
+  const [isLoading, setIsLoading] = useState(true)
+
   useEffect(() => {
     async function loadData() {
+      setIsLoading(true)
+
       const [recipesList, favoriteRecipes] = await Promise.all([
         api.get(`/recipes?filter=${search}`),
         api.get('/favorites')
@@ -40,6 +45,7 @@ export function Home() {
       })
 
       setRecipesList(recipesWithFavoriteFlag)
+      setIsLoading(false)
     }
 
     loadData()
@@ -76,63 +82,66 @@ export function Home() {
               </div>
             </div>
           </Banner>
-          {dishList?.length > 0 && (
-            <Section title="Refeições">
-              <Slider>
-                {dishList &&
-                  dishList.map((dish) => {
-                    return (
-                      <Card
-                        key={String(dish.id)}
-                        data={dish}
-                        className="item"
-                      />
-                    )
-                  })}
-              </Slider>
-            </Section>
-          )}
-          {dessertList?.length > 0 && (
-            <Section title="Sobremesas">
-              <Slider>
-                {dessertList &&
-                  dessertList.map((dessert) => {
-                    return (
-                      <Card
-                        key={String(dessert.id)}
-                        data={dessert}
-                        className="item"
-                      />
-                    )
-                  })}
-              </Slider>
-            </Section>
-          )}
+          <StDetails>
+            {isLoading && <Spinner />}
+            {dishList?.length > 0 && !isLoading && (
+              <Section title="Refeições">
+                <Slider>
+                  {dishList &&
+                    dishList.map((dish) => {
+                      return (
+                        <Card
+                          key={String(dish.id)}
+                          data={dish}
+                          className="item"
+                        />
+                      )
+                    })}
+                </Slider>
+              </Section>
+            )}
+            {dessertList?.length > 0 && !isLoading && (
+              <Section title="Sobremesas">
+                <Slider>
+                  {dessertList &&
+                    dessertList.map((dessert) => {
+                      return (
+                        <Card
+                          key={String(dessert.id)}
+                          data={dessert}
+                          className="item"
+                        />
+                      )
+                    })}
+                </Slider>
+              </Section>
+            )}
 
-          {drinkList?.length > 0 && (
-            <Section title="Bebidas">
-              <Slider>
-                {drinkList &&
-                  drinkList.map((drink) => {
-                    return (
-                      <Card
-                        key={String(drink.id)}
-                        data={drink}
-                        className="item"
-                      />
-                    )
-                  })}
-              </Slider>
-            </Section>
-          )}
-          {recipesList?.length === 0 && (
-            <Section>
-              <Empty />
-            </Section>
-          )}
+            {drinkList?.length > 0 && !isLoading && (
+              <Section title="Bebidas">
+                <Slider>
+                  {drinkList &&
+                    drinkList.map((drink) => {
+                      return (
+                        <Card
+                          key={String(drink.id)}
+                          data={drink}
+                          className="item"
+                        />
+                      )
+                    })}
+                </Slider>
+              </Section>
+            )}
+            {recipesList?.length === 0 && !isLoading && (
+              <Section>
+                <Empty />
+              </Section>
+            )}
+          </StDetails>
         </Content>
-        <Footer />
       </main>
+      <Footer />
     </Container>
   )
 }

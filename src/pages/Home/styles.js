@@ -7,11 +7,12 @@ export const Container = styled.div`
 
   display: grid;
 
-  grid-template-rows: 9rem auto;
+  grid-template-rows: 9rem auto 7.5rem;
 
   grid-template-areas:
     'header'
-    'content';
+    'content'
+    'footer';
 
   > main {
     width: 100%;
@@ -23,6 +24,8 @@ export const Container = styled.div`
 `
 
 export const Content = styled.div`
+  width: 100%;
+  height: 100%;
   padding: 4.4rem 1.6rem 1.6rem;
 `
 
@@ -106,5 +109,14 @@ export const Banner = styled.div`
         }
       }
     }
+  }
+`
+
+export const StDetails = styled.div`
+  width: 100%;
+  height: calc(100% - 12rem);
+
+  @media ${device.laptop} {
+    height: calc(100% - 38rem);
   }
 `
