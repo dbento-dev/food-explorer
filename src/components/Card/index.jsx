@@ -10,10 +10,11 @@ import { Button } from '../Button'
 import { generateImageUrl, transformPrice } from '../../helpers/helpers'
 import { useAuth } from '../../hooks/auth'
 
-import { api } from '../../services/api'
+import { useFavorites } from '../../hooks/favorites'
 
 export function Card({ data, ...rest }) {
   const { isAdmin } = useAuth()
+  const { handleFavorite, handleRemoveFavorite } = useFavorites()
 
   const isFavorite = data?.favorite
 
@@ -31,34 +32,6 @@ export function Card({ data, ...rest }) {
     }
   }
 
-  const handleAddFavorite = async (id) => {
-    await api
-      .post('/favorites', {
-        recipe_id: id
-      })
-      .then(() => {
-        alert('Prato adicionado aos favoritos!')
-      })
-      .catch(() => {
-        alert(
-          'Não foi possível adicionar o prato aos favoritos, tente novamente mais tarde.'
-        )
-      })
-  }
-
-  const handleRemoveFavoriteRecipe = async (id) => {
-    await api
-      .delete(`/favorites/${id}`)
-      .then(() => {
-        alert('Prato removido dos favoritos!')
-      })
-      .catch(() => {
-        alert(
-          'Não foi possível remover o prato dos favoritos, tente novamente mais tarde.'
-        )
-      })
-  }
-
   return (
     <Container {...rest}>
       <div>
@@ -67,8 +40,8 @@ export function Card({ data, ...rest }) {
             className={isFavorite ? 'is-favorite' : ''}
             onClick={
               isFavorite
-                ? () => handleRemoveFavoriteRecipe(data?.id)
-                : () => handleAddFavorite(data?.id)
+                ? () => handleRemoveFavorite(data?.id)
+                : () => handleFavorite(data?.id)
             }
           />
         ) : (

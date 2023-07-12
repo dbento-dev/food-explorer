@@ -11,8 +11,11 @@ import { Empty } from '../../components/Empty'
 
 import { api } from '../../services/api'
 import { Spinner } from '../../components/Spinner'
+import { useFavorites } from '../../hooks/favorites'
 
 export function Home() {
+  const { isLoadingFavorite } = useFavorites()
+
   const [search, setSearch] = useState('')
   const [recipesList, setRecipesList] = useState([])
 
@@ -23,6 +26,10 @@ export function Home() {
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
+    if (isLoadingFavorite) {
+      return
+    }
+
     async function loadData() {
       setIsLoading(true)
 
@@ -49,7 +56,7 @@ export function Home() {
     }
 
     loadData()
-  }, [search])
+  }, [search, isLoadingFavorite])
 
   useEffect(() => {
     const _dishList = recipesList.filter((recipe) => recipe.category === 'dish')
