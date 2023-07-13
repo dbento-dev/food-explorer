@@ -14,11 +14,16 @@ export function SignUp() {
 
   const navigate = useNavigate()
 
+  const [isLoading, setIsLoading] = useState(false)
+
+  const disabledSubmitButton = !name || !email || !password
+
   const handleSignUp = () => {
     if (!name || !email || !password) {
       return alert('Preencha todos os campos')
     }
 
+    setIsLoading(true)
     api
       .post('/users', {
         name,
@@ -28,8 +33,10 @@ export function SignUp() {
       .then(() => {
         alert('Usuário criado com sucesso')
         navigate('/')
+        setIsLoading(false)
       })
       .catch((error) => {
+        setIsLoading(false)
         if (error.response) {
           alert(error.response.data.message)
         } else {
@@ -51,6 +58,7 @@ export function SignUp() {
             placeholder="Exemplo: Maria da Siva"
             type="email"
             onChange={(e) => setName(e.target.value)}
+            required
           />
 
           <label htmlFor="email">Email</label>
@@ -59,6 +67,7 @@ export function SignUp() {
             placeholder="Exemplo: exemplo@exemplo.com.br"
             type="email"
             onChange={(e) => setEmail(e.target.value)}
+            required
           />
 
           <label htmlFor="password">Senha</label>
@@ -67,12 +76,14 @@ export function SignUp() {
             placeholder="No mínimo 6 caracteres"
             type="password"
             onChange={(e) => setPassword(e.target.value)}
+            required
           />
 
           <Button
-            title="Criar conta"
+            title={isLoading ? 'Criando...' : 'Criar conta'}
             onClick={handleSignUp}
             buttontype="warning"
+            disabled={disabledSubmitButton}
           />
 
           <Link to="/">Já tenho uma conta</Link>
