@@ -7,8 +7,10 @@ export const AuthContext = createContext()
 
 function AuthProvider({ children }) {
   const [data, setData] = useState({})
+  const [isLoading, setIsLoading] = useState(false)
 
   async function signIn({ email, password }) {
+    setIsLoading(true)
     try {
       const response = await api.post('/sessions', {
         email,
@@ -25,7 +27,9 @@ function AuthProvider({ children }) {
       api.defaults.headers.common['Authorization'] = `Bearer ${token}`
 
       setData({ token, user, isAdmin })
+      setIsLoading(false)
     } catch (error) {
+      setIsLoading(false)
       if (error.response) {
         alert(error.response.data.message)
       } else {
@@ -54,7 +58,13 @@ function AuthProvider({ children }) {
 
   return (
     <AuthContext.Provider
-      value={{ signIn, signOut, user: data.user, isAdmin: data.isAdmin }}
+      value={{
+        signIn,
+        signOut,
+        user: data.user,
+        isAdmin: data.isAdmin,
+        isLoading
+      }}
     >
       {children}
     </AuthContext.Provider>

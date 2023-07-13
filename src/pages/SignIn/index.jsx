@@ -11,7 +11,7 @@ export function SignIn() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
-  const { signIn } = useAuth()
+  const { signIn, isLoading } = useAuth()
 
   const handleSignIn = () => {
     signIn({
@@ -42,7 +42,11 @@ export function SignIn() {
             onChange={(e) => setPassword(e.target.value)}
           />
 
-          <Button title="Entrar" onClick={handleSignIn} buttontype="warning" />
+          <Button
+            title={isLoading ? 'Entrando...' : 'Entrar'}
+            onClick={handleSignIn}
+            buttontype="warning"
+          />
 
           <Link to="/register">Criar uma conta</Link>
         </div>
