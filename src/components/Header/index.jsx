@@ -1,10 +1,10 @@
 import { useNavigate } from 'react-router-dom'
 
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai'
-import { FiSearch } from 'react-icons/fi'
+import { FiHeart, FiSearch } from 'react-icons/fi'
 import ReceiptSVG from '../../assets/icons/Receipt.svg'
 
-import { Container, Menu, ReceiptIcon } from './styles'
+import { Container, FavoriteIcon, Menu, ReceiptIcon } from './styles'
 
 import { Input } from '../../components/Input'
 import { ExplorerLogo } from '../../components/ExplorerLogo'
@@ -52,6 +52,10 @@ export function Header({ search, setSearch }) {
   const handleCloseInputSearch = () => {
     document.getElementById('menu-logo').classList.remove('search-open')
     setSearch('')
+  }
+
+  const handleFavoriteRecipes = () => {
+    console.log('Meus pratos favoritos')
   }
 
   return (
@@ -127,10 +131,19 @@ export function Header({ search, setSearch }) {
           onClick={isAdmin ? handleAddDish : handleOrders}
           buttontype="warning"
         />
+
+        <FavoriteIcon className="favorite-icon" onClick={handleFavoriteRecipes}>
+          <FiHeart />
+        </FavoriteIcon>
+
         <div className="logout-button">
           <LogoutButton onClick={handleLogout} />
         </div>
       </div>
+
+      <FavoriteIcon className="favorite-icon" onClick={handleFavoriteRecipes}>
+        <FiHeart />
+      </FavoriteIcon>
 
       <ReceiptIcon className="receipt-icon">
         <img src={ReceiptSVG} alt="Ícone de receita" />

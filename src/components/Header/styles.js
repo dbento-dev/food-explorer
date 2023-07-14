@@ -121,6 +121,10 @@ export const Container = styled.header`
       display: none;
     }
 
+    > .favorite-icon {
+      display: none;
+    }
+
     > #large-header {
       width: 100%;
       display: flex;
@@ -149,6 +153,10 @@ export const Container = styled.header`
       > .receipt-button {
         display: flex;
         width: 30rem;
+      }
+
+      > .favorite-button {
+        display: flex;
       }
 
       > .logout-button {
@@ -184,5 +192,19 @@ export const ReceiptIcon = styled.button`
   > img {
     width: 2.2rem;
     height: 2.2rem;
+  }
+`
+export const FavoriteIcon = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+  background: none;
+  cursor: pointer;
+
+  > svg {
+    font-size: 2.4rem;
+    color: ${({ theme }) => theme.COLORS.LIGHT_100};
   }
 `
