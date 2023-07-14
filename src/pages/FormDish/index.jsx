@@ -186,7 +186,6 @@ export function FormDish() {
                       {ingredients.map((ingredient, index) => (
                         <IngredientsItem
                           key={String(index)}
-                          isNew={false}
                           value={ingredient}
                           onClick={() => {
                             handleRemoveIngredient(ingredient)
@@ -195,7 +194,7 @@ export function FormDish() {
                       ))}
 
                       <IngredientsItem
-                        isNew
+                        isnew="isNew"
                         placeholder="Novo ingrediente"
                         value={newIngredient}
                         onChange={(e) => setNewIngredient(e.target.value)}

@@ -4,14 +4,14 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
 
-  background-color: ${({ theme, isNew }) =>
-    isNew ? 'transparent' : theme.COLORS.LIGHT_600};
+  background-color: ${({ theme, isnew }) =>
+    isnew ? 'transparent' : theme.COLORS.LIGHT_600};
 
-  color: ${({ theme, isNew }) =>
-    isNew ? theme.COLORS.LIGHT_500 : theme.COLORS.LIGHT_100};
+  color: ${({ theme, isnew }) =>
+    isnew ? theme.COLORS.LIGHT_500 : theme.COLORS.LIGHT_100};
 
-  border: ${({ theme, isNew }) =>
-    isNew ? `1px dashed ${theme.COLORS.LIGHT_500}` : 'none'};
+  border: ${({ theme, isnew }) =>
+    isnew ? `1px dashed ${theme.COLORS.LIGHT_500}` : 'none'};
 
   border-radius: 8px;
   padding-right: 1.6rem;
