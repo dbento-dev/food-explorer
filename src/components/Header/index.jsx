@@ -55,7 +55,7 @@ export function Header({ search, setSearch }) {
   }
 
   const handleFavoriteRecipes = () => {
-    console.log('Meus pratos favoritos')
+    navigate('/favorites')
   }
 
   return (

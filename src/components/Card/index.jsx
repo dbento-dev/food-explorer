@@ -40,7 +40,7 @@ export function Card({ data, ...rest }) {
             className={isFavorite ? 'is-favorite' : ''}
             onClick={
               isFavorite
-                ? () => handleRemoveFavorite(data?.id)
+                ? () => handleRemoveFavorite({ id: data?.id })
                 : () => handleFavorite(data?.id)
             }
           />

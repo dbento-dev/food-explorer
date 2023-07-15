@@ -23,10 +23,17 @@ function FavoritesProvider({ children }) {
       })
   }
 
-  const handleRemoveFavorite = async (id) => {
+  const handleRemoveFavorite = async ({ id }) => {
     setIsLoadingFavorite(true)
+
+    const config = {
+      params: {
+        favorite_id: id
+      }
+    }
+
     await api
-      .delete(`/favorites/${id}`)
+      .delete(`/favorites`, config)
       .then(() => {
         setIsLoadingFavorite(false)
       })
