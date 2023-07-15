@@ -8,6 +8,7 @@ export const Container = styled.div`
   gap: 1rem;
 
   justify-content: center;
+  cursor: pointer;
 
   > img {
     width: 2.4rem;

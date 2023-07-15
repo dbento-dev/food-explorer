@@ -46,7 +46,7 @@ export function Details() {
 
   return (
     <Container>
-      <Header isAdmin={isAdmin} />
+      <Header />
       <main>
         {!isLoading && (
           <Content>
