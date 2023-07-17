@@ -1,7 +1,7 @@
 import { createContext, useContext, useEffect, useState } from 'react'
 
 import { api } from '../services/api'
-import { isAdminUser } from '../helpers/helpers'
+import { capitalizeString, isAdminUser } from '../helpers/helpers'
 import { toast } from 'react-toastify'
 
 export const AuthContext = createContext()
@@ -29,7 +29,8 @@ function AuthProvider({ children }) {
 
       setData({ token, user, isAdmin })
       setIsLoading(false)
-      toast.info('Seja bem-vindo!')
+
+      toast.info(`Seja bem-vindo, ${capitalizeString(user?.name)}!`)
     } catch (error) {
       setIsLoading(false)
       if (error.response) {

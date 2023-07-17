@@ -19,3 +19,15 @@ export function transformPrice(price) {
     currency: 'BRL'
   })
 }
+
+export function capitalizeString(str) {
+  if (typeof str !== 'string') {
+    throw new Error('O argumento deve ser uma string.')
+  }
+
+  if (str.length === 0) {
+    return str
+  }
+
+  return str.charAt(0).toUpperCase() + str.slice(1)
+}
