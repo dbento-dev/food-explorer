@@ -3,9 +3,9 @@ import { Footer } from '../../components/Footer'
 import { Header } from '../../components/Header'
 import { generateImageUrl } from '../../helpers/helpers'
 import { Container, Content, FavoriteCard } from './styles'
-import { api } from '../../services/api'
 import { Spinner } from '../../components/Spinner'
 import { useFavorites } from '../../hooks/favorites'
+import { getFavoritesRecipes } from '../../services/favorites/getFavorites'
 
 export function Favorites() {
   const [isLoading, setIsLoading] = useState(true)
@@ -20,17 +20,20 @@ export function Favorites() {
     }
     async function getFavorites() {
       setIsLoading(true)
-      await api
-        .get('/favorites')
-        .then((response) => {
-          const { data } = response
-          setFavoriteList(data)
+
+      try {
+        const response = await getFavoritesRecipes()
+        if (response) {
+          setFavoriteList(response)
           setIsLoading(false)
-        })
-        .catch((error) => {
-          alert(error.response.data.message)
+        } else {
+          setFavoriteList([])
           setIsLoading(false)
-        })
+        }
+      } catch (error) {
+        alert(error.response.data.message)
+        setIsLoading(false)
+      }
     }
 
     getFavorites()
