@@ -20,6 +20,10 @@ import { api } from '../../services/api'
 
 import avatarPlaceholderPng from '../../assets/upload-placeholder.png'
 import { Spinner } from '../../components/Spinner'
+import { getRecipeById } from '../../services/recipes/getRecipeById'
+import { deleteRecipeById } from '../../services/recipes/deleteRecipeById'
+import { putRecipeById } from '../../services/recipes/putRecipeById'
+import { patchRecipeImage } from '../../services/recipes/patchRecipeImage'
 
 export function EditFormDish() {
   const navigate = useNavigate()
@@ -49,12 +53,17 @@ export function EditFormDish() {
         const fileUploadForm = new FormData()
         fileUploadForm.append('image', avatarFile)
 
-        await api.patch(`/recipes/${id}`, fileUploadForm)
+        await patchRecipeImage({ id, data: fileUploadForm })
       }
 
-      await api.put(`/recipes/${id}`, recipe)
+      const response = await putRecipeById({ id, data: recipe })
 
-      alert('Prato atualizado com sucesso!')
+      if (response) {
+        alert(response.message)
+      } else {
+        alert('Prato atualizado!')
+      }
+
       navigate('/')
       setIsLoading(false)
     } catch (error) {
@@ -109,10 +118,10 @@ export function EditFormDish() {
     async function getRecipe() {
       setIsLoading(true)
       try {
-        const response = await api.get(`/recipes/${id}`)
+        const response = await getRecipeById({ id })
 
         const { image, name, category, ingredients, price, description } =
-          response.data
+          response
 
         setImage(image)
         setName(name)
@@ -155,17 +164,23 @@ export function EditFormDish() {
     if (!confirm) return
 
     setIsLoading(true)
-    await api
-      .delete(`/recipes/${id}`)
-      .then(() => {
+
+    try {
+      const response = await deleteRecipeById({ id })
+
+      if (response) {
+        alert(response)
+        navigate('/')
+        setIsLoading(false)
+      } else {
         alert('Receita removida com sucesso!')
         navigate('/')
         setIsLoading(false)
-      })
-      .catch((error) => {
-        alert(error.response.data.message)
-        setIsLoading(false)
-      })
+      }
+    } catch (error) {
+      alert(error.response.data.message)
+      setIsLoading(false)
+    }
   }
 
   useEffect(() => {
