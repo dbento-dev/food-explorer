@@ -20,6 +20,7 @@ import avatarPlaceholderPng from '../../assets/upload-placeholder.png'
 import { useNavigate } from 'react-router-dom'
 import { api } from '../../services/api'
 import { Spinner } from '../../components/Spinner'
+import { postRecipe } from '../../services/recipes/postRecipe'
 
 export function FormDish() {
   const navigate = useNavigate()
@@ -92,11 +93,16 @@ export function FormDish() {
           formData.append('ingredients', ingredient)
         })
 
-        await api.post('/recipes', formData)
+        const response = await postRecipe({ data: formData })
 
-        alert('Prato cadastrado com sucesso!')
-        navigate('/')
-        setIsLoading(false)
+        if (response) {
+          alert(response.message)
+          navigate('/')
+          setIsLoading(false)
+          return
+        } else {
+          alert('Prato adicionado!')
+        }
       }
     } catch (error) {
       setIsLoading(false)
