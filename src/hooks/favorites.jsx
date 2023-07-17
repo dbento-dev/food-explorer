@@ -1,5 +1,7 @@
 import { createContext, useContext, useState } from 'react'
-import { api } from '../services/api'
+
+import { postFavorite } from '../services/favorites/postFavorite'
+import { deleteFavorite } from '../services/favorites/deleteFavorite'
 
 export const FavoritesContext = createContext()
 
@@ -8,41 +10,30 @@ function FavoritesProvider({ children }) {
 
   const handleFavorite = async (id) => {
     setIsLoadingFavorite(true)
-    await api
-      .post('/favorites', {
-        recipe_id: id
+    try {
+      const response = await postFavorite({
+        recipeId: id
       })
-      .then(() => {
-        setIsLoadingFavorite(false)
-      })
-      .catch(() => {
-        alert(
-          'Não foi possível adicionar o prato aos favoritos, tente novamente mais tarde.'
-        )
-        setIsLoadingFavorite(false)
-      })
+      alert(response.message)
+      setIsLoadingFavorite(false)
+    } catch (error) {
+      alert(error.response.data.message)
+      setIsLoadingFavorite(false)
+    }
   }
 
   const handleRemoveFavorite = async ({ id }) => {
     setIsLoadingFavorite(true)
 
-    const config = {
-      params: {
-        favorite_id: id
-      }
+    try {
+      await deleteFavorite({
+        favoriteId: id
+      })
+      setIsLoadingFavorite(false)
+    } catch (error) {
+      alert(error.response.data.message)
+      setIsLoadingFavorite(false)
     }
-
-    await api
-      .delete(`/favorites`, config)
-      .then(() => {
-        setIsLoadingFavorite(false)
-      })
-      .catch(() => {
-        alert(
-          'Não foi possível remover o prato dos favoritos, tente novamente mais tarde.'
-        )
-        setIsLoadingFavorite(false)
-      })
   }
 
   return (
