@@ -11,14 +11,16 @@ import { generateImageUrl, transformPrice } from '../../helpers/helpers'
 import { useAuth } from '../../hooks/auth'
 
 import { useFavorites } from '../../hooks/favorites'
+import { useState } from 'react'
+import { toast } from 'react-toastify'
 
 export function Card({ data, ...rest }) {
-  const { isAdmin } = useAuth()
-  const { handleFavorite, handleRemoveFavorite } = useFavorites()
-
-  const isFavorite = data?.favorite
+  const [count, setCount] = useState(1)
 
   const navigate = useNavigate()
+  const { isAdmin } = useAuth()
+  const { handleFavorite, handleRemoveFavorite } = useFavorites()
+  const isFavorite = data?.favorite
 
   const handleEditRecipe = (id) => {
     navigate(`/edit/${id}`)
@@ -30,6 +32,18 @@ export function Card({ data, ...rest }) {
     } else {
       return description
     }
+  }
+
+  const handleIncrementCount = () => {
+    setCount((prevState) => prevState + 1)
+  }
+
+  const handleDecrementCount = () => {
+    if (count <= 1) {
+      toast.info('A quantidade mínima é de 1')
+      return
+    }
+    setCount((prevState) => prevState - 1)
   }
 
   return (
@@ -58,9 +72,9 @@ export function Card({ data, ...rest }) {
         {!isAdmin && (
           <div className="card-buttons">
             <div id="counter-buttons">
-              <RxMinus />
-              <span>01</span>
-              <RxPlus />
+              <RxMinus onClick={handleDecrementCount} />
+              <span>{count}</span>
+              <RxPlus onClick={handleIncrementCount} />
             </div>
 
             <Button title="Incluir" buttontype="warning" />

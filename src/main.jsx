@@ -21,6 +21,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         </FavoritesProvider>
       </AuthProvider>
     </ThemeProvider>
-    <ToastContainer theme="dark" />
+    <ToastContainer theme="dark" limit={5} />
   </React.StrictMode>
 )
