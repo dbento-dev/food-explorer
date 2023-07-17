@@ -6,6 +6,7 @@ import { Background, Container, Form } from './styles'
 
 import { Input } from '../../components/Input'
 import { Button } from '../../components/Button'
+import { toast } from 'react-toastify'
 
 export function SignUp() {
   const [name, setName] = useState('')
@@ -31,16 +32,16 @@ export function SignUp() {
         password
       })
       .then(() => {
-        alert('Usuário criado com sucesso')
+        toast.success('Usuário criado com sucesso')
         navigate('/')
         setIsLoading(false)
       })
       .catch((error) => {
         setIsLoading(false)
         if (error.response) {
-          alert(error.response.data.message)
+          toast.error(error.response.data.message)
         } else {
-          alert('Ocorreu um erro inesperado')
+          toast.error('Ocorreu um erro inesperado')
         }
       })
   }
