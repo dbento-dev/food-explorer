@@ -24,6 +24,7 @@ import { getRecipeById } from '../../services/recipes/getRecipeById'
 import { deleteRecipeById } from '../../services/recipes/deleteRecipeById'
 import { putRecipeById } from '../../services/recipes/putRecipeById'
 import { patchRecipeImage } from '../../services/recipes/patchRecipeImage'
+import { toast } from 'react-toastify'
 
 export function EditFormDish() {
   const navigate = useNavigate()
@@ -59,9 +60,9 @@ export function EditFormDish() {
       const response = await putRecipeById({ id, data: recipe })
 
       if (response) {
-        alert(response.message)
+        toast.success(response.message)
       } else {
-        alert('Prato atualizado!')
+        toast.error('Prato atualizado com sucesso!')
       }
 
       navigate('/')
@@ -69,9 +70,11 @@ export function EditFormDish() {
     } catch (error) {
       setIsLoading(false)
       if (error.response) {
-        alert(error.response.data.message)
+        toast.error(error.response.data.message)
       } else {
-        alert('Não foi possível atualizar o prato, tente novamente mais tarde.')
+        toast.error(
+          'Não foi possível atualizar o prato, tente novamente mais tarde.'
+        )
       }
     }
   }
@@ -131,7 +134,7 @@ export function EditFormDish() {
         setDescription(description)
         setIsLoading(false)
       } catch (error) {
-        alert(error.response.data.message)
+        toast.error(error.response.data.message)
         setIsLoading(false)
       }
     }
@@ -169,16 +172,16 @@ export function EditFormDish() {
       const response = await deleteRecipeById({ id })
 
       if (response) {
-        alert(response)
+        toast.success(response)
         navigate('/')
         setIsLoading(false)
       } else {
-        alert('Receita removida com sucesso!')
+        toast.success('Receita removida com sucesso!')
         navigate('/')
         setIsLoading(false)
       }
     } catch (error) {
-      alert(error.response.data.message)
+      toast.error(error.response.data.message)
       setIsLoading(false)
     }
   }

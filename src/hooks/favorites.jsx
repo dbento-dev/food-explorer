@@ -2,6 +2,7 @@ import { createContext, useContext, useState } from 'react'
 
 import { postFavorite } from '../services/favorites/postFavorite'
 import { deleteFavorite } from '../services/favorites/deleteFavorite'
+import { toast } from 'react-toastify'
 
 export const FavoritesContext = createContext()
 
@@ -14,10 +15,10 @@ function FavoritesProvider({ children }) {
       const response = await postFavorite({
         recipeId: id
       })
-      alert(response.message)
+      toast.success(response.message)
       setIsLoadingFavorite(false)
     } catch (error) {
-      alert(error.response.data.message)
+      toast.error(error.response.data.message)
       setIsLoadingFavorite(false)
     }
   }
@@ -26,12 +27,13 @@ function FavoritesProvider({ children }) {
     setIsLoadingFavorite(true)
 
     try {
-      await deleteFavorite({
+      const response = await deleteFavorite({
         favoriteId: id
       })
+      toast.success(response.message)
       setIsLoadingFavorite(false)
     } catch (error) {
-      alert(error.response.data.message)
+      toast.error(error.response.data.message)
       setIsLoadingFavorite(false)
     }
   }

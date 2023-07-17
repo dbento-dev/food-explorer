@@ -21,6 +21,7 @@ import { useNavigate } from 'react-router-dom'
 import { api } from '../../services/api'
 import { Spinner } from '../../components/Spinner'
 import { postRecipe } from '../../services/recipes/postRecipe'
+import { toast } from 'react-toastify'
 
 export function FormDish() {
   const navigate = useNavigate()
@@ -96,20 +97,22 @@ export function FormDish() {
         const response = await postRecipe({ data: formData })
 
         if (response) {
-          alert(response.message)
+          toast.success(response.message)
           navigate('/')
           setIsLoading(false)
           return
         } else {
-          alert('Prato adicionado!')
+          toast.success('Prato adicionado!')
         }
       }
     } catch (error) {
       setIsLoading(false)
       if (error.response) {
-        alert(error.response.data.message)
+        toast.error(error.response.data.message)
       } else {
-        alert('Não foi possível adicionar o prato, tente novamente mais tarde.')
+        toast.error(
+          'Não foi possível adicionar o prato, tente novamente mais tarde.'
+        )
       }
     }
   }

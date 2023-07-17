@@ -2,6 +2,7 @@ import { createContext, useContext, useEffect, useState } from 'react'
 
 import { api } from '../services/api'
 import { isAdminUser } from '../helpers/helpers'
+import { toast } from 'react-toastify'
 
 export const AuthContext = createContext()
 
@@ -28,12 +29,13 @@ function AuthProvider({ children }) {
 
       setData({ token, user, isAdmin })
       setIsLoading(false)
+      toast.info('Seja bem-vindo!')
     } catch (error) {
       setIsLoading(false)
       if (error.response) {
-        alert(error.response.data.message)
+        toast.error(error.response.data.message)
       } else {
-        alert('Não foi possível realizar o login, tente novamente')
+        toast.error('Não foi possível realizar o login, tente novamente')
       }
     }
   }

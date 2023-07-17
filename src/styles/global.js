@@ -9,6 +9,15 @@ export default createGlobalStyle`
 
   :root {
     font-size: 62.5%;
+
+    /* Toastify custom colors */
+    --toastify-color-light: ${({ theme }) => theme.COLORS.LIGHT_100};
+    --toastify-color-dark: ${({ theme }) => theme.COLORS.DARK_900};
+    --toastify-color-info: ${({ theme }) => theme.COLORS.BLUE_200};
+    --toastify-color-success: ${({ theme }) => theme.COLORS.GREEN_100};
+    --toastify-color-warning: ${({ theme }) => theme.COLORS.ORANGE};
+    --toastify-color-error: ${({ theme }) => theme.COLORS.RED_300};
+    --toastify-color-transparent: rgba(255, 255, 255, 0.7);
   }
 
   body {
