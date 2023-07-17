@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { device } from '../../styles/theme'
 
 export const Container = styled.div`
   width: 100%;
@@ -26,19 +27,32 @@ export const Container = styled.div`
 `
 
 export const Content = styled.div`
-  padding: 1.6rem 1.6rem;
   height: 100%;
   display: flex;
   flex-direction: column;
   gap: 1.6rem;
+  overflow: auto;
+
+  @media ${device.laptop} {
+    > .card-list {
+      padding: 0;
+      margin: 0;
+      display: flex;
+      gap: 3.2rem;
+      list-style: none;
+      flex-wrap: wrap;
+    }
+  }
 `
 
 export const FavoriteCard = styled.div`
   width: 100%;
+  height: 10rem;
   display: flex;
-
   align-items: center;
   gap: 1.6rem;
+  padding: 1.6rem 0;
+  word-wrap: break-word;
 
   > img {
     width: 9rem;
@@ -68,5 +82,9 @@ export const FavoriteCard = styled.div`
       font-weight: 400;
       cursor: pointer;
     }
+  }
+
+  @media ${device.laptop} {
+    width: 32rem;
   }
 `

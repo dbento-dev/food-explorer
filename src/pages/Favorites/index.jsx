@@ -46,24 +46,28 @@ export function Favorites() {
 
         {!isLoading && (
           <Content>
-            {favoriteList.map((recipe) => (
-              <FavoriteCard key={String(recipe.id)}>
-                <img
-                  src={generateImageUrl(recipe?.image)}
-                  alt="Image do prato"
-                />
-                <div>
-                  <span>{recipe.name}</span>
-                  <span
-                    onClick={() =>
-                      handleRemoveFavorite({ id: recipe?.recipe_id })
-                    }
-                  >
-                    Remover dos favoritos
-                  </span>
-                </div>
-              </FavoriteCard>
-            ))}
+            <ul className="card-list">
+              {favoriteList.map((recipe) => (
+                <li key={String(recipe.id)}>
+                  <FavoriteCard>
+                    <img
+                      src={generateImageUrl(recipe?.image)}
+                      alt="Image do prato"
+                    />
+                    <div>
+                      <span>{recipe.name}</span>
+                      <span
+                        onClick={() =>
+                          handleRemoveFavorite({ id: recipe?.recipe_id })
+                        }
+                      >
+                        Remover dos favoritos
+                      </span>
+                    </div>
+                  </FavoriteCard>
+                </li>
+              ))}
+            </ul>
           </Content>
         )}
       </main>
