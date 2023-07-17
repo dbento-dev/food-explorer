@@ -24,6 +24,7 @@ export function Details() {
 
   const [data, setData] = useState({})
   const [isLoading, setIsLoading] = useState(true)
+  const [search, setSearch] = useState('')
 
   const navigate = useNavigate()
 
@@ -53,7 +54,7 @@ export function Details() {
 
   return (
     <Container>
-      <Header />
+      <Header search={search} setSearch={setSearch} />
       <main>
         {!isLoading && (
           <Content>

@@ -46,6 +46,7 @@ export function EditFormDish() {
   const [avatar, setAvatar] = useState(imageURL)
   const [avatarFile, setAvatarFile] = useState(null)
   const [isLoading, setIsLoading] = useState(true)
+  const [search, setSearch] = useState('')
 
   async function updateRecipe({ recipe, avatarFile }) {
     setIsLoading(true)
@@ -193,7 +194,7 @@ export function EditFormDish() {
 
   return (
     <Container>
-      <Header />
+      <Header search={search} setSearch={setSearch} />
 
       <main>
         {!isLoading && (

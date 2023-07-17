@@ -10,6 +10,7 @@ import { toast } from 'react-toastify'
 
 export function Favorites() {
   const [isLoading, setIsLoading] = useState(true)
+  const [search, setSearch] = useState('')
 
   const { isLoadingFavorite, handleRemoveFavorite } = useFavorites()
 
@@ -42,7 +43,7 @@ export function Favorites() {
 
   return (
     <Container>
-      <Header />
+      <Header search={search} setSearch={setSearch} />
       <main>
         <h1>Meus favoritos</h1>
 

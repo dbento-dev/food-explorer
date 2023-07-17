@@ -44,6 +44,7 @@ export function FormDish() {
   // eslint-disable-next-line no-unused-vars
   const [avatarFile, setAvatarFile] = useState(null)
   const [isLoading, setIsLoading] = useState(false)
+  const [search, setSearch] = useState('')
 
   const disabledSubmitButton =
     !avatarFile || !name || !category || !price || !description
@@ -134,7 +135,7 @@ export function FormDish() {
 
   return (
     <Container>
-      <Header />
+      <Header search={search} setSearch={setSearch} />
 
       <main>
         {!isLoading && (
