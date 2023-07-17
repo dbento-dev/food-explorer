@@ -11,10 +11,10 @@ import { Tag } from '../../components/Tag'
 import { Button } from '../../components/Button'
 
 import { useAuth } from '../../hooks/auth'
-import { api } from '../../services/api'
 
 import { generateImageUrl } from '../../helpers/helpers'
 import { Spinner } from '../../components/Spinner'
+import { getRecipeById } from '../../services/recipes/getRecipeById'
 
 export function Details() {
   const { isAdmin } = useAuth()
@@ -34,10 +34,16 @@ export function Details() {
     async function getDishDetail() {
       setIsLoading(true)
 
-      const response = await api.get(`/recipes/${params.id}`)
+      try {
+        const response = await getRecipeById({ id: params.id })
 
-      setData(response.data)
-      setIsLoading(false)
+        setData(response)
+        setIsLoading(false)
+      } catch (error) {
+        alert(error.response.data.message)
+        setData({})
+        setIsLoading(false)
+      }
     }
 
     getDishDetail()
