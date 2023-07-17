@@ -9,9 +9,10 @@ import { Section } from '../../components/Section'
 import { Header } from '../../components/Header'
 import { Empty } from '../../components/Empty'
 
-import { api } from '../../services/api'
 import { Spinner } from '../../components/Spinner'
 import { useFavorites } from '../../hooks/favorites'
+import { getRecipes } from '../../services/recipes/getRecipes'
+import { getFavoritesRecipes } from '../../services/favorites/getFavorites'
 
 export function Home() {
   const { isLoadingFavorite } = useFavorites()
@@ -34,15 +35,12 @@ export function Home() {
       setIsLoading(true)
 
       const [recipesList, favoriteRecipes] = await Promise.all([
-        api.get(`/recipes?filter=${search}`),
-        api.get('/favorites')
+        getRecipes({ search }),
+        getFavoritesRecipes()
       ])
 
-      const { data: recipesListData } = recipesList
-      const { data: favoriteRecipesData } = favoriteRecipes
-
-      const recipesWithFavoriteFlag = recipesListData.map((recipe) => {
-        const favorite = favoriteRecipesData.some(
+      const recipesWithFavoriteFlag = recipesList.map((recipe) => {
+        const favorite = favoriteRecipes.some(
           (favoriteRecipe) => favoriteRecipe.recipe_id === recipe.id
         )
         return {
