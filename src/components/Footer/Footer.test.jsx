@@ -2,9 +2,25 @@
 import { render } from '../../tests/utils/wrapperProviders'
 import { Footer } from '.'
 
-describe('Footer', () => {
+const Wrapper = () => {
+  return <Footer data-testid="footer" />
+}
+
+const setup = () => {
+  const wrapper = render(<Wrapper />)
+  const footer = wrapper.getByTestId('footer')
+  return { footer, ...wrapper }
+}
+
+describe('<Footer />', () => {
   it('should render', () => {
-    const { getByText, getByAltText } = render(<Footer />)
+    const { getByTestId } = setup()
+
+    expect(getByTestId('footer')).toBeInTheDocument()
+  })
+
+  it('should have logo, title and copyright', () => {
+    const { getByText, getByAltText } = setup()
 
     expect(getByAltText('logo do food explorer')).toBeInTheDocument()
     expect(getByText('food explorer')).toBeInTheDocument()

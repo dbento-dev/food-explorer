@@ -2,9 +2,9 @@ import { Container } from './styles'
 
 import logoSVG from '../../assets/gray-logo.svg'
 
-export function Footer() {
+export function Footer({ ...rest }) {
   return (
-    <Container>
+    <Container {...rest}>
       <div>
         <img src={logoSVG} alt="logo do food explorer" />
         <span>food explorer</span>
