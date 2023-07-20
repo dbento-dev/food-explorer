@@ -14,9 +14,11 @@ import { LogoutButton } from '../../components/LogoutButton'
 import { useAuth } from '../../hooks/auth'
 import { ButtonText } from '../ButtonText'
 import { InputSearchBox } from '../InputSearchBox'
+import { useCart } from '../../hooks/cart'
 
 export function Header({ search, setSearch }) {
   const { signOut, isAdmin } = useAuth()
+  const { cart } = useCart()
 
   const navigate = useNavigate()
 
@@ -126,7 +128,7 @@ export function Header({ search, setSearch }) {
 
         <Button
           className="receipt-button"
-          title={isAdmin ? 'Novo prato' : 'Pedidos (0)'}
+          title={isAdmin ? 'Novo prato' : `Pedidos (${cart?.length})`}
           icon={!isAdmin && ReceiptSVG}
           onClick={isAdmin ? handleAddDish : handleOrders}
           buttontype="warning"

@@ -12,7 +12,7 @@ import { useAuth } from '../../hooks/auth'
 
 import { useFavorites } from '../../hooks/favorites'
 import { useState } from 'react'
-import { toast } from 'react-toastify'
+import { useCart } from '../../hooks/cart'
 
 export function Card({ data, ...rest }) {
   const [count, setCount] = useState(1)
@@ -21,6 +21,16 @@ export function Card({ data, ...rest }) {
   const { isAdmin } = useAuth()
   const { handleFavorite, handleRemoveFavorite } = useFavorites()
   const isFavorite = data?.favorite
+
+  const { handleAddToCart } = useCart()
+
+  const handleAdd = () => {
+    const cart = {
+      count,
+      ...data
+    }
+    handleAddToCart(cart)
+  }
 
   const handleEditRecipe = (id) => {
     navigate(`/edit/${id}`)
@@ -40,7 +50,6 @@ export function Card({ data, ...rest }) {
 
   const handleDecrementCount = () => {
     if (count <= 1) {
-      toast.info('A quantidade mínima é de 1')
       return
     }
     setCount((prevState) => prevState - 1)
@@ -77,7 +86,7 @@ export function Card({ data, ...rest }) {
               <RxPlus onClick={handleIncrementCount} />
             </div>
 
-            <Button title="Incluir" buttontype="warning" />
+            <Button title="Incluir" buttontype="warning" onClick={handleAdd} />
           </div>
         )}
       </div>
