@@ -17,6 +17,20 @@ export const StList = styled.ul`
   width: 100%;
   overflow-x: auto;
 
+  > .empty {
+    width: 100%;
+    height: 15rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+    align-items: center;
+
+    > svg {
+      font-size: 6rem;
+      color: ${({ theme }) => theme.COLORS.LIGHT_300};
+    }
+  }
+
   > li {
     list-style: none;
   }
