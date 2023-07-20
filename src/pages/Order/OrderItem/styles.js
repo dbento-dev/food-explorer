@@ -6,7 +6,7 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   gap: 1.6rem;
-  padding: 1.6rem 0;
+  padding: 1.6rem;
 
   > img {
     width: 8rem;
