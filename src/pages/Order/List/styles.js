@@ -16,8 +16,6 @@ export const StTitle = styled.span`
 export const StList = styled.ul`
   width: 100%;
   overflow-x: auto;
-  border: 1px dashed ${({ theme }) => theme.COLORS.DARK_1000};
-  border-radius: 6px;
 
   > .empty {
     width: 100%;
@@ -26,6 +24,8 @@ export const StList = styled.ul`
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
+    border: 1px dashed ${({ theme }) => theme.COLORS.DARK_1000};
+    border-radius: 6px;
 
     > svg {
       font-size: 6rem;
