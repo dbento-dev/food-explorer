@@ -16,7 +16,7 @@ export const Container = styled.div`
     overflow-y: auto;
     display: flex;
     padding: 3.2rem 1.6rem 1.6rem;
-    gap: 1.6rem;
+    gap: 7.5rem;
 
     > .list-container {
       width: 40%;
