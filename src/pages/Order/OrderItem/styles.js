@@ -30,15 +30,24 @@ export const Container = styled.div`
         line-height: 2.8rem;
       }
 
-      span:last-child {
+      span:nth-child(3) {
         font-size: 1.2rem;
         font-weight: 400;
-        color: ${({ theme }) => theme.COLORS.LIGHT_400};
+        color: ${({ theme }) => theme.COLORS.LIGHT_300};
+        font-family: 'Roboto';
+      }
+
+      span:last-child {
+        font-size: 1.2rem;
+        font-weight: 600;
+
+        color: ${({ theme }) => theme.COLORS.BLUE_100};
         font-family: 'Roboto';
       }
 
       #counter-buttons {
         display: flex;
+        align-items: center;
         gap: 1.6rem;
       }
     }

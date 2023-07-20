@@ -32,7 +32,10 @@ export function OrderItem({ data }) {
             <span>{count}</span>
             <RxPlus />
           </div>
+          <span>Preço: {price}</span>
+          &bull;
           <span>
+            Total:{' '}
             {totalAmount.toLocaleString('pt-BR', {
               style: 'currency',
               currency: 'BRL'

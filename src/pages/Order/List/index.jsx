@@ -1,12 +1,11 @@
-import { useState } from 'react'
-
 import { Container, StList, StTitle, StTotal } from './styles'
 import { OrderItem } from '../OrderItem'
 
 export function List({ data }) {
-  // eslint-disable-next-line no-unused-vars
-  // TODO: criar função com reducer para total do pedido
-  const [total, setTotal] = useState(0)
+  const summary = data.reduce((acc, item) => {
+    acc += Number(item.price.replace(',', '.')).toFixed(2) * item.count
+    return acc
+  }, 0)
 
   return (
     <Container>
@@ -16,7 +15,13 @@ export function List({ data }) {
           <OrderItem key={item?.id} data={item} />
         ))}
       </StList>
-      <StTotal>Total: {total}</StTotal>
+      <StTotal>
+        Total:{' '}
+        {summary.toLocaleString('pt-BR', {
+          style: 'currency',
+          currency: 'BRL'
+        })}
+      </StTotal>
     </Container>
   )
 }
