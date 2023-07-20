@@ -32,7 +32,7 @@ export function Header({ search, setSearch }) {
   }
 
   const handleOrders = () => {
-    console.log('Meus pedidos')
+    navigate('/order')
   }
 
   const handleInputSearch = (e) => {
