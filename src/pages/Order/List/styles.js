@@ -16,7 +16,7 @@ export const StTitle = styled.span`
 export const StList = styled.ul`
   width: 100%;
   overflow-x: auto;
-  border: 1px solid ${({ theme }) => theme.COLORS.DARK_1000};
+  border: 1px dashed ${({ theme }) => theme.COLORS.DARK_1000};
   border-radius: 6px;
 
   > .empty {
