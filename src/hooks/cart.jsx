@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useState } from 'react'
+import { createContext, useContext, useState } from 'react'
 
 export const CartContext = createContext()
 
@@ -34,9 +34,6 @@ function CartProvider({ children }) {
     setCart((prevState) => prevState.filter((item) => item.id !== id))
   }
 
-  useEffect(() => {
-    console.log('currentItemLoading', currentItemLoading)
-  }, [currentItemLoading])
   return (
     <CartContext.Provider
       value={{
