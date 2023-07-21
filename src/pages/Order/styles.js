@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { device } from '../../styles/theme'
 
 export const Container = styled.div`
   width: 100%;
@@ -19,10 +20,21 @@ export const Container = styled.div`
     gap: 7.5rem;
 
     > .list-container {
-      width: 40%;
+      width: 100%;
     }
     .payment-container {
-      width: 60%;
+      display: none;
+    }
+
+    @media ${device.laptop} {
+      > .list-container {
+        width: 65%;
+      }
+
+      .payment-container {
+        display: flex;
+        width: 35%;
+      }
     }
   }
 `

@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { device } from '../../../styles/theme'
 
 export const Container = styled.div`
   width: 100%;
@@ -9,8 +10,8 @@ export const Container = styled.div`
   padding: 1.6rem;
 
   > img {
-    width: 8rem;
-    height: 8rem;
+    width: 6rem;
+    height: 6rem;
     border-radius: 50%;
   }
 
@@ -18,46 +19,50 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
 
-    div {
+    > div {
       display: flex;
       align-items: center;
-      gap: 1.6rem;
+      gap: 1rem;
 
-      span:first-child {
-        font-size: 2rem;
+      > span:first-child {
+        font-size: 1.6rem;
         font-weight: 500;
         color: ${({ theme }) => theme.COLORS.LIGHT_300};
         line-height: 2.8rem;
       }
 
-      span:nth-child(3) {
+      #counter-buttons {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+
+        > span {
+          font-size: 1.4rem;
+          color: ${({ theme }) => theme.COLORS.LIGHT_300};
+        }
+
+        > svg {
+          color: ${({ theme }) => theme.COLORS.LIGHT_100};
+          font-size: 1.6rem;
+
+          &:hover {
+            cursor: pointer;
+          }
+        }
+      }
+
+      > .price {
         font-size: 1.2rem;
         font-weight: 400;
         color: ${({ theme }) => theme.COLORS.LIGHT_300};
         font-family: 'Roboto';
       }
 
-      span:last-child {
+      > span:last-child {
         font-size: 1.2rem;
         font-weight: 600;
-
         color: ${({ theme }) => theme.COLORS.BLUE_100};
         font-family: 'Roboto';
-      }
-
-      #counter-buttons {
-        display: flex;
-        align-items: center;
-        gap: 1.6rem;
-
-        > svg {
-          color: ${({ theme }) => theme.COLORS.LIGHT_100};
-          font-size: 2.4rem;
-
-          &:hover {
-            cursor: pointer;
-          }
-        }
       }
     }
 
@@ -67,6 +72,45 @@ export const Container = styled.div`
       color: ${({ theme }) => theme.COLORS.RED_400};
       font-family: 'Roboto';
       cursor: pointer;
+    }
+  }
+
+  @media ${device.tablet} {
+    > img {
+      width: 8rem;
+      height: 8rem;
+      border-radius: 50%;
+    }
+
+    > div {
+      > div {
+        display: flex;
+        align-items: center;
+        gap: 1.6rem;
+
+        > span:first-child {
+          font-size: 2rem;
+        }
+
+        #counter-buttons {
+          gap: 1.6rem;
+
+          > span {
+            font-size: 1.6rem;
+          }
+
+          > svg {
+            font-size: 1.8rem;
+          }
+        }
+        > .price {
+          font-size: 1.6rem;
+        }
+
+        > span:last-child {
+          font-size: 1.6rem;
+        }
+      }
     }
   }
 `

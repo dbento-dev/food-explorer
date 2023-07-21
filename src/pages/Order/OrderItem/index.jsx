@@ -47,7 +47,7 @@ export function OrderItem({ data }) {
             <span>{count}</span>
             <RxPlus onClick={handleIncrementItem} />
           </div>
-          <span>Preço: {price}</span>
+          <span className="price">Preço: {price}</span>
           &bull;
           <span>
             Total:{' '}
