@@ -21,7 +21,7 @@ export function Card({ data, ...rest }) {
   const { handleFavorite, handleRemoveFavorite } = useFavorites()
   const isFavorite = data?.favorite
 
-  const { handleAddToCart, isLoading, currentItemLoading } = useCart()
+  const { handleAddToCart, currentItemLoading } = useCart()
 
   const handleAdd = () => {
     const cart = {
