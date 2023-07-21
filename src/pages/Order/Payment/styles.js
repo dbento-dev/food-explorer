@@ -71,7 +71,7 @@ export const StHeader = styled.div`
 export const StPaymentMethod = styled.div`
   width: 100%;
   max-width: 40rem;
-  height: 38rem;
+  height: 36rem;
 
   display: flex;
   flex-direction: column;
@@ -95,6 +95,85 @@ export const StPaymentMethod = styled.div`
     > img {
       width: 100%;
       height: 100%;
+    }
+  }
+
+  > .credit-card-payment {
+    width: 100%;
+    padding: 1.6rem;
+
+    > form {
+      width: 100%;
+
+      display: flex;
+      flex-direction: column;
+      gap: 1.6rem;
+
+      > .credit-card-number {
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+
+        > label {
+          color: ${({ theme }) => theme.COLORS.LIGHT_400};
+          font-family: 'Roboto', sans-serif;
+          font-size: 1.6rem;
+          font-style: normal;
+          font-weight: 400;
+        }
+
+        > input {
+          width: 100%;
+          color: ${({ theme }) => theme.COLORS.LIGHT_500};
+          font-family: 'Roboto', sans-serif;
+          font-size: 1.6rem;
+          font-style: normal;
+          font-weight: 400;
+          background-color: ${({ theme }) => theme.COLORS.DARK_500};
+          padding: 1.2rem 1.4rem;
+          border: 1px solid ${({ theme }) => theme.COLORS.LIGHT_600};
+          border-radius: 8px;
+        }
+      }
+
+      > .expiration-date-cvv {
+        width: 100%;
+        display: flex;
+        gap: 1.6rem;
+
+        > div {
+          width: 50%;
+          display: flex;
+          flex-direction: column;
+          gap: 0.8rem;
+
+          > label {
+            color: ${({ theme }) => theme.COLORS.LIGHT_400};
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.6rem;
+            font-style: normal;
+            font-weight: 400;
+          }
+
+          > input {
+            width: 100%;
+            color: ${({ theme }) => theme.COLORS.LIGHT_500};
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.6rem;
+            font-style: normal;
+            font-weight: 400;
+            background-color: ${({ theme }) => theme.COLORS.DARK_500};
+            padding: 1.2rem 1.4rem;
+            border: 1px solid ${({ theme }) => theme.COLORS.LIGHT_600};
+            border-radius: 8px;
+          }
+        }
+      }
+
+      > button {
+        width: 100%;
+        margin-top: 1.6rem;
+      }
     }
   }
 `
