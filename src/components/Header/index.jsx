@@ -147,7 +147,7 @@ export function Header({ search, setSearch }) {
         <FiHeart />
       </FavoriteIcon>
 
-      <ReceiptIcon className="receipt-icon">
+      <ReceiptIcon className="receipt-icon" onClick={handleOrders}>
         <img src={ReceiptSVG} alt="Ícone de receita" />
       </ReceiptIcon>
     </Container>
