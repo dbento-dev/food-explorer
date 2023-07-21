@@ -34,6 +34,28 @@ function CartProvider({ children }) {
     setCart((prevState) => prevState.filter((item) => item.id !== id))
   }
 
+  const handleIncrementCount = (id) => {
+    setCart((prevState) =>
+      prevState.map((item) => {
+        if (item.id === id) {
+          return { ...item, count: item.count + 1 }
+        }
+        return item
+      })
+    )
+  }
+
+  const handleDecrementCount = (id) => {
+    setCart((prevState) =>
+      prevState.map((item) => {
+        if (item.id === id) {
+          return { ...item, count: item.count - 1 }
+        }
+        return item
+      })
+    )
+  }
+
   return (
     <CartContext.Provider
       value={{
@@ -41,6 +63,8 @@ function CartProvider({ children }) {
         setCart,
         handleAddToCart,
         handleRemoveFromCart,
+        handleIncrementCount,
+        handleDecrementCount,
         isLoading,
         setIsLoading,
         currentItemLoading

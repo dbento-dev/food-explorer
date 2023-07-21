@@ -5,7 +5,8 @@ import { useEffect, useState } from 'react'
 import { useCart } from '../../../hooks/cart'
 
 export function OrderItem({ data }) {
-  const { handleRemoveFromCart } = useCart()
+  const { handleRemoveFromCart, handleIncrementCount, handleDecrementCount } =
+    useCart()
   const { image, name, price, count } = data
 
   const [totalAmount, setTotalAmount] = useState(0)
@@ -25,6 +26,15 @@ export function OrderItem({ data }) {
     setTotalAmount(transformedTotalAmount)
   }, [])
 
+  const handleIncrementItem = () => {
+    handleIncrementCount(data.id)
+  }
+
+  const handleDecrementItem = () => {
+    if (count <= 1) return
+    handleDecrementCount(data.id)
+  }
+
   return (
     <Container>
       <img src={generateImageUrl(image)} alt="Image do prato" />
@@ -32,9 +42,9 @@ export function OrderItem({ data }) {
         <div>
           <span>{name}</span>
           <div id="counter-buttons">
-            <RxMinus />
+            <RxMinus onClick={handleDecrementItem} />
             <span>{count}</span>
-            <RxPlus />
+            <RxPlus onClick={handleIncrementItem} />
           </div>
           <span>Preço: {price}</span>
           &bull;
