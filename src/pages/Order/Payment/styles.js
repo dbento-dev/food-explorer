@@ -86,8 +86,8 @@ export const StPaymentMethod = styled.div`
   background-color: ${({ theme }) => theme.COLORS.DARK_500};
 
   > .qr-code {
-    width: 18rem;
-    height: 18rem;
+    width: 22rem;
+    height: 22rem;
     display: flex;
     align-items: center;
     justify-content: center;
