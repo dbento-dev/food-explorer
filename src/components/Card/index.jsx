@@ -5,14 +5,13 @@ import { RxMinus, RxPlus } from 'react-icons/rx'
 import { RiPencilLine } from 'react-icons/ri'
 import { Container } from './styles'
 
-import { Button } from '../Button'
-
 import { generateImageUrl, transformPrice } from '../../helpers/helpers'
 import { useAuth } from '../../hooks/auth'
 
 import { useFavorites } from '../../hooks/favorites'
 import { useState } from 'react'
 import { useCart } from '../../hooks/cart'
+import { LoadingButton } from '../LoadingButton'
 
 export function Card({ data, ...rest }) {
   const [count, setCount] = useState(1)
@@ -22,7 +21,7 @@ export function Card({ data, ...rest }) {
   const { handleFavorite, handleRemoveFavorite } = useFavorites()
   const isFavorite = data?.favorite
 
-  const { handleAddToCart } = useCart()
+  const { handleAddToCart, isLoading, currentItemLoading } = useCart()
 
   const handleAdd = () => {
     const cart = {
@@ -86,7 +85,14 @@ export function Card({ data, ...rest }) {
               <RxPlus onClick={handleIncrementCount} />
             </div>
 
-            <Button title="Incluir" buttontype="warning" onClick={handleAdd} />
+            <LoadingButton
+              title="Incluir"
+              buttontype="primary"
+              onClick={handleAdd}
+              isLoading={isLoading}
+              currentItemLoading={currentItemLoading}
+              data={data}
+            />
           </div>
         )}
       </div>

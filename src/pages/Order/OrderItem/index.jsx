@@ -11,6 +11,10 @@ export function OrderItem({ data }) {
   const [totalAmount, setTotalAmount] = useState(0)
 
   const handleRemove = () => {
+    const confirm = window.confirm('Deseja realmente remover o item?')
+
+    if (!confirm) return
+
     handleRemoveFromCart(data.id)
   }
 
