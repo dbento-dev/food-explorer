@@ -188,10 +188,27 @@ export const ReceiptIcon = styled.button`
 
   border: none;
   background: none;
+  position: relative;
 
   > img {
     width: 2.2rem;
     height: 2.2rem;
+  }
+
+  > span {
+    width: 2rem;
+    height: 2rem;
+    background-color: ${({ theme }) => theme.COLORS.RED_100};
+    color: ${({ theme }) => theme.COLORS.LIGHT_100};
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    font-weight: 500;
+    position: absolute;
+    top: -9px;
+    right: -9px;
   }
 `
 export const FavoriteIcon = styled.button`

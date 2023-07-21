@@ -149,6 +149,7 @@ export function Header({ search, setSearch }) {
 
       <ReceiptIcon className="receipt-icon" onClick={handleOrders}>
         <img src={ReceiptSVG} alt="Ícone de receita" />
+        <span>{cart?.length}</span>
       </ReceiptIcon>
     </Container>
   )
