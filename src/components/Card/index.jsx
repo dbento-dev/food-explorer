@@ -89,7 +89,6 @@ export function Card({ data, ...rest }) {
               title="Incluir"
               buttontype="primary"
               onClick={handleAdd}
-              isLoading={isLoading}
               currentItemLoading={currentItemLoading}
               data={data}
             />
