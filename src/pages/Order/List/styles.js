@@ -7,23 +7,6 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1.6rem;
-
-  > .button-container {
-    width: 100%;
-    display: flex;
-    align-items: end;
-    justify-content: end;
-
-    > button {
-      width: 15rem;
-    }
-  }
-
-  @media ${device.laptop} {
-    > .button-container {
-      display: none;
-    }
-  }
 `
 
 export const StTitle = styled.span`
@@ -59,4 +42,12 @@ export const StTotal = styled.span`
   color: ${({ theme }) => theme.COLORS.LIGHT_300};
   font-size: 2rem;
   font-weight: 500;
+  padding: 1.2rem 0;
+  border: 1px solid ${({ theme }) => theme.COLORS.DARK_1000};
+  border-right: none;
+  border-left: none;
+
+  @media ${device.laptop} {
+    border-bottom: none;
+  }
 `

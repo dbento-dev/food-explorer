@@ -16,24 +16,30 @@ export const Container = styled.div`
     grid-area: content;
     overflow-y: auto;
     display: flex;
+    flex-direction: column;
     padding: 3.2rem 1.6rem 1.6rem;
-    gap: 7.5rem;
+    gap: 5rem;
 
     > .list-container {
       width: 100%;
+      display: flex;
+      flex-direction: column;
     }
+
     .payment-container {
-      display: none;
+      /* border: 1px solid red; */
     }
 
     @media ${device.laptop} {
+      flex-direction: row;
+
       > .list-container {
-        width: 65%;
+        width: 70%;
       }
 
       .payment-container {
+        width: 30%;
         display: flex;
-        width: 35%;
       }
     }
   }

@@ -5,6 +5,7 @@ import { Footer } from '../../components/Footer'
 import { Header } from '../../components/Header'
 import { List } from './List'
 import { useCart } from '../../hooks/cart'
+import { Payment } from './Payment'
 
 export function Order() {
   const { cart } = useCart()
@@ -18,7 +19,7 @@ export function Order() {
           <List data={cart} />
         </div>
         <div className="payment-container">
-          <h1>Pagamento</h1>
+          <Payment />
         </div>
       </main>
       <Footer />
