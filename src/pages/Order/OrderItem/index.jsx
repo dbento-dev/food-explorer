@@ -24,7 +24,8 @@ export function OrderItem({ data }) {
 
     const transformedTotalAmount = count * transformedAmount
     setTotalAmount(transformedTotalAmount)
-  }, [])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [data])
 
   const handleIncrementItem = () => {
     handleIncrementCount(data.id)
@@ -50,7 +51,7 @@ export function OrderItem({ data }) {
           &bull;
           <span>
             Total:{' '}
-            {totalAmount.toLocaleString('pt-BR', {
+            {totalAmount?.toLocaleString('pt-BR', {
               style: 'currency',
               currency: 'BRL'
             })}
