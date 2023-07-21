@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { device } from '../../../styles/theme'
 
 export const Container = styled.div`
   width: 100%;
@@ -6,6 +7,23 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1.6rem;
+
+  > .button-container {
+    width: 100%;
+    display: flex;
+    align-items: end;
+    justify-content: end;
+
+    > button {
+      width: 15rem;
+    }
+  }
+
+  @media ${device.laptop} {
+    > .button-container {
+      display: none;
+    }
+  }
 `
 
 export const StTitle = styled.span`

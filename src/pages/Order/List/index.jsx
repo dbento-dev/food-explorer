@@ -1,12 +1,17 @@
 import { Container, StList, StTitle, StTotal } from './styles'
 import { OrderItem } from '../OrderItem'
 import { BsFillCartXFill } from 'react-icons/bs'
+import { Button } from '../../../components/Button'
 
 export function List({ data }) {
   const summary = data.reduce((acc, item) => {
     acc += Number(item.price.replace(',', '.')).toFixed(2) * item.count
     return acc
   }, 0)
+
+  const handleNextStep = () => {
+    console.log('next step')
+  }
 
   return (
     <Container>
@@ -29,6 +34,15 @@ export function List({ data }) {
           currency: 'BRL'
         })}
       </StTotal>
+
+      <div className="button-container">
+        <Button
+          type="button"
+          title="Avançar"
+          buttontype="warning"
+          onClick={handleNextStep}
+        />
+      </div>
     </Container>
   )
 }
