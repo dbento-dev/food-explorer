@@ -61,6 +61,8 @@ As seguintes tecnologias foram utilizadas durante a criação deste projeto:
 - [Axios](https://www.npmjs.com/package/axios)
 - [React Icons](https://react-icons.github.io/react-icons/)
 - [React Router Dom](https://react-icons.github.io/react-icons/)
+- [Jest](https://jestjs.io)
+- [Testing Library](https://testing-library.com)
 - [Node.js](https://nodejs.org/en/)
 - [Express](https://expressjs.com)
 - [Nodemon](https://nodemon.io/)
