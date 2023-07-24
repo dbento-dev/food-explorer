@@ -12,12 +12,16 @@ import qrCodeSVG from '../../../assets/qrcode.svg'
 import { BsCreditCardFill } from 'react-icons/bs'
 
 import { Button } from '../../../components/Button'
+import { monthRange, yearRange } from '../../../helpers/rangeDates'
 
 export function Payment() {
   const [paymentMethod, setPaymentMethod] = useState('pix')
+  const [creditCardNumber, setCreditCardNumber] = useState('')
+  const [expirationMonth, setExpirationMonth] = useState('')
+  const [expirationYear, setExpirationYear] = useState('')
+  const [cvv, setCvv] = useState('')
 
   const handlePaymentMethod = (option) => {
-    console.log('option', option)
     if (!option) return
     setPaymentMethod(option)
 
@@ -30,9 +34,51 @@ export function Payment() {
     }
   }
 
-  // useEffect(() => {
-  //   handlePaymentMethod('pix')
-  // }, [])
+  const handlePayment = () => {
+    const data = {
+      paymentMethod,
+      creditCardNumber,
+      expirationDate: {
+        month: expirationMonth,
+        year: expirationYear
+      },
+      cvv
+    }
+    console.log('data', data)
+  }
+
+  const handleCreditCardNumber = (e) => {
+    let { value } = e.target
+
+    let formattedValue = value.replace(/\s/g, '')
+    formattedValue = formattedValue.replace(/\D/g, '')
+    formattedValue = formattedValue.replace(/([0-9]{4})/g, '$1 ')
+    formattedValue = formattedValue.trim()
+
+    setCreditCardNumber(formattedValue)
+  }
+
+  const handleCVV = (e) => {
+    let { value } = e.target
+
+    value = value.replace(/\s/g, '')
+    value = value.replace(/\D/g, '')
+    value = value.trim()
+
+    setCvv(value)
+  }
+
+  const handleExpirationDateMonth = (e) => {
+    let { value } = e.target
+
+    setExpirationMonth(value)
+  }
+
+  const handleExpirationDateYear = (e) => {
+    let { value } = e.target
+
+    setExpirationYear(value)
+  }
 
   return (
     <Container>
@@ -65,24 +111,87 @@ export function Payment() {
 
           {paymentMethod === 'credit-card' && (
             <div className="credit-card-payment">
-              {/* TODO: implementar formulário de pagamento com campos com mascaras */}
               <form action="">
                 <div className="credit-card-number">
                   <label htmlFor="credit-card-number">Numero do cartão</label>
-                  <input type="input" id="credit-card-number" />
+                  <input
+                    type="input"
+                    id="credit-card-number"
+                    placeholder="0000 0000 0000 0000"
+                    onChange={(e) => handleCreditCardNumber(e)}
+                    value={creditCardNumber}
+                    maxLength={19}
+                    autoComplete="off"
+                  />
                 </div>
 
                 <div className="expiration-date-cvv">
                   <div className="expiration-date">
-                    <label htmlFor="expiration-date">Validade</label>
-                    <input type="text" id="expiration-date" />
+                    <label htmlFor="expiration-date-month">Validade</label>
+                    <div className="expiration-date-select">
+                      <select
+                        id="expiration-date-month"
+                        name="expiration-date-month"
+                        autoComplete="off"
+                        defaultValue="Mês"
+                        onChange={(e) => handleExpirationDateMonth(e)}
+                      >
+                        <option disabled value="Mês">
+                          Mês
+                        </option>
+                        {monthRange.map((month) => (
+                          <option key={month} value={month}>
+                            {month}
+                          </option>
+                        ))}
+                      </select>
+
+                      <select
+                        id="expiration-date-year"
+                        name="expiration-date-year"
+                        autoComplete="off"
+                        defaultValue="Ano"
+                        onChange={(e) => handleExpirationDateYear(e)}
+                      >
+                        <option disabled value="Ano">
+                          Ano
+                        </option>
+                        {yearRange.map((year) => (
+                          <option key={year} value={year}>
+                            {year}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
                   </div>
+
                   <div className="cvv">
                     <label htmlFor="cvv">CVV</label>
-                    <input type="text" id="cvv" />
+                    <div className="expiration-date-select-input">
+                      <input
+                        type="text"
+                        id="cvv"
+                        placeholder="CVV"
+                        onChange={(e) => handleCVV(e)}
+                        value={cvv}
+                        maxLength={3}
+                        autoComplete="off"
+                      />
+                    </div>
                   </div>
                 </div>
-                <Button type="submit" title="Finalizar pagamento" />
+
+                <Button
+                  title="Finalizar pagamento"
+                  buttontype="warning"
+                  onClick={handlePayment}
+                  disabled={
+                    !creditCardNumber ||
+                    !expirationMonth ||
+                    !expirationYear ||
+                    !cvv
+                  }
+                />
               </form>
             </div>
           )}

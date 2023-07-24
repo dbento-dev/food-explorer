@@ -139,13 +139,13 @@ export const StPaymentMethod = styled.div`
       > .expiration-date-cvv {
         width: 100%;
         display: flex;
+        align-items: center;
         gap: 1.6rem;
 
-        > div {
-          width: 50%;
+        > .expiration-date {
           display: flex;
           flex-direction: column;
-          gap: 0.8rem;
+          width: 70%;
 
           > label {
             color: ${({ theme }) => theme.COLORS.LIGHT_400};
@@ -155,17 +155,54 @@ export const StPaymentMethod = styled.div`
             font-weight: 400;
           }
 
-          > input {
+          > .expiration-date-select {
             width: 100%;
-            color: ${({ theme }) => theme.COLORS.LIGHT_500};
+            display: flex;
+            gap: 0.8rem;
+
+            > select {
+              width: 100%;
+              color: ${({ theme }) => theme.COLORS.LIGHT_500};
+              font-family: 'Roboto', sans-serif;
+              font-size: 1.6rem;
+              font-style: normal;
+              font-weight: 400;
+              background-color: ${({ theme }) => theme.COLORS.DARK_500};
+              padding: 1.1rem 0.8rem;
+              border: 1px solid ${({ theme }) => theme.COLORS.LIGHT_600};
+              border-radius: 8px;
+            }
+          }
+        }
+
+        > .cvv {
+          display: flex;
+          flex-direction: column;
+          width: 30%;
+
+          > label {
+            color: ${({ theme }) => theme.COLORS.LIGHT_400};
             font-family: 'Roboto', sans-serif;
             font-size: 1.6rem;
             font-style: normal;
             font-weight: 400;
-            background-color: ${({ theme }) => theme.COLORS.DARK_500};
-            padding: 1.2rem 1.4rem;
-            border: 1px solid ${({ theme }) => theme.COLORS.LIGHT_600};
-            border-radius: 8px;
+          }
+
+          > .expiration-date-select-input {
+            width: 100%;
+
+            > input {
+              width: 100%;
+              color: ${({ theme }) => theme.COLORS.LIGHT_500};
+              font-family: 'Roboto', sans-serif;
+              font-size: 1.6rem;
+              font-style: normal;
+              font-weight: 400;
+              background-color: ${({ theme }) => theme.COLORS.DARK_500};
+              padding: 1.2rem 1.4rem;
+              border: 1px solid ${({ theme }) => theme.COLORS.LIGHT_600};
+              border-radius: 8px;
+            }
           }
         }
       }
