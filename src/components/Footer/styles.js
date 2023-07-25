@@ -1,5 +1,7 @@
 import styled from 'styled-components'
 
+import { device } from '../../styles/theme'
+
 export const Container = styled.footer`
   grid-area: footer;
   width: 100%;
@@ -27,6 +29,7 @@ export const Container = styled.footer`
       font-weight: 700;
       font-family: 'Roboto', sans-serif;
       color: ${({ theme }) => theme.COLORS.LIGHT_700};
+      font-style: normal;
     }
   }
 
@@ -35,5 +38,20 @@ export const Container = styled.footer`
     font-weight: 400;
     font-family: 'Roboto', sans-serif;
     color: ${({ theme }) => theme.COLORS.LIGHT_200};
+  }
+
+  @media ${device.laptop} {
+    > div {
+      > img {
+        width: 3rem;
+        height: 3rem;
+      }
+      > span {
+        font-size: 2.4rem;
+      }
+      > p {
+        font-size: 1.4rem;
+      }
+    }
   }
 `
