@@ -5,7 +5,11 @@ import { RxMinus, RxPlus } from 'react-icons/rx'
 import { RiPencilLine } from 'react-icons/ri'
 import { Container } from './styles'
 
-import { generateImageUrl, transformPrice } from '../../helpers/helpers'
+import {
+  generateImageUrl,
+  transformPrice,
+  truncateString
+} from '../../helpers/helpers'
 import { useAuth } from '../../hooks/auth'
 
 import { useFavorites } from '../../hooks/favorites'
@@ -33,14 +37,6 @@ export function Card({ data, ...rest }) {
 
   const handleEditRecipe = (id) => {
     navigate(`/edit/${id}`)
-  }
-
-  const truncateDescription = (description) => {
-    if (description.length > 50) {
-      return `${description.substring(0, 50)}...`
-    } else {
-      return description
-    }
   }
 
   const handleIncrementCount = () => {
@@ -73,9 +69,14 @@ export function Card({ data, ...rest }) {
         <Link to={`/details/${data?.id}`}>
           <img src={generateImageUrl(data?.image)} alt="Imagem do prato" />
         </Link>
-        <h2>{data?.name}</h2>
-        <p id="description-tooltip">{truncateDescription(data?.description)}</p>
-        <span>{transformPrice(data?.price)}</span>
+
+        <div id="tooltip">
+          <span id="card-name">{truncateString(data?.name, 18)}</span>
+          <span id="tooltip-name">{data?.name}</span>
+        </div>
+
+        <p id="card-description">{truncateString(data?.description, 20)}</p>
+        <span id="card-price">{transformPrice(data?.price)}</span>
 
         {!isAdmin && (
           <div className="card-buttons">

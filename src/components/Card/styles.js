@@ -50,22 +50,70 @@ export const Container = styled.div`
       }
     }
 
-    h2 {
+    > #tooltip {
+      position: relative;
+
+      > #card-name {
+        color: ${({ theme }) => theme.COLORS.LIGHT_300};
+        font-size: 1.4rem;
+        font-weight: 500;
+        text-align: center;
+      }
+
+      > #tooltip-name {
+        position: absolute;
+        left: 50%;
+        top: 0;
+        transform: translateX(-50%);
+        background-color: ${({ theme }) => theme.COLORS.DARK_1000};
+        color: ${({ theme }) => theme.COLORS.LIGHT_100};
+        padding: 1rem 1.5rem;
+        border-radius: 8px;
+
+        visibility: hidden;
+        opacity: 0;
+        transition: opacity 0.5s ease;
+        display: flex;
+        align-items: center;
+        width: 100%;
+      }
+
+      > #tooltip-name::before {
+        content: '';
+        position: absolute;
+        right: 50%;
+        top: -3rem;
+        transform: translateX(-50%);
+        border: 1.5rem solid;
+        border-color: ${({ theme }) => theme.COLORS.DARK_1000} transparent
+          transparent transparent;
+        rotate: calc(180deg);
+      }
+
+      &:hover {
+        > #tooltip-name {
+          visibility: visible;
+          opacity: 1;
+          top: 45px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+      }
+    }
+
+    #card-title {
       color: ${({ theme }) => theme.COLORS.LIGHT_300};
       font-size: 1.4rem;
       font-weight: 500;
       text-align: center;
     }
 
-    #description-tooltip {
-      color: ${({ theme }) => theme.COLORS.LIGHT_400};
-      font-size: 1.4rem;
-      font-weight: 400;
-      text-align: center;
+    #card-description {
       display: none;
     }
 
-    span {
+    #card-price {
       color: ${({ theme }) => theme.COLORS.BLUE_100};
       font-size: 1.6rem;
       font-weight: 400;
@@ -122,16 +170,65 @@ export const Container = styled.div`
         height: 17.6rem;
       }
 
-      h2 {
-        font-size: 2.4rem;
-        font-weight: 700;
+      > #tooltip {
+        position: relative;
+
+        > #card-name {
+          font-size: 2.2rem;
+          font-weight: 700;
+        }
+
+        > #tooltip-name {
+          position: absolute;
+          left: 50%;
+          top: 0;
+          transform: translateX(-50%);
+          background-color: ${({ theme }) => theme.COLORS.DARK_1000};
+          color: ${({ theme }) => theme.COLORS.LIGHT_100};
+          padding: 1rem 1.5rem;
+          border-radius: 8px;
+
+          visibility: hidden;
+          opacity: 0;
+          transition: opacity 0.5s ease;
+          display: flex;
+          align-items: center;
+          width: 100%;
+        }
+
+        > #tooltip-name::before {
+          content: '';
+          position: absolute;
+          right: 50%;
+          top: -3rem;
+          transform: translateX(-50%);
+          border: 1.5rem solid;
+          border-color: ${({ theme }) => theme.COLORS.DARK_1000} transparent
+            transparent transparent;
+          rotate: calc(180deg);
+        }
+
+        &:hover {
+          > #tooltip-name {
+            visibility: visible;
+            opacity: 1;
+            top: 45px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+        }
       }
 
-      #description-tooltip {
+      #card-description {
         display: block;
+        color: ${({ theme }) => theme.COLORS.LIGHT_400};
+        font-size: 1.4rem;
+        font-weight: 400;
+        text-align: center;
       }
 
-      span {
+      #card-price {
         color: ${({ theme }) => theme.COLORS.BLUE_100};
         font-size: 3.2rem;
         font-weight: 400;

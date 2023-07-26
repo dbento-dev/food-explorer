@@ -31,3 +31,15 @@ export function capitalizeString(str) {
 
   return str.charAt(0).toUpperCase() + str.slice(1)
 }
+
+export function truncateString(str, limit) {
+  if (typeof str !== 'string') {
+    throw new Error('O argumento deve ser uma string.')
+  }
+
+  if (str.length <= limit) {
+    return str
+  } else {
+    return str.substring(0, limit) + '...'
+  }
+}
