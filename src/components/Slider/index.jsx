@@ -29,10 +29,10 @@ export function Slider({ children, ...rest }) {
 
   return (
     <Container {...rest}>
-      <button className="btn-left control" onClick={handleLeftClick}>
+      <button className="btn-left-control" onClick={handleLeftClick}>
         <FiChevronLeft size={50} />
       </button>
-      <button className="btn-right control" onClick={handleRightClick}>
+      <button className="btn-right-control" onClick={handleRightClick}>
         <FiChevronRight size={50} />
       </button>
       <div className="carousel" ref={slider}>
