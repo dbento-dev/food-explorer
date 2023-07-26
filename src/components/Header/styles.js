@@ -129,7 +129,7 @@ export const Container = styled.header`
       width: 100%;
       display: flex;
       align-items: center;
-      gap: 3.2rem;
+      gap: 2rem;
 
       > #menu-logo {
         display: flex;
