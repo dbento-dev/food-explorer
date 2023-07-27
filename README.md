@@ -43,10 +43,6 @@ Desenvolvida com cuidado e atenção aos detalhes, o Food Explorer oferece uma i
 
 A página inicial em formato desktop é vista na imagem abaixo:
 
-![foodexplorer vercel app_](https://user-images.githubusercontent.com/106932234/204163348-5f06ae24-3ede-4bae-b68a-770493d1a286.png)
-
-![foodexplorer vercel app_ (1)](https://user-images.githubusercontent.com/106932234/204163350-1d4c8a96-f68a-4eb0-aa8e-5343e2681749.png)
-
 ---
 
 ## 🛠 Tecnologias
@@ -79,7 +75,7 @@ As seguintes tecnologias foram utilizadas durante a criação deste projeto:
 Clone o projeto para o local desejado em seu computador.
 
 ```bash
-$ git clone git@github.com:andreviapiana/Food-Explorer.git
+$ git clone git@github.com:user/Food-Explorer.git
 ```
 
 ---
@@ -140,4 +136,4 @@ Se você está tentando acessar o site e o BackEnd não responde, apenas aguarde
 <br>
 Esta etapa poderá demorar até 1 minuto, dependendo da carga nos servidores do Render.
 
-[O resultado FINAL pode ser visto aqui](https://food3xplorer.netlify.app/)
+[O resultado FINAL pode ser visto aqui](https://link)
