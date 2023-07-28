@@ -158,7 +158,7 @@ A versão publicada de produção pode ser vista [aqui](https://foodxplorer.netl
 
 ---
 
-<img src="https://github.com/dbento-dev.png" width="100px;" alt="image"/>
+<img src="https://github.com/dbento-dev.png" style="width: 100px; border-radius: 50%"  alt="image"/>
 <br>
 <b>David Bento</b>
 <br>
