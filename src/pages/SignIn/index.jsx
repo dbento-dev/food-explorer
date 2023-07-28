@@ -14,6 +14,8 @@ export function SignIn() {
 
   const { signIn, isLoading } = useAuth()
 
+  const isDisabledButton = !email || !password
+
   const handleSignIn = () => {
     signIn({
       email,
@@ -52,6 +54,7 @@ export function SignIn() {
             buttontype="primary"
             isLoading={isLoading}
             onClick={handleSignIn}
+            isDisabled={isDisabledButton}
           />
 
           <Link to="/register">Criar uma conta</Link>
