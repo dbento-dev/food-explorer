@@ -4,34 +4,34 @@
 
 <p>Está é a aplicação desenvolvida no formação Explorer da Rocketseat! :rocket:
 <br>
-Nele pude aprender e aplicar conhecimentos de back-end(Node.js) e front-end(Reactjs).
+Nela pude aprender e aplicar conhecimentos de back-end utilizando Node.js e banco de dados e front-end com React.js.
 </p>
 
 ---
 
 ## Sobre
 
-O FoodExplorer é uma inovadora e cativante aplicação de cardápio digital projetada exclusivamente para um restaurante fictício, trazendo uma experiência gastronômica totalmente única para seus clientes. Combinando tecnologia de ponta e design sofisticado.
+O Food Explorer é uma inovadora e cativante aplicação de cardápio digital projetada exclusivamente para um restaurante fictício, trazendo uma experiência gastronômica totalmente única para seus clientes. Combinando tecnologia de ponta e design sofisticado.
 
 Desenvolvida com cuidado e atenção aos detalhes, o Food Explorer oferece uma interface intuitiva e elegante, tornando a navegação pelo cardápio uma verdadeira jornada culinária.
 
-### A aplicação conta com
+### A aplicação conta com:
 
 - Cadastro de usuários com diferentes tipos (admin e usuário) e login através de e-mail e senha, permitindo maior segurança.
 - Busca por receita ou ingredientes.
-- Cadastrar, editar e excluir uma receita. (admin)
-- Adicionar/Remover dos favoritos uma receita. (usuário)
+- Cadastrar, editar e excluir uma receita. (apenas para admin)
+- Adicionar/Remover dos favoritos uma receita. (apenas para usuário)
 - Sistema de pedidos podendo:
   - Adicionar ao carrinho uma ou mais receitas escolhendo a quantidade desejada para o pedido.
   - Pagamento via PIX ou Cartão de crédito.
-- Responsividade para uso no celular ou em dispositivos de diferentes dimensões. (mobile)
+- Responsividade para uso no celular ou em dispositivos de diferentes dimensões. (utilizando conceito mobile first)
 
-### Futuras funcionalidades
+### Futuras funcionalidades:
 
-- Versão Light (Botão para alterar o tema)
-- Histórico de pedidos (usuário)
-- Sistema de pedidos: (Controle de status de cada pedido) (admin)
-- Manutenção de usuários (admin)
+- Theme switch - (onde através de um botão o usuário poderá alterar o tema da aplicação entre dark e light)
+- Histórico de pedidos (apenas para usuário)
+- Gerenciamento de pedidos (apenas para admin)
+- Manutenção de usuários (apenas para admin)
 
 ---
 
@@ -53,11 +53,13 @@ Desenvolvida com cuidado e atenção aos detalhes, o Food Explorer oferece uma i
 
 ## 🎨 MOBILE Layout
 
+BREVE
+
 ---
 
 ## 🛠 Tecnologias
 
-As seguintes tecnologias foram utilizadas durante a criação deste projeto:
+As tecnologias principais utilizadas durante o desenvolvimento deste projeto são:
 
 - [Javascript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
 - [Vite](https://vitejs.dev/)
@@ -85,48 +87,56 @@ As seguintes tecnologias foram utilizadas durante a criação deste projeto:
 Clone o projeto para o local desejado em seu computador.
 
 ```bash
+# Repositório do front-end
 $ git clone git@github.com:dbento-dev/food-explorer.git
+
+# Repositório do back-end
+$ git clone git@github.com:dbento-dev/food_explorer_backend.git
 ```
 
 ---
 
-#### 🚧 Executando o back-end
+#### 🎲 Executando o back-end
 
 ```bash
-# No BackEnd insira uma porta e um secret no arquivo .env vazio
+# No back-end insira uma porta e um secret no arquivo .env vazio
   AUTH_SECRET=
   PORT=
 
-# Navegue até o diretório do BackEnd
-$ cd food-explorer-backend
+# Navegue até o diretório do back-end
+$ cd food_explorer_backend
 
 # Instale as dependências necessárias
 $ npm install
 
-# Agora inicie o servidor do BackEnd
+# Inicie o servidor localmente
 $ npm run dev
 ```
 
 ---
 
-#### 💻 Executando o FrontEnd
+#### 💻 Executando o front-end
 
 ```bash
 # Navegue até o diretório do FrontEnd
-$ cd food-explorer-frontend
+$ cd food-explorer
 
 # Instale as dependências necessárias
 $ npm install
 
-# Agora inicie o servidor do FrontEnd
+# Inicie a aplicação localmente
 $ npm run dev
 
-# O terminal irá exibir o endereço local onde a aplicação está sendo executada. Basta digitar o mesmo endereço em seu navegador preferido. O endereço usado na criação do projeto foi este:
+# O terminal irá exibir o endereço local onde a aplicação está sendo executada.
+# Basta digitar o mesmo endereço em seu navegador preferido.
+# Exemplo:
 
-  http://localhost:5173/
+http://localhost:5173/
 ```
 
-#### 🔑 Quer ver como a aplicação funciona vista pelo Admin? Use a conta a seguir:
+#### Crie uma conta (perfil usuário normal) e navegue pela aplicação!
+
+#### 🔑 Gostaria de ver como a aplicação funciona como Admin? Use a conta a seguir:
 
 ```bash
   e-mail: admin@email.com
@@ -135,14 +145,10 @@ $ npm run dev
 
 ---
 
-O back-end foi hospedado no Render, já o front-end utilizei o Netlify.
+## :warning: **Aviso:**
 
----
-
-**Obs.:** Por estar hospedado em um serviço gratuito, os serviços/api's do back-end podem hiberna após 15 minutos sem utilização.
-<br>
-Se estiver tentando acessar o site e o back-end não responder, solicito que aguarde, pois o servidor irá reiniciar os serviços.
-<br>
-Esta etapa poderá demorar até 1 minuto, dependendo da carga nos servidores do Render.
-
+O back-end foi hospedado no Render, já o front-end utilizei o Netlify.<br>
+Por estar hospedado em um serviço gratuito, os serviços/api's do back-end podem hiberna após 15 minutos sem utilização.<br>
+Se estiver tentando acessar o site e o back-end não responder, solicito que aguarde, pois o servidor irá reiniciar os serviços.<br>
+Esta etapa poderá demorar até 1 minuto, dependendo da carga nos servidores do Render.<br>
 A versão publicada de produção pode ser vista [aqui](https://foodxplorer.netlify.app), ou diretamente pelo site: https://foodxplorer.netlify.app
