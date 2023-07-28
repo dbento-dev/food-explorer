@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-  <img width="550" height="99" src="../food-explorer/src/assets/food-explorer-logo.svg">
+  <img width="550" height="99" src="https://github.com/dbento-dev/assets/blob/main/foodexplorer/foodexplorer-logo.png">
 </p>
 
 <p>Está é a aplicação desenvolvida no formação Explorer da Rocketseat! :rocket:
