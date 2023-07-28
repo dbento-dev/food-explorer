@@ -9,33 +9,36 @@ Nela pude aprender e aplicar conhecimentos de back-end utilizando Node.js e banc
 
 ---
 
-## Sobre
+## :white_check_mark: Status do projeto
+
+<h4 align="center"> 
+	🚧  Food Explorer 🚀 Em construção...  🚧
+</h4>
+
+## :speaker: Sobre
 
 O Food Explorer é uma inovadora e cativante aplicação de cardápio digital projetada exclusivamente para um restaurante fictício, trazendo uma experiência gastronômica totalmente única para seus clientes. Combinando tecnologia de ponta e design sofisticado.
 
 Desenvolvida com cuidado e atenção aos detalhes, o Food Explorer oferece uma interface intuitiva e elegante, tornando a navegação pelo cardápio uma verdadeira jornada culinária.
 
-### A aplicação conta com:
+## :white_check_mark: A aplicação conta com:
 
-- Cadastro de usuários com diferentes tipos (admin e usuário) e login através de e-mail e senha, permitindo maior segurança.
-- Busca por receita ou ingredientes.
-- Cadastrar, editar e excluir uma receita. (apenas para admin)
-- Adicionar/Remover dos favoritos uma receita. (apenas para usuário)
-- Sistema de pedidos podendo:
+- [x] Cadastro de usuários com diferentes tipos (admin e usuário) e login através de e-mail e senha, permitindo maior segurança.
+- [x] Busca por receita ou ingredientes.
+- [x] Cadastrar, editar e excluir uma receita. (apenas para admin)
+- [x] Adicionar/Remover dos favoritos uma receita. (apenas para usuário)
+- [x] Sistema de pedidos podendo:
   - Adicionar ao carrinho uma ou mais receitas escolhendo a quantidade desejada para o pedido.
   - Pagamento via PIX ou Cartão de crédito.
-- Responsividade para uso no celular ou em dispositivos de diferentes dimensões. (utilizando conceito mobile first)
-
-### Futuras funcionalidades:
-
-- Theme switch - (onde através de um botão o usuário poderá alterar o tema da aplicação entre dark e light)
-- Histórico de pedidos (apenas para usuário)
-- Gerenciamento de pedidos (apenas para admin)
-- Manutenção de usuários (apenas para admin)
+- [x] Responsividade para uso no celular ou em dispositivos de diferentes dimensões. (utilizando conceito mobile first)
+- [ ] Theme switch - (onde através de um botão o usuário poderá alterar o tema da aplicação entre dark e light)
+- [ ] Histórico de pedidos (apenas para usuário)
+- [ ] Gerenciamento de pedidos (apenas para admin)
+- [ ] Manutenção de usuários (apenas para admin)
 
 ---
 
-## 🎨 WEB Layout
+## :computer: WEB Layout
 
 ![SIGNIN](https://github.com/dbento-dev/assets/blob/main/foodexplorer/signin.png)
 
@@ -51,7 +54,7 @@ Desenvolvida com cuidado e atenção aos detalhes, o Food Explorer oferece uma i
 
 ---
 
-## 🎨 MOBILE Layout
+## :iphone: MOBILE Layout
 
 BREVE
 
@@ -82,7 +85,7 @@ As tecnologias principais utilizadas durante o desenvolvimento deste projeto sã
 
 ---
 
-## 🚀 Como utilizar
+## :running: Como utilizar
 
 Clone o projeto para o local desejado em seu computador.
 
@@ -134,9 +137,7 @@ $ npm run dev
 http://localhost:5173/
 ```
 
-#### Crie uma conta (perfil usuário normal) e navegue pela aplicação!
-
-#### 🔑 Gostaria de ver como a aplicação funciona como Admin? Use a conta a seguir:
+#### :question: Gostaria de ver como a aplicação funciona como Admin? Use a conta a seguir:
 
 ```bash
   e-mail: admin@email.com
@@ -152,3 +153,19 @@ Por estar hospedado em um serviço gratuito, os serviços/api's do back-end pode
 Se estiver tentando acessar o site e o back-end não responder, solicito que aguarde, pois o servidor irá reiniciar os serviços.<br>
 Esta etapa poderá demorar até 1 minuto, dependendo da carga nos servidores do Render.<br>
 A versão publicada de produção pode ser vista [aqui](https://foodxplorer.netlify.app), ou diretamente pelo site: https://foodxplorer.netlify.app
+
+### Autor
+
+---
+
+<div>
+  <img style="border-radius: 50%;" src="https://github.com/dbento-dev.png" width="100px;" alt="image"/>
+  <br />
+  <sub><b>David Bento</b></sub></a>
+  <br>
+  Entre em contato! 👋🏽
+</div>
+
+[![Twitter Badge](https://img.shields.io/badge/-@dbentodev-1ca0f1?style=flat-square&labelColor=1ca0f1&logo=twitter&logoColor=white&link=https://twitter.com/dbentodev)](https://twitter.com/dbentodev)
+[![Linkedin Badge](https://img.shields.io/badge/-David-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/david-bento/)](https://www.linkedin.com/in/david-bento/)
+[![Gmail Badge](https://img.shields.io/badge/-dbento26@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:dbento26@gmail.com)](mailto:dbento26@gmail.com)
