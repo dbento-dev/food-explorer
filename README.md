@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-  <img width="550" height="99" src="https://github.com/dbento-dev/assets/blob/main/foodexplorer/foodexplorer-logo.png">
+  <img width="550"  src="https://github.com/dbento-dev/assets/blob/main/foodexplorer/logo.png">
 </p>
 
 <p>Está é a aplicação desenvolvida no formação Explorer da Rocketseat! :rocket:
@@ -41,7 +41,21 @@ Desenvolvida com cuidado e atenção aos detalhes, o Food Explorer oferece uma i
 
 ## 🎨 WEB Layout
 
-![WEB_Home](https://github.com/dbento-dev/assets/blob/main/foodexplorer/foodexplorer-home.jpg)
+![SIGNIN](https://github.com/dbento-dev/assets/blob/main/foodexplorer/signin.png)
+
+![REGISTER](https://github.com/dbento-dev/assets/blob/main/foodexplorer/register.png)
+
+![HOME](https://github.com/dbento-dev/assets/blob/main/foodexplorer/home.png)
+
+![SEARCH](https://github.com/dbento-dev/assets/blob/main/foodexplorer/search.png)
+
+![FAVORITES](https://github.com/dbento-dev/assets/blob/main/foodexplorer/favorites.png)
+
+![CART](https://github.com/dbento-dev/assets/blob/main/foodexplorer/cart.png)
+
+---
+
+## 🎨 MOBILE Layout
 
 ---
 
@@ -75,7 +89,7 @@ As seguintes tecnologias foram utilizadas durante a criação deste projeto:
 Clone o projeto para o local desejado em seu computador.
 
 ```bash
-$ git clone git@github.com:user/Food-Explorer.git
+$ git clone git@github.com:dbento-dev/food-explorer.git
 ```
 
 ---
