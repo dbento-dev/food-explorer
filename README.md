@@ -158,13 +158,11 @@ A versão publicada de produção pode ser vista [aqui](https://foodxplorer.netl
 
 ---
 
-<div>
-  <img style="border-radius: 50%;" src="https://github.com/dbento-dev.png" width="100px;" alt="image"/>
-  <br />
-  <sub><b>David Bento</b></sub></a>
-  <br>
-  Entre em contato! 👋🏽
-</div>
+<img style="border-radius: 50%;" src="https://github.com/dbento-dev.png" width="100px;" alt="image"/>
+<br />
+<sub><b>David Bento</b></sub></a>
+<br>
+Entre em contato! 👋🏽
 
 [![Twitter Badge](https://img.shields.io/badge/-@dbentodev-1ca0f1?style=flat-square&labelColor=1ca0f1&logo=twitter&logoColor=white&link=https://twitter.com/dbentodev)](https://twitter.com/dbentodev)
 [![Linkedin Badge](https://img.shields.io/badge/-David-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/david-bento/)](https://www.linkedin.com/in/david-bento/)
