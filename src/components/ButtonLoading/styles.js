@@ -25,6 +25,11 @@ export const Container = styled.div`
     border: 0;
     border-radius: 5px;
     gap: 1.6rem;
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
   }
 
   .loader {

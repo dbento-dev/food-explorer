@@ -1,12 +1,14 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify'
 import { api } from '../../services/api'
 
-import { Background, Container, Form } from './styles'
+import { Container, Form, Logo } from './styles'
+import logoSVG from '../../assets/logo.svg'
 
 import { Input } from '../../components/Input'
-import { Button } from '../../components/Button'
-import { toast } from 'react-toastify'
+
+import { ButtonLoading } from '../../components/ButtonLoading'
 
 export function SignUp() {
   const [name, setName] = useState('')
@@ -48,7 +50,10 @@ export function SignUp() {
 
   return (
     <Container>
-      <Background />
+      <Logo>
+        <img src={logoSVG} alt="logo do food explorer" />
+        <span>food explorer</span>
+      </Logo>
       <Form>
         <div>
           <h1>Crie sua conta</h1>
@@ -56,7 +61,7 @@ export function SignUp() {
           <label htmlFor="name">Seu nome</label>
           <Input
             name="name"
-            placeholder="Exemplo: Maria da Siva"
+            placeholder="John Doe"
             type="email"
             onChange={(e) => setName(e.target.value)}
             required
@@ -65,7 +70,7 @@ export function SignUp() {
           <label htmlFor="email">Email</label>
           <Input
             name="email"
-            placeholder="Exemplo: exemplo@exemplo.com.br"
+            placeholder="exemplo@exemplo.com.br"
             type="email"
             onChange={(e) => setEmail(e.target.value)}
             required
@@ -80,11 +85,13 @@ export function SignUp() {
             required
           />
 
-          <Button
-            title={isLoading ? 'Criando...' : 'Criar conta'}
+          <ButtonLoading
+            className="register-button"
+            title="Criar conta"
+            buttontype="primary"
             onClick={handleSignUp}
-            buttontype="warning"
-            disabled={disabledSubmitButton}
+            isLoading={isLoading}
+            isDisabled={disabledSubmitButton}
           />
 
           <Link to="/">Já tenho uma conta</Link>
