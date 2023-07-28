@@ -21,9 +21,9 @@ export const Logo = styled.div`
   width: 100%;
   height: 4.4rem;
   display: flex;
-  gap: 1.6rem;
   align-items: center;
   justify-content: center;
+  gap: 1.6rem;
 
   > img {
     width: 4rem;
@@ -71,7 +71,7 @@ export const Form = styled.form`
       margin-bottom: 0.8rem;
     }
 
-    > button {
+    > .signin-button {
       margin-top: 3.2rem;
     }
 

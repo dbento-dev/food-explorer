@@ -2,11 +2,11 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Container, Form, Logo } from './styles'
 
+import logoSVG from '../../assets/logo.svg'
 import { Input } from '../../components/Input'
-import { Button } from '../../components/Button'
+import { ButtonLoading } from '../../components/ButtonLoading'
 
 import { useAuth } from '../../hooks/auth'
-import logoSVG from '../../assets/logo.svg'
 
 export function SignIn() {
   const [email, setEmail] = useState('')
@@ -46,10 +46,12 @@ export function SignIn() {
             onChange={(e) => setPassword(e.target.value)}
           />
 
-          <Button
-            title={isLoading ? 'Entrando...' : 'Entrar'}
+          <ButtonLoading
+            className="signin-button"
+            title="Entrar"
+            buttontype="primary"
+            isLoading={isLoading}
             onClick={handleSignIn}
-            buttontype="warning"
           />
 
           <Link to="/register">Criar uma conta</Link>

@@ -1,3 +1,4 @@
+import { Spinner } from '../Spinner'
 import { Container } from './styles'
 
 export function Button({
@@ -10,7 +11,9 @@ export function Button({
   return (
     <Container type="button" disabled={loading} {...rest}>
       {Icon && <img src={Icon} alt={title} />}
-      {loading ? 'Carregando...' : title}
+
+      {loading && <Spinner />}
+      {!loading && title}
     </Container>
   )
 }
