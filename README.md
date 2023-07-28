@@ -94,7 +94,7 @@ $ git clone git@github.com:dbento-dev/food-explorer.git
 
 ---
 
-#### 🚧 Executando o BackEnd
+#### 🚧 Executando o back-end
 
 ```bash
 # No BackEnd insira uma porta e um secret no arquivo .env vazio
@@ -133,21 +133,20 @@ $ npm run dev
 #### 🔑 Quer ver como a aplicação funciona vista pelo Admin? Use a conta a seguir:
 
 ```bash
-  e-mail: admin@foodexplorer.com
-  senha: 123456
+  e-mail: admin@email.com
+  senha: 1234
 ```
 
 ---
 
-Este BackEnd foi hospedado diretamente no Render.
-Já o Frontend foi hospedado diretamente no Netlify.
+O back-end foi hospedado no Render, já o front-end utilizei o Netlify.
 
 ---
 
-Obs.: Por estar hospedado em um serviço gratuito, o BackEnd "hiberna" após 15 minutos sem utilização.
+**Obs.:** Por estar hospedado em um serviço gratuito, os serviços/api's do back-end podem hiberna após 15 minutos sem utilização.
 <br>
-Se você está tentando acessar o site e o BackEnd não responde, apenas aguarde, pois ele estará "inicializando" os serviços.
+Se estiver tentando acessar o site e o back-end não responder, solicito que aguarde, pois o servidor irá reiniciar os serviços.
 <br>
 Esta etapa poderá demorar até 1 minuto, dependendo da carga nos servidores do Render.
 
-[O resultado FINAL pode ser visto aqui](https://foodxplorer.netlify.app/)
+A versão publicada de produção pode ser vista [aqui](https://foodxplorer.netlify.app), ou diretamente pelo site: https://foodxplorer.netlify.app
