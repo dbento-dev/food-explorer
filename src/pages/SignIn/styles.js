@@ -1,9 +1,8 @@
 import styled from 'styled-components'
-
-import foodExplorerLogoSVG from '../../assets/food-explorer-logo.svg'
 import { device } from '../../styles/theme'
 
 export const Container = styled.div`
+  width: 100%;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -12,35 +11,47 @@ export const Container = styled.div`
 
   @media ${device.laptop} {
     flex-direction: row;
-    flex-direction: row;
-    align-items: stretch;
+    align-items: center;
+    justify-content: center;
     gap: 0;
   }
 `
 
-export const Background = styled.div`
-  background: url(${foodExplorerLogoSVG}) no-repeat center center;
-  height: 10rem;
+export const Logo = styled.div`
+  width: 100%;
+  height: 4.4rem;
+  display: flex;
+  gap: 1.6rem;
+  align-items: center;
+  justify-content: center;
 
-  @media ${device.laptop} {
-    flex: 1;
-    height: 100vh;
+  > img {
+    width: 4rem;
+    height: 4rem;
+  }
+
+  > span {
+    color: ${({ theme }) => theme.COLORS.LIGHT_100};
+    font-family: 'Roboto', sans-serif;
+    font-size: 3.7rem;
+    font-weight: 700;
   }
 `
 
 export const Form = styled.form`
+  width: 100%;
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  padding: 0 4.7rem;
+  padding: 0 1.6rem;
 
   > div {
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     background-color: ${({ theme }) => theme.COLORS.DARK_700};
     height: 100%;
-    padding: 6.4rem;
+    padding: 6.4rem 1.6rem;
     border-radius: 1.6rem;
 
     > h1 {
@@ -71,12 +82,25 @@ export const Form = styled.form`
     }
   }
 
+  @media ${device.mobileL} {
+    > div {
+      width: 100%;
+      max-width: 42.5rem;
+      padding: 6.4rem 2.6rem;
+    }
+  }
+
   @media ${device.laptop} {
     > div {
-      height: 54rem;
+      width: 100%;
+      max-width: 42.5rem;
+      padding: 6.4rem 4.4rem;
 
       > h1 {
-        font-size: 3.2rem;
+        font-size: 2.6rem;
+        font-weight: 500;
+        color: ${({ theme }) => theme.COLORS.LIGHT_100};
+        align-self: center;
       }
     }
   }

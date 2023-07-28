@@ -1,11 +1,12 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { Background, Container, Form } from './styles'
+import { Container, Form, Logo } from './styles'
 
 import { Input } from '../../components/Input'
 import { Button } from '../../components/Button'
 
 import { useAuth } from '../../hooks/auth'
+import logoSVG from '../../assets/logo.svg'
 
 export function SignIn() {
   const [email, setEmail] = useState('')
@@ -22,7 +23,10 @@ export function SignIn() {
 
   return (
     <Container>
-      <Background />
+      <Logo>
+        <img src={logoSVG} alt="logo do food explorer" />
+        <span>food explorer</span>
+      </Logo>
       <Form>
         <div>
           <h1>Faça login</h1>
