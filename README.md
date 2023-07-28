@@ -39,9 +39,9 @@ Desenvolvida com cuidado e atenção aos detalhes, o Food Explorer oferece uma i
 
 ---
 
-## 🎨 Layout
+## 🎨 WEB Layout
 
-A página inicial em formato desktop é vista na imagem abaixo:
+![WEB_Home](https://github.com/dbento-dev/assets/blob/main/foodexplorer/foodexplorer-home.jpg)
 
 ---
 
