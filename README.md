@@ -15,7 +15,7 @@ Nela pude aprender e aplicar conhecimentos de back-end utilizando Node.js e banc
 	🚧  Food Explorer 🚀 Em construção...  🚧
 </h4>
 
-## :speaker: Sobre
+## :grey_exclamation: Sobre
 
 O Food Explorer é uma inovadora e cativante aplicação de cardápio digital projetada exclusivamente para um restaurante fictício, trazendo uma experiência gastronômica totalmente única para seus clientes. Combinando tecnologia de ponta e design sofisticado.
 
@@ -31,6 +31,9 @@ Desenvolvida com cuidado e atenção aos detalhes, o Food Explorer oferece uma i
   - Adicionar ao carrinho uma ou mais receitas escolhendo a quantidade desejada para o pedido.
   - Pagamento via PIX ou Cartão de crédito.
 - [x] Responsividade para uso no celular ou em dispositivos de diferentes dimensões. (utilizando conceito mobile first)
+
+#### Ainda em desenvolvimento:
+
 - [ ] Theme switch - (onde através de um botão o usuário poderá alterar o tema da aplicação entre dark e light)
 - [ ] Histórico de pedidos (apenas para usuário)
 - [ ] Gerenciamento de pedidos (apenas para admin)
