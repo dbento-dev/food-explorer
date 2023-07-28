@@ -1,8 +1,4 @@
 <p align="center">
-  <h1 align="center">Food Explorer</a></h1>
-</p>
-
-<p align="center">
   <img width="550"  src="https://github.com/dbento-dev/assets/blob/main/foodexplorer/logo.png">
 </p>
 
