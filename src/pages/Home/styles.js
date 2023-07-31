@@ -4,11 +4,8 @@ import { device } from '../../styles/theme'
 export const Container = styled.div`
   width: 100%;
   height: 100vh;
-
   display: grid;
-
   grid-template-rows: 9rem auto 7.5rem;
-
   grid-template-areas:
     'header'
     'content'
@@ -19,12 +16,15 @@ export const Container = styled.div`
     grid-area: content;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     overflow-y: auto;
   }
 `
 
 export const Content = styled.div`
   width: 100%;
+  max-width: 138rem;
   height: 100%;
   padding: 4.4rem 1.6rem 1.6rem;
 `

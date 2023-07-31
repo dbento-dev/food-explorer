@@ -6,13 +6,14 @@ export const Container = styled.header`
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   padding: 0 1.6rem;
   background-color: ${({ theme }) => theme.COLORS.DARK_700};
   gap: 1.6rem;
 
   > #small-header {
     width: 100%;
+    max-width: 138rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
