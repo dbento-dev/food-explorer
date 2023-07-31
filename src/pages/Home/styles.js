@@ -11,6 +11,8 @@ export const Container = styled.div`
     'content'
     'footer';
 
+  overflow: hidden;
+
   > main {
     width: 100%;
     grid-area: content;
