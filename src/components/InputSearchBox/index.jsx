@@ -22,7 +22,7 @@ export function InputSearchBox({
     <InputBox id="input-box" {...rest}>
       <input
         type="text"
-        placeholder="Pesquise por pratos ou ingredientes"
+        placeholder="Pesquise um prato"
         onChange={handleInputSearch}
         value={value}
       />

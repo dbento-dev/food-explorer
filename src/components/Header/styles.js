@@ -7,23 +7,37 @@ export const Container = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 2.8rem;
+  padding: 0 1.6rem;
   background-color: ${({ theme }) => theme.COLORS.DARK_700};
-  gap: 3.2rem;
+  gap: 1.6rem;
 
   > #small-header {
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
+    gap: 1.6rem;
 
-    > #menu-logo {
-      width: 100%;
+    > #right-side-icons {
+      display: flex;
+      align-items: center;
+      gap: 1.6rem;
     }
+
+    /* > #menu-logo {
+    } */
 
     > #menu-logo[class*='search-open'] {
       display: none;
     }
+  }
+
+  > .favorite-icon {
+    display: none;
+  }
+
+  > .receipt-icon {
+    display: none;
   }
 
   > #large-header {
@@ -92,6 +106,19 @@ export const Container = styled.header`
           .divider {
             width: 100%;
             border-top: 1px solid ${({ theme }) => theme.COLORS.DARK_1000};
+          }
+
+          .menu-item {
+            display: flex;
+            align-items: center;
+            gap: 1.6rem;
+            padding-bottom: 0.8rem;
+
+            border-bottom: 1px solid ${({ theme }) => theme.COLORS.DARK_1000};
+
+            > svg {
+              font-size: 2.4rem;
+            }
           }
         }
       }

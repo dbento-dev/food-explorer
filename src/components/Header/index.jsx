@@ -15,6 +15,7 @@ import { useAuth } from '../../hooks/auth'
 import { ButtonText } from '../ButtonText'
 import { InputSearchBox } from '../InputSearchBox'
 import { useCart } from '../../hooks/cart'
+import { breakpoint } from '../../helpers/helpers'
 
 export function Header({ search, setSearch }) {
   const { signOut, isAdmin } = useAuth()
@@ -88,31 +89,49 @@ export function Header({ search, setSearch }) {
                   <div className="divider" />
                 </>
               )}
+
+              {!isAdmin && (
+                <div className="menu-item">
+                  <FiHeart />
+                  <ButtonText
+                    title="Favoritos"
+                    id="favorites-button"
+                    to="/favorites"
+                  />
+                </div>
+              )}
             </div>
           </div>
         </div>
       </div>
 
-      <Menu className="menu-button" onClick={handleOpenMenu}>
-        <AiOutlineMenu />
-      </Menu>
-
       <div id="small-header">
+        <Menu className="menu-button" onClick={handleOpenMenu}>
+          <AiOutlineMenu />
+        </Menu>
+
         <div id="menu-logo">
           <ExplorerLogo />
         </div>
 
-        <div id="search-box">
-          <InputSearchBox
-            handleOpenInputSearch={handleOpenInputSearch}
-            handleCloseInputSearch={handleCloseInputSearch}
-            handleInputSearch={handleInputSearch}
-            value={search}
-          />
+        <div id="right-side-icons">
+          <div id="search-box">
+            <InputSearchBox
+              handleOpenInputSearch={handleOpenInputSearch}
+              handleCloseInputSearch={handleCloseInputSearch}
+              handleInputSearch={handleInputSearch}
+              value={search}
+            />
+          </div>
+
+          <ReceiptIcon className="receipt-icon" onClick={handleOrders}>
+            <img src={ReceiptSVG} alt="Ícone de receita" />
+            <span>{cart?.length}</span>
+          </ReceiptIcon>
         </div>
       </div>
 
-      <div id="large-header">
+      {/* <div id="large-header">
         <div id="menu-logo">
           <ExplorerLogo />
         </div>
@@ -141,16 +160,11 @@ export function Header({ search, setSearch }) {
         <div className="logout-button">
           <LogoutButton onClick={handleLogout} />
         </div>
-      </div>
+      </div> */}
 
-      <FavoriteIcon className="favorite-icon" onClick={handleFavoriteRecipes}>
+      {/* <FavoriteIcon className="favorite-icon" onClick={handleFavoriteRecipes}>
         <FiHeart />
-      </FavoriteIcon>
-
-      <ReceiptIcon className="receipt-icon" onClick={handleOrders}>
-        <img src={ReceiptSVG} alt="Ícone de receita" />
-        <span>{cart?.length}</span>
-      </ReceiptIcon>
+      </FavoriteIcon> */}
     </Container>
   )
 }

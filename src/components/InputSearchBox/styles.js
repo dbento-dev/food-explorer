@@ -51,7 +51,7 @@ export const InputBox = styled.div`
     width: 60px;
     position: absolute;
     top: 50%;
-    right: -45px;
+    right: -20px;
     transform: translateY(-50%);
     font-size: 3.2rem;
     padding: 5px;
