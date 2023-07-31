@@ -23,10 +23,11 @@ export const Container = styled.div`
 `
 export const Content = styled.div`
   margin: 0 auto;
-  padding: 1.6rem 3.2rem;
+  padding: 1.6rem;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
+  max-width: 138rem;
 
   > button:first-child {
     align-self: flex-start;

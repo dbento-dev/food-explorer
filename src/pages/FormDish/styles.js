@@ -20,38 +20,13 @@ export const Container = styled.div`
     grid-area: footer;
     display: flex;
   }
-
-  /* @media ${device.laptop} { */
-  /* width: 100%;
-    height: 100vh;
-
-    display: grid;
-
-    grid-template-rows: 104px auto 75px;
-
-    grid-template-areas:
-      'header'
-      'content'
-      'footer';
-
-    > main {
-      grid-area: content;
-      overflow-y: auto;
-
-      padding: 30px 0px 0px;
-    }
-
-    > footer {
-      grid-area: footer;
-      display: flex;
-    } */
-  /* } */
 `
 export const Content = styled.div`
-  padding: 1.6rem 3.2rem;
+  padding: 1.6rem;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
+  max-width: 138rem;
 
   > button:first-child {
     align-self: flex-start;
