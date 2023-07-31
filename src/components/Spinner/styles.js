@@ -6,6 +6,7 @@ export const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 4.4rem 1.6rem 1.6rem;
 `
 
 export const StSpinner = styled.div`
