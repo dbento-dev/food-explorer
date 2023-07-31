@@ -13,6 +13,7 @@ import { Spinner } from '../../components/Spinner'
 import { useFavorites } from '../../hooks/favorites'
 import { getRecipes } from '../../services/recipes/getRecipes'
 import { getFavoritesRecipes } from '../../services/favorites/getFavorites'
+import { useDebounce } from '../../hooks/useDebounce'
 
 export function Home() {
   const { isLoadingFavorite } = useFavorites()
@@ -26,6 +27,8 @@ export function Home() {
 
   const [isLoading, setIsLoading] = useState(true)
 
+  const queryWithDebounce = useDebounce(search, 500)
+
   useEffect(() => {
     if (isLoadingFavorite) {
       return
@@ -35,7 +38,7 @@ export function Home() {
       setIsLoading(true)
 
       const [recipesList, favoriteRecipes] = await Promise.all([
-        getRecipes({ search }),
+        getRecipes({ search: queryWithDebounce }),
         getFavoritesRecipes()
       ])
 
@@ -54,7 +57,7 @@ export function Home() {
     }
 
     loadData()
-  }, [search, isLoadingFavorite])
+  }, [queryWithDebounce, isLoadingFavorite])
 
   useEffect(() => {
     const _dishList = recipesList.filter((recipe) => recipe.category === 'dish')
