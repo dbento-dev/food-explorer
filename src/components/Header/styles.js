@@ -11,7 +11,7 @@ export const Container = styled.header`
   background-color: ${({ theme }) => theme.COLORS.DARK_700};
   gap: 1.6rem;
 
-  > #small-header {
+  > #header-content {
     width: 100%;
     max-width: 138rem;
     display: flex;
@@ -143,7 +143,7 @@ export const Container = styled.header`
   }
 
   @media (min-width: 1024px) {
-    > #small-header {
+    > #header-content {
       > .menu-button {
         display: none;
       }

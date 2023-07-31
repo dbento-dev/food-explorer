@@ -104,7 +104,7 @@ export function Header({ search, setSearch }) {
         </div>
       </div>
 
-      <div id="small-header">
+      <div id="header-content">
         <Menu className="menu-button" onClick={handleOpenMenu}>
           <AiOutlineMenu />
         </Menu>
@@ -131,13 +131,14 @@ export function Header({ search, setSearch }) {
             buttontype="warning"
           />
 
-          <FavoriteIcon
-            className="favorite-icon"
-            onClick={handleFavoriteRecipes}
-          >
-            <FiHeart />
-          </FavoriteIcon>
-
+          {!isAdmin && (
+            <FavoriteIcon
+              className="favorite-icon"
+              onClick={handleFavoriteRecipes}
+            >
+              <FiHeart />
+            </FavoriteIcon>
+          )}
           <div className="logout-button">
             <LogoutButton onClick={handleLogout} />
           </div>
