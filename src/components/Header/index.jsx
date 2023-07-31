@@ -124,10 +124,12 @@ export function Header({ search, setSearch }) {
             />
           </div>
 
-          <ReceiptIcon className="receipt-icon" onClick={handleOrders}>
-            <img src={ReceiptSVG} alt="Ícone de receita" />
-            <span>{cart?.length}</span>
-          </ReceiptIcon>
+          {!isAdmin && (
+            <ReceiptIcon className="receipt-icon" onClick={handleOrders}>
+              <img src={ReceiptSVG} alt="Ícone de receita" />
+              <span>{cart?.length}</span>
+            </ReceiptIcon>
+          )}
         </div>
       </div>
 
