@@ -15,7 +15,6 @@ import { useAuth } from '../../hooks/auth'
 import { ButtonText } from '../ButtonText'
 import { InputSearchBox } from '../InputSearchBox'
 import { useCart } from '../../hooks/cart'
-import { breakpoint } from '../../helpers/helpers'
 
 export function Header({ search, setSearch }) {
   const { signOut, isAdmin } = useAuth()
@@ -114,6 +113,36 @@ export function Header({ search, setSearch }) {
           <ExplorerLogo />
         </div>
 
+        <div className="search-input">
+          <Input
+            placeholder="Busque por pratos ou ingredientes"
+            icon={FiSearch}
+            onChange={handleInputSearch}
+            value={search}
+          />
+        </div>
+
+        <div id="large-right-side-buttons">
+          <Button
+            id="receipt-button"
+            title={isAdmin ? 'Novo prato' : `Pedidos (${cart?.length})`}
+            icon={!isAdmin && ReceiptSVG}
+            onClick={isAdmin ? handleAddDish : handleOrders}
+            buttontype="warning"
+          />
+
+          <FavoriteIcon
+            className="favorite-icon"
+            onClick={handleFavoriteRecipes}
+          >
+            <FiHeart />
+          </FavoriteIcon>
+
+          <div className="logout-button">
+            <LogoutButton onClick={handleLogout} />
+          </div>
+        </div>
+
         <div id="right-side-icons">
           <div id="search-box">
             <InputSearchBox
@@ -132,41 +161,6 @@ export function Header({ search, setSearch }) {
           )}
         </div>
       </div>
-
-      {/* <div id="large-header">
-        <div id="menu-logo">
-          <ExplorerLogo />
-        </div>
-
-        <div className="search-input">
-          <Input
-            placeholder="Busque por pratos ou ingredientes"
-            icon={FiSearch}
-            onChange={handleInputSearch}
-            value={search}
-          />
-        </div>
-
-        <Button
-          className="receipt-button"
-          title={isAdmin ? 'Novo prato' : `Pedidos (${cart?.length})`}
-          icon={!isAdmin && ReceiptSVG}
-          onClick={isAdmin ? handleAddDish : handleOrders}
-          buttontype="warning"
-        />
-
-        <FavoriteIcon className="favorite-icon" onClick={handleFavoriteRecipes}>
-          <FiHeart />
-        </FavoriteIcon>
-
-        <div className="logout-button">
-          <LogoutButton onClick={handleLogout} />
-        </div>
-      </div> */}
-
-      {/* <FavoriteIcon className="favorite-icon" onClick={handleFavoriteRecipes}>
-        <FiHeart />
-      </FavoriteIcon> */}
     </Container>
   )
 }

@@ -18,14 +18,23 @@ export const Container = styled.header`
     justify-content: space-between;
     gap: 1.6rem;
 
+    > .search-input {
+      display: none;
+    }
+
+    > #receipt-button {
+      display: none;
+    }
+
+    > #large-right-side-buttons {
+      display: none;
+    }
+
     > #right-side-icons {
       display: flex;
       align-items: center;
       gap: 1.6rem;
     }
-
-    /* > #menu-logo {
-    } */
 
     > #menu-logo[class*='search-open'] {
       display: none;
@@ -37,10 +46,6 @@ export const Container = styled.header`
   }
 
   > .receipt-icon {
-    display: none;
-  }
-
-  > #large-header {
     display: none;
   }
 
@@ -138,57 +143,28 @@ export const Container = styled.header`
 
   @media (min-width: 1024px) {
     > #small-header {
-      display: none;
-    }
-
-    > .menu-button {
-      display: none;
-    }
-    > .receipt-icon {
-      display: none;
-    }
-
-    > .favorite-icon {
-      display: none;
-    }
-
-    > #large-header {
-      width: 100%;
-      display: flex;
-      align-items: center;
-      gap: 2rem;
-
-      > #menu-logo {
-        display: flex;
-        width: 30rem;
-
-        > div {
-          display: flex;
-          justify-content: flex-start;
-        }
-      }
-
-      > .search-input {
-        display: flex;
-        width: 100%;
-      }
-
-      > #input-box {
+      > .menu-button {
         display: none;
       }
 
-      > .receipt-button {
-        display: flex;
-        width: 30rem;
-      }
-
-      > .favorite-button {
+      > .search-input {
+        width: 50%;
         display: flex;
       }
 
-      > .logout-button {
-        width: 3.2rem;
+      > #large-right-side-buttons {
         display: flex;
+        align-items: center;
+        gap: 2.6rem;
+
+        > #receipt-button {
+          display: flex;
+          width: 20rem;
+        }
+      }
+
+      > #right-side-icons {
+        display: none;
       }
     }
   }
