@@ -38,9 +38,9 @@ export const Banner = styled.div`
   align-items: center;
 
   > .imgBanner {
-    width: 25rem;
-    height: 15.4rem;
     position: absolute;
+    width: 15rem;
+    height: 15rem;
     bottom: 0;
     left: -1.6rem;
     overflow: hidden;
@@ -64,7 +64,10 @@ export const Banner = styled.div`
     padding: 0 2.4rem;
 
     > .infoBanner {
-      width: 100%;
+      width: 60%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
 
       h1 {
         font-size: 1.8rem;
@@ -84,28 +87,103 @@ export const Banner = styled.div`
     }
   }
 
-  @media ${device.laptop} {
-    height: 38rem;
+  @media ${device.mobileL} {
+    height: 14rem;
 
     > .imgBanner {
-      width: 50rem;
-      height: 34rem;
-      bottom: 6rem;
+      width: 20rem;
+      height: 16rem;
     }
 
     > .textBanner {
-      width: 100%;
-      height: 26rem;
-
       > .infoBanner {
+        width: 50%;
+      }
+    }
+  }
+
+  @media ${device.tablet} {
+    height: 16rem;
+
+    > .imgBanner {
+      width: 30rem;
+      height: 19rem;
+    }
+
+    > .textBanner {
+      > .infoBanner {
+        width: 40%;
+
+        h1 {
+          font-size: 2rem;
+        }
+      }
+    }
+  }
+  @media ${device.laptop} {
+    height: 20rem;
+
+    > .imgBanner {
+      width: 40rem;
+      height: 22rem;
+    }
+
+    > .textBanner {
+      > .infoBanner {
+        width: 50%;
+
         h1 {
           font-size: 4rem;
-          font-weight: 500;
         }
 
         p {
-          font-size: 1.6rem;
-          font-weight: 400;
+          font-size: 1.4rem;
+        }
+      }
+    }
+  }
+
+  @media ${device.laptopL} {
+    height: 20rem;
+
+    > .imgBanner {
+      width: 40rem;
+      height: 22rem;
+    }
+
+    > .textBanner {
+      > .infoBanner {
+        width: 40%;
+
+        h1 {
+          font-size: 4rem;
+        }
+
+        p {
+          font-size: 1.4rem;
+        }
+      }
+    }
+  }
+
+  @media ${device.desktop} {
+    height: 30rem;
+
+    > .imgBanner {
+      width: 60rem;
+      height: 32rem;
+    }
+
+    > .textBanner {
+      > .infoBanner {
+        width: 30%;
+
+        h1 {
+          font-size: 6rem;
+        }
+
+        p {
+          font-size: 2rem;
         }
       }
     }
@@ -113,10 +191,12 @@ export const Banner = styled.div`
 `
 
 export const StDetails = styled.div`
-  width: 100%;
-  height: calc(100% - 12rem);
+  /* width: 100%; */
+  /* height: calc(100% - 12rem); */
+  /* border: 1px solid red; */
 
-  @media ${device.laptop} {
+  /* @media ${device.laptop} {
+    border: 1px solid red;
     height: calc(100% - 38rem);
-  }
+  } */
 `
