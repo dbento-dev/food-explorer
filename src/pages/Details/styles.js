@@ -22,12 +22,14 @@ export const Container = styled.div`
 `
 
 export const Content = styled.div`
-  padding: 1.6rem 1.6rem;
-  height: 100%;
+  width: 100%;
+  max-width: 138rem;
+  padding: 1.6rem;
   display: flex;
   flex-direction: column;
   gap: 1.6rem;
   justify-content: center;
+  margin: 0 auto;
 
   > button:first-child {
     align-self: flex-start;
@@ -39,7 +41,7 @@ export const Content = styled.div`
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 4.7rem;
+    gap: 3rem;
     align-items: center;
 
     > .dishImage {
@@ -54,7 +56,6 @@ export const Content = styled.div`
       width: 100%;
       display: flex;
       gap: 1.6rem;
-
       flex-direction: column;
       text-align: center;
 
@@ -107,6 +108,7 @@ export const Content = styled.div`
 
         > button {
           width: 100%;
+          max-width: 26rem;
           height: 3.8rem;
         }
       }
@@ -114,9 +116,6 @@ export const Content = styled.div`
   }
 
   @media ${device.laptop} {
-    padding: 4.4rem 12rem 1.6rem;
-    height: 100%;
-
     > button:first-child {
       align-self: flex-start;
       font-weight: 700;
@@ -128,13 +127,13 @@ export const Content = styled.div`
       display: flex;
       flex-direction: row;
       align-items: center;
-      gap: 4.7rem;
+      gap: 3rem;
       margin-top: 1.6rem;
 
       .dishImage {
         img {
-          width: 39rem;
-          height: 39rem;
+          width: 35rem;
+          height: 35rem;
         }
       }
 
@@ -153,7 +152,7 @@ export const Content = styled.div`
         }
 
         p {
-          font-size: 2.4rem;
+          font-size: 2.2rem;
           font-weight: 400;
           color: ${({ theme }) => theme.COLORS.LIGHT_300};
           text-align: left;
