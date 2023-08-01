@@ -44,7 +44,7 @@ export const Container = styled.div`
         max-width: 138rem;
 
         > .list-container {
-          width: 55%;
+          width: 100%;
         }
 
         .payment-container {

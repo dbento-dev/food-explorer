@@ -19,9 +19,11 @@ export function Order() {
           <div className="list-container">
             <List data={cart} />
           </div>
-          <div className="payment-container">
-            <Payment />
-          </div>
+          {cart?.length > 0 && (
+            <div className="payment-container">
+              <Payment />
+            </div>
+          )}
         </div>
       </main>
       <Footer />
