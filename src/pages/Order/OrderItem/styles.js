@@ -3,11 +3,10 @@ import { device } from '../../../styles/theme'
 
 export const Container = styled.div`
   width: 100%;
-  height: 10rem;
+  max-width: 50rem;
   display: flex;
   align-items: center;
   gap: 1.6rem;
-  padding: 1.6rem;
 
   > img {
     width: 6rem;
@@ -15,35 +14,39 @@ export const Container = styled.div`
     border-radius: 50%;
   }
 
-  > div {
+  > .item-container {
+    width: 100%;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
 
-    > div {
+    > .item-info {
       display: flex;
+      flex-direction: column;
       align-items: center;
-      gap: 1rem;
 
-      > span:first-child {
-        font-size: 1.6rem;
+      > span {
+        font-size: 1.4rem;
         font-weight: 500;
         color: ${({ theme }) => theme.COLORS.LIGHT_300};
         line-height: 2.8rem;
       }
 
-      #counter-buttons {
+      .counter-buttons {
         display: flex;
         align-items: center;
         gap: 1rem;
 
         > span {
-          font-size: 1.4rem;
+          font-size: 1.6rem;
+          font-weight: 600;
           color: ${({ theme }) => theme.COLORS.LIGHT_300};
         }
 
         > svg {
           color: ${({ theme }) => theme.COLORS.LIGHT_100};
-          font-size: 1.6rem;
+          font-size: 2rem;
 
           &:hover {
             cursor: pointer;
@@ -51,64 +54,83 @@ export const Container = styled.div`
         }
       }
 
-      > .price {
-        font-size: 1.2rem;
-        font-weight: 400;
-        color: ${({ theme }) => theme.COLORS.LIGHT_300};
-        font-family: 'Roboto';
-      }
+      > .price-container {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
 
-      > span:last-child {
-        font-size: 1.2rem;
-        font-weight: 600;
-        color: ${({ theme }) => theme.COLORS.BLUE_100};
-        font-family: 'Roboto';
+        > span {
+          font-size: 1.2rem;
+          font-weight: 600;
+          color: ${({ theme }) => theme.COLORS.LIGHT_300};
+          font-family: 'Roboto';
+        }
+
+        > span:last-child {
+          font-size: 1.2rem;
+          font-weight: 600;
+          color: ${({ theme }) => theme.COLORS.BLUE_100};
+          font-family: 'Roboto';
+        }
       }
     }
 
-    .removeButton {
-      font-size: 1.2rem;
-      font-weight: 400;
-      color: ${({ theme }) => theme.COLORS.RED_400};
-      font-family: 'Roboto';
-      cursor: pointer;
+    > .removeButton {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      > span {
+        font-size: 1.4rem;
+        font-weight: 600;
+        color: ${({ theme }) => theme.COLORS.RED_400};
+        font-family: 'Roboto';
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
     }
   }
 
-  @media ${device.tablet} {
+  @media ${device.mobileL} {
     > img {
       width: 8rem;
       height: 8rem;
       border-radius: 50%;
     }
 
-    > div {
-      > div {
-        display: flex;
-        align-items: center;
-        gap: 1.6rem;
-
-        > span:first-child {
-          font-size: 2rem;
+    > .item-container {
+      > .item-info {
+        > span {
+          font-size: 1.6rem;
         }
 
-        #counter-buttons {
-          gap: 1.6rem;
-
+        .counter-buttons {
           > span {
-            font-size: 1.6rem;
+            font-size: 1.8rem;
           }
 
           > svg {
-            font-size: 1.8rem;
+            font-size: 2.2rem;
           }
         }
-        > .price {
-          font-size: 1.6rem;
-        }
+      }
 
-        > span:last-child {
-          font-size: 1.6rem;
+      > .removeButton {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        > span {
+          font-size: 1.4rem;
+          font-weight: 600;
+          color: ${({ theme }) => theme.COLORS.RED_400};
+          font-family: 'Roboto';
+
+          &:hover {
+            cursor: pointer;
+          }
         }
       }
     }

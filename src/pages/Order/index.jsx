@@ -15,11 +15,13 @@ export function Order() {
     <Container>
       <Header search={search} setSearch={setSearch} />
       <main>
-        <div className="list-container">
-          <List data={cart} />
-        </div>
-        <div className="payment-container">
-          <Payment />
+        <div className="content">
+          <div className="list-container">
+            <List data={cart} />
+          </div>
+          <div className="payment-container">
+            <Payment />
+          </div>
         </div>
       </main>
       <Footer />

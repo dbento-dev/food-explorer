@@ -37,29 +37,31 @@ export function OrderItem({ data }) {
   }
 
   return (
-    <Container>
+    <Container className="card">
       <img src={generateImageUrl(image)} alt="Image do prato" />
-      <div>
-        <div>
+      <div className="item-container">
+        <div className="item-info">
           <span>{name}</span>
-          <div id="counter-buttons">
+          <div className="counter-buttons">
             <RxMinus onClick={handleDecrementItem} />
             <span>{count}</span>
             <RxPlus onClick={handleIncrementItem} />
           </div>
-          <span className="price">Preço: {price}</span>
-          &bull;
-          <span>
-            Total:{' '}
-            {totalAmount?.toLocaleString('pt-BR', {
-              style: 'currency',
-              currency: 'BRL'
-            })}
-          </span>
+          <div className="price-container">
+            <span>Preço: {price}</span>
+            &bull;
+            <span>
+              Total:{' '}
+              {totalAmount?.toLocaleString('pt-BR', {
+                style: 'currency',
+                currency: 'BRL'
+              })}
+            </span>
+          </div>
         </div>
-        <span className="removeButton" onClick={handleRemove}>
-          Excluir
-        </span>
+        <div className="removeButton">
+          <span onClick={handleRemove}>Excluir</span>
+        </div>
       </div>
     </Container>
   )

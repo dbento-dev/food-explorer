@@ -12,15 +12,19 @@ export function List({ data }) {
     <Container>
       <StTitle>Meu pedido</StTitle>
       <StList>
+        {data?.map((item) => (
+          <>
+            <OrderItem key={item?.id} data={item} />
+            <div className="divider" />
+          </>
+        ))}
+
         {data?.length === 0 && (
           <div className="empty">
             <BsFillCartXFill />
             <p>Seu carrinho está vazio</p>
           </div>
         )}
-        {data?.map((item) => (
-          <OrderItem key={item?.id} data={item} />
-        ))}
       </StList>
       <StTotal>
         Total:{' '}
