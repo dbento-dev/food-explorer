@@ -8,12 +8,113 @@ export const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   gap: 1.6rem;
+  padding: 2.6rem 1.6rem;
 
-  @media ${device.laptop} {
+  > main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2.6rem 1.6rem;
+
+    > form {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 2.2rem;
+      background-color: ${({ theme }) => theme.COLORS.DARK_700};
+      padding: 2.6rem 1.6rem;
+      border-radius: 1.6rem;
+
+      > h1 {
+        font-size: 2.2rem;
+        font-weight: 500;
+        color: ${({ theme }) => theme.COLORS.LIGHT_100};
+        align-self: center;
+      }
+
+      > div {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+
+        > label {
+          font-family: 'Roboto', sans-serif;
+          font-size: 1.6rem;
+          font-weight: 400;
+          color: ${({ theme }) => theme.COLORS.LIGHT_400};
+          margin-bottom: 0.8rem;
+        }
+
+        > input {
+          height: 48px;
+          width: 100%;
+          padding: 12px;
+          color: ${({ theme }) => theme.COLORS.LIGHT_100};
+          background-color: ${({ theme }) => theme.COLORS.DARK_900};
+          border-radius: 8px;
+          border: 0;
+
+          &::placeholder {
+            color: ${({ theme }) => theme.COLORS.LIGHT_500};
+          }
+        }
+
+        > .error {
+          color: ${({ theme }) => theme.COLORS.RED_400};
+          font-size: 1.2rem;
+        }
+      }
+
+      > a {
+        margin-top: 1.6rem;
+        font-size: 1.4rem;
+        align-self: center;
+        color: ${({ theme }) => theme.COLORS.LIGHT_100};
+      }
+
+      @media ${device.laptop} {
+        width: 100%;
+        max-width: 47.2rem;
+        padding: 4.6rem 3.6rem;
+
+        > h1 {
+          font-size: 2.6rem;
+          font-weight: 500;
+          color: ${({ theme }) => theme.COLORS.LIGHT_100};
+          align-self: center;
+        }
+      }
+    }
+  }
+
+  @media ${device.tablet} {
     flex-direction: row;
     align-items: center;
     justify-content: center;
     gap: 0;
+
+    > main {
+      width: 100%;
+    }
+  }
+
+  @media ${device.laptop} {
+    padding: 9rem 10.8rem;
+
+    > main {
+      max-width: 47.2rem;
+
+      > form {
+        > div {
+          > .error {
+            color: ${({ theme }) => theme.COLORS.RED_400};
+            font-size: 1.4rem;
+          }
+        }
+      }
+    }
   }
 `
 
@@ -35,73 +136,5 @@ export const Logo = styled.div`
     font-family: 'Roboto', sans-serif;
     font-size: 3.7rem;
     font-weight: 700;
-  }
-`
-
-export const Form = styled.form`
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  padding: 0 1.6rem;
-
-  > div {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background-color: ${({ theme }) => theme.COLORS.DARK_700};
-    height: 100%;
-    padding: 6.4rem 1.6rem;
-    border-radius: 1.6rem;
-
-    > h1 {
-      font-size: 2.2rem;
-      font-weight: 500;
-      color: ${({ theme }) => theme.COLORS.LIGHT_100};
-      align-self: center;
-    }
-
-    > label {
-      font-family: 'Roboto', sans-serif;
-      font-size: 1.6rem;
-
-      font-weight: 400;
-      color: ${({ theme }) => theme.COLORS.LIGHT_400};
-      margin-top: 3.2rem;
-      margin-bottom: 0.8rem;
-    }
-
-    > .signin-button {
-      margin-top: 3.2rem;
-    }
-
-    > a {
-      margin-top: 3.2rem;
-      color: ${({ theme }) => theme.COLORS.LIGHT_100};
-      align-self: center;
-    }
-  }
-
-  @media ${device.mobileL} {
-    > div {
-      width: 100%;
-      max-width: 42.5rem;
-      padding: 6.4rem 2.6rem;
-    }
-  }
-
-  @media ${device.laptop} {
-    > div {
-      width: 100%;
-      max-width: 42.5rem;
-      padding: 6.4rem 4.4rem;
-
-      > h1 {
-        font-size: 2.6rem;
-        font-weight: 500;
-        color: ${({ theme }) => theme.COLORS.LIGHT_100};
-        align-self: center;
-      }
-    }
   }
 `
