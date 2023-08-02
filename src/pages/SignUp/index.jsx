@@ -63,6 +63,7 @@ export function SignUp() {
             type="email"
             onChange={(e) => setName(e.target.value)}
             required
+            value={name}
           />
 
           <label htmlFor="email">Email</label>
@@ -70,6 +71,7 @@ export function SignUp() {
             name="email"
             placeholder="exemplo@exemplo.com.br"
             type="email"
+            value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
           />
@@ -79,6 +81,8 @@ export function SignUp() {
             name="password"
             placeholder="No mínimo 6 caracteres"
             type="password"
+            value={password}
+            minLength={6}
             onChange={(e) => setPassword(e.target.value)}
             required
           />
