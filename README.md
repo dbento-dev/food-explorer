@@ -87,6 +87,8 @@ As tecnologias principais utilizadas durante o desenvolvimento deste projeto sã
 - [Axios](https://www.npmjs.com/package/axios)
 - [React Icons](https://react-icons.github.io/react-icons/)
 - [React Router Dom](https://react-icons.github.io/react-icons/)
+- [React Hook Form](https://react-hook-form.com/)
+- [Zod](https://zod.dev/)
 - [Jest](https://jestjs.io)
 - [Testing Library](https://testing-library.com)
 - [Node.js](https://nodejs.org/en/)
@@ -97,8 +99,6 @@ As tecnologias principais utilizadas durante o desenvolvimento deste projeto sã
 - [BCryptjs](https://www.npmjs.com/package/bcryptjs)
 - [Multer](https://www.npmjs.com/package/multer)
 - [CORS](https://www.npmjs.com/package/cors)
-
----
 
 ## :running: Como utilizar
 
