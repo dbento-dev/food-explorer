@@ -156,7 +156,7 @@ http://localhost:5173/
 
 ```bash
   e-mail: admin@email.com
-  senha: 1234
+  senha: 123456
 ```
 
 ---
