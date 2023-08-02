@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { api } from '../../services/api'
@@ -8,6 +8,7 @@ import logoSVG from '../../assets/logo.svg'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
+import { LoadingButton } from '../../components/Commons/LoadingButton'
 
 export function SignUp() {
   const navigate = useNavigate()
@@ -76,7 +77,7 @@ export function SignUp() {
           <h1>Crie sua conta</h1>
           <div>
             <label htmlFor="name">Nome</label>
-            <input type="text" {...register('name')} placeholder="John Doe" />
+            <input placeholder="John Doe" type="text" {...register('name')} />
             {errors.name && (
               <span className="error">{errors.name.message}</span>
             )}
@@ -84,9 +85,9 @@ export function SignUp() {
           <div>
             <label htmlFor="email">Email</label>
             <input
-              type="text"
-              {...register('email')}
               placeholder="exemplo@exemplo.com.br"
+              type="email"
+              {...register('email')}
             />
             {errors.email && (
               <span className="error">{errors.email.message}</span>
@@ -95,18 +96,21 @@ export function SignUp() {
           <div>
             <label htmlFor="password">Senha</label>
             <input
-              type="text"
-              {...register('password')}
               placeholder="Insira sua senha"
+              type="password"
+              {...register('password')}
             />
             {errors.password && (
               <span className="error">{errors.password.message}</span>
             )}
           </div>
 
-          <div className="button-container">
-            <button type="submit">Criar conta</button>
-          </div>
+          <LoadingButton
+            type="submit"
+            title="Criar conta"
+            loading={isLoading}
+          />
+
           <Link to="/">Já tenho uma conta</Link>
         </form>
       </main>

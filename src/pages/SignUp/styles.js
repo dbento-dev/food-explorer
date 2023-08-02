@@ -68,38 +68,6 @@ export const Container = styled.div`
         }
       }
 
-      > .button-container {
-        width: 100%;
-        height: 48px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border: 0;
-        border-radius: 8px;
-
-        button {
-          width: 100%;
-          height: 100%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-weight: 500;
-
-          background-color: ${({ theme }) => theme.COLORS.RED_100};
-
-          color: ${({ theme }) => theme.COLORS.LIGHT_100};
-
-          border: 0;
-          border-radius: 8px;
-          gap: 1.6rem;
-
-          &:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-          }
-        }
-      }
-
       > a {
         margin-top: 1.6rem;
         font-size: 1.4rem;
