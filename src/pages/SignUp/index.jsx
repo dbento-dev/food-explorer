@@ -11,15 +11,13 @@ import { Input } from '../../components/Input'
 import { ButtonLoading } from '../../components/ButtonLoading'
 
 export function SignUp() {
+  const navigate = useNavigate()
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-
-  const navigate = useNavigate()
-
   const [isLoading, setIsLoading] = useState(false)
 
-  const disabledSubmitButton = !name || !email || !password
+  const disabledSubmitButton = !name || !email || password?.length < 6
 
   const handleSignUp = () => {
     if (!name || !email || !password) {
