@@ -59,7 +59,7 @@ Desenvolvida com cuidado e atenção aos detalhes, o Food Explorer oferece uma i
 
 ## :iphone: MOBILE Layout
 
-BREVE
+![HOME](https://github.com/dbento-dev/assets/blob/main/foodexplorer/home-mobile.png)
 
 ---
 
