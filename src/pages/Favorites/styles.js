@@ -14,32 +14,41 @@ export const Container = styled.div`
   > main {
     width: 100%;
     grid-area: content;
-    overflow-y: auto;
     display: flex;
     flex-direction: column;
-    padding: 3.2rem 1.6rem 1.6rem;
-
-    > h1 {
-      font-size: 3.2rem;
-      font-weight: 500;
-    }
+    justify-content: center;
+    align-items: center;
+    overflow-y: auto;
+    margin-bottom: 1.6rem;
   }
 `
 
 export const Content = styled.div`
+  width: 100%;
+  max-width: 138rem;
   height: 100%;
   display: flex;
   flex-direction: column;
-  gap: 1.6rem;
   overflow: auto;
+  padding: 4.4rem 1.6rem 1.6rem;
+  gap: 1.6rem;
 
-  @media ${device.laptop} {
+  > h1 {
+    font-size: 3.2rem;
+    font-weight: 500;
+  }
+
+  > .card-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  @media ${device.mobileL} {
     > .card-list {
-      padding: 0;
-      margin: 0;
-      display: flex;
-      gap: 3.2rem;
-      list-style: none;
+      flex-direction: row;
       flex-wrap: wrap;
     }
   }
@@ -55,8 +64,8 @@ export const FavoriteCard = styled.div`
   word-wrap: break-word;
 
   > img {
-    width: 9rem;
-    height: 9rem;
+    width: 6.5rem;
+    height: 6.5rem;
     border-radius: 50%;
     opacity: 0.8;
 
@@ -71,20 +80,39 @@ export const FavoriteCard = styled.div`
 
     span:first-child {
       color: ${({ theme }) => theme.COLORS.LIGHT_300};
-      font-size: 2rem;
+      font-size: 1.4rem;
       font-weight: 500;
     }
 
-    span:last-child {
-      color: ${({ theme }) => theme.COLORS.RED_400};
-      font-family: 'Roboto', sans-serif;
-      font-size: 1.2rem;
-      font-weight: 400;
-      cursor: pointer;
+    > div {
+      span:last-child {
+        color: ${({ theme }) => theme.COLORS.RED_400};
+        font-family: 'Roboto', sans-serif;
+        font-size: 1.2rem;
+        font-weight: 400;
+        cursor: pointer;
+      }
     }
   }
 
-  @media ${device.laptop} {
+  @media ${device.mobileL} {
     width: 32rem;
+
+    > img {
+      width: 8rem;
+      height: 8rem;
+    }
+
+    > div {
+      span:first-child {
+        font-size: 1.6rem;
+      }
+
+      > div {
+        span:last-child {
+          font-size: 1.4rem;
+        }
+      }
+    }
   }
 `

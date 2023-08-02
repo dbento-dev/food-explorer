@@ -45,12 +45,10 @@ export function Favorites() {
     <Container>
       <Header search={search} setSearch={setSearch} />
       <main>
-        <h1>Meus favoritos</h1>
-
         {isLoading && <Spinner />}
-
         {!isLoading && (
           <Content>
+            <h1>Meus favoritos</h1>
             <ul className="card-list">
               {favoriteList.map((recipe) => (
                 <li key={String(recipe.id)}>
@@ -61,13 +59,16 @@ export function Favorites() {
                     />
                     <div>
                       <span>{recipe.name}</span>
-                      <span
-                        onClick={() =>
-                          handleRemoveFavorite({ id: recipe?.recipe_id })
-                        }
-                      >
-                        Remover dos favoritos
-                      </span>
+
+                      <div>
+                        <span
+                          onClick={() =>
+                            handleRemoveFavorite({ id: recipe?.recipe_id })
+                          }
+                        >
+                          Remover dos favoritos
+                        </span>
+                      </div>
                     </div>
                   </FavoriteCard>
                 </li>
