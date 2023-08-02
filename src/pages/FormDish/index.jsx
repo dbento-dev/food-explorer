@@ -166,10 +166,11 @@ export function FormDish() {
                   <label htmlFor="name">Nome</label>
                   <Input
                     name="name"
-                    placeholder="Ex.: Salada Ceasar"
+                    placeholder="Salada Ceasar"
                     type="text"
                     onChange={(e) => setName(e.target.value)}
                     value={name}
+                    maxLength="25"
                   />
                 </div>
                 <div className="form-group category">
@@ -227,6 +228,7 @@ export function FormDish() {
                     label="Descrição"
                     onChange={(e) => setDescription(e.target.value)}
                     value={description}
+                    maxLength="300"
                   />
                 </div>
               </div>
