@@ -1,29 +1,47 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { api } from '../../services/api'
 
-import { Container, Form, Logo } from './styles'
+import { Container, Logo } from './styles'
 import logoSVG from '../../assets/logo.svg'
-
-import { Input } from '../../components/Input'
-
-import { ButtonLoading } from '../../components/ButtonLoading'
+import { useForm } from 'react-hook-form'
+import { z } from 'zod'
+import { zodResolver } from '@hookform/resolvers/zod'
 
 export function SignUp() {
   const navigate = useNavigate()
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
   const [isLoading, setIsLoading] = useState(false)
 
-  const disabledSubmitButton = !name || !email || password?.length < 6
+  const createUserFormSchema = z.object({
+    name: z
+      .string()
+      .nonempty('Nome é obrigatório')
+      .transform((name) => {
+        return name
+          .trim()
+          .split(' ')
+          .map((word) => word[0].toLocaleUpperCase().concat(word.substring(1)))
+          .join(' ')
+      }),
+    email: z
+      .string()
+      .email('Email inválido')
+      .nonempty('Email é obrigatório')
+      .toLowerCase(),
+    password: z.string().min(6, 'Senha deve ter pelo menos 6 caracteres')
+  })
 
-  const handleSignUp = () => {
-    if (!name || !email || !password) {
-      return alert('Preencha todos os campos')
-    }
+  const {
+    register,
+    handleSubmit,
+    formState: { errors }
+  } = useForm({
+    resolver: zodResolver(createUserFormSchema)
+  })
 
+  function createUser(data) {
+    const { name, email, password } = data
     setIsLoading(true)
     api
       .post('/users', {
@@ -52,53 +70,46 @@ export function SignUp() {
         <img src={logoSVG} alt="logo do food explorer" />
         <span>food explorer</span>
       </Logo>
-      <Form>
-        <div>
+
+      <main>
+        <form onSubmit={handleSubmit(createUser)}>
           <h1>Crie sua conta</h1>
+          <div>
+            <label htmlFor="name">Nome</label>
+            <input type="text" {...register('name')} placeholder="John Doe" />
+            {errors.name && (
+              <span className="error">{errors.name.message}</span>
+            )}
+          </div>
+          <div>
+            <label htmlFor="email">Email</label>
+            <input
+              type="text"
+              {...register('email')}
+              placeholder="exemplo@exemplo.com.br"
+            />
+            {errors.email && (
+              <span className="error">{errors.email.message}</span>
+            )}
+          </div>
+          <div>
+            <label htmlFor="password">Senha</label>
+            <input
+              type="text"
+              {...register('password')}
+              placeholder="Insira sua senha"
+            />
+            {errors.password && (
+              <span className="error">{errors.password.message}</span>
+            )}
+          </div>
 
-          <label htmlFor="name">Seu nome</label>
-          <Input
-            name="name"
-            placeholder="John Doe"
-            type="email"
-            onChange={(e) => setName(e.target.value)}
-            required
-            value={name}
-          />
-
-          <label htmlFor="email">Email</label>
-          <Input
-            name="email"
-            placeholder="exemplo@exemplo.com.br"
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-
-          <label htmlFor="password">Senha</label>
-          <Input
-            name="password"
-            placeholder="No mínimo 6 caracteres"
-            type="password"
-            value={password}
-            minLength={6}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-
-          <ButtonLoading
-            className="register-button"
-            title="Criar conta"
-            buttontype="primary"
-            onClick={handleSignUp}
-            isLoading={isLoading}
-            isDisabled={disabledSubmitButton}
-          />
-
+          <div className="button-container">
+            <button type="submit">Criar conta</button>
+          </div>
           <Link to="/">Já tenho uma conta</Link>
-        </div>
-      </Form>
+        </form>
+      </main>
     </Container>
   )
 }
