@@ -59,7 +59,19 @@ Desenvolvida com cuidado e atenção aos detalhes, o Food Explorer oferece uma i
 
 ## :iphone: MOBILE Layout
 
+![SIGNIN](https://github.com/dbento-dev/assets/blob/main/foodexplorer/signin-mobile.png)
+
+![REGISTER](https://github.com/dbento-dev/assets/blob/main/foodexplorer/register-mobile.png)
+
 ![HOME](https://github.com/dbento-dev/assets/blob/main/foodexplorer/home-mobile.png)
+
+![MENU](https://github.com/dbento-dev/assets/blob/main/foodexplorer/menu-mobile.png)
+
+![SEARCH](https://github.com/dbento-dev/assets/blob/main/foodexplorer/search-mobile.png)
+
+![FAVORITES](https://github.com/dbento-dev/assets/blob/main/foodexplorer/favorites-mobile.png)
+
+![CART](https://github.com/dbento-dev/assets/blob/main/foodexplorer/cart-mobile.png)
 
 ---
 
