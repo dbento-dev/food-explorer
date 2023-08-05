@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -8,16 +8,25 @@ import logoSVG from '../../assets/logo.svg'
 import { LoadingButton } from '../../components/Commons/LoadingButton'
 
 import { useAuth } from '../../hooks/auth'
+import errorHandler from '../../helpers/errorHandler'
 
 export function SignIn() {
   const { signIn, isLoading } = useAuth()
+  const navigate = useNavigate()
 
-  const handleSignIn = (data) => {
+  const handleSignIn = async (data) => {
     const { email, password } = data
-    signIn({
-      email,
-      password
-    })
+
+    try {
+      await signIn({
+        email,
+        password
+      })
+
+      navigate('/')
+    } catch (error) {
+      errorHandler(error)
+    }
   }
 
   const signInFormSchema = z.object({

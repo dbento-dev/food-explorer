@@ -4,6 +4,8 @@ import { api } from '../services/api'
 import { capitalizeString, isAdminUser } from '../helpers/helpers'
 import { toast } from 'react-toastify'
 
+import jwt_decode from 'jwt-decode'
+
 export const AuthContext = createContext()
 
 function AuthProvider({ children }) {
@@ -13,7 +15,7 @@ function AuthProvider({ children }) {
   async function signIn({ email, password }) {
     setIsLoading(true)
     try {
-      const response = await api.post('/sessions', {
+      const response = await api().post('/sessions', {
         email,
         password
       })
@@ -24,8 +26,6 @@ function AuthProvider({ children }) {
 
       localStorage.setItem('@foodexplorer:user', JSON.stringify(user))
       localStorage.setItem('@foodexplorer:token', token)
-
-      api.defaults.headers.common['Authorization'] = `Bearer ${token}`
 
       setData({ token, user, isAdmin })
       setIsLoading(false)
@@ -47,14 +47,28 @@ function AuthProvider({ children }) {
     setData({})
   }
 
+  const isTokenValid = (_token) => {
+    try {
+      const decodedToken = jwt_decode(_token)
+      const currentTime = Date.now() / 1000
+      return decodedToken.exp > currentTime
+    } catch (error) {
+      return false
+    }
+  }
+
   useEffect(() => {
     const token = localStorage.getItem('@foodexplorer:token')
     const user = localStorage.getItem('@foodexplorer:user')
 
     const isAdmin = isAdminUser(JSON.parse(user)?.is_admin)
 
+    if (!isTokenValid(token)) {
+      signOut()
+    }
+
     if (token && user) {
-      api.defaults.headers.common['Authorization'] = `Bearer ${token}`
+      api().defaults.headers.common['Authorization'] = `Bearer ${token}`
       setData({ token, user: JSON.parse(user), isAdmin })
     }
   }, [])
@@ -65,8 +79,10 @@ function AuthProvider({ children }) {
         signIn,
         signOut,
         user: data.user,
+        token: data.token,
         isAdmin: data.isAdmin,
-        isLoading
+        isLoading,
+        isTokenValid
       }}
     >
       {children}

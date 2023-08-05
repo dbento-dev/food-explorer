@@ -14,6 +14,8 @@ import { useFavorites } from '../../hooks/favorites'
 import { getRecipes } from '../../services/recipes/getRecipes'
 import { getFavoritesRecipes } from '../../services/favorites/getFavorites'
 import { useDebounce } from '../../hooks/useDebounce'
+import errorHandler from '../../helpers/errorHandler'
+import { useNavigate } from 'react-router-dom'
 
 export function Home() {
   const { isLoadingFavorite } = useFavorites()
@@ -29,6 +31,8 @@ export function Home() {
 
   const queryWithDebounce = useDebounce(search, 500)
 
+  const navigate = useNavigate()
+
   useEffect(() => {
     if (isLoadingFavorite) {
       return
@@ -41,8 +45,22 @@ export function Home() {
         getRecipes({ search: queryWithDebounce }),
         getFavoritesRecipes()
       ])
+        .then(([recipesList, favoriteRecipes]) => {
+          return [recipesList, favoriteRecipes]
+        })
+        .catch((error) => {
+          errorHandler(error)
+          navigate('/login')
+          setIsLoading(false)
+          return []
+        })
 
-      const recipesWithFavoriteFlag = recipesList.map((recipe) => {
+      if (!recipesList || !favoriteRecipes) {
+        setIsLoading(false)
+        return
+      }
+
+      const recipesWithFavoriteFlag = recipesList?.map((recipe) => {
         const favorite = favoriteRecipes.some(
           (favoriteRecipe) => favoriteRecipe.recipe_id === recipe.id
         )
@@ -57,14 +75,21 @@ export function Home() {
     }
 
     loadData()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [queryWithDebounce, isLoadingFavorite])
 
   useEffect(() => {
-    const _dishList = recipesList.filter((recipe) => recipe.category === 'dish')
-    const _drinkList = recipesList.filter(
+    if (!recipesList) {
+      return
+    }
+
+    const _dishList = recipesList?.filter(
+      (recipe) => recipe.category === 'dish'
+    )
+    const _drinkList = recipesList?.filter(
       (recipe) => recipe.category === 'drink'
     )
-    const _dessertList = recipesList.filter(
+    const _dessertList = recipesList?.filter(
       (recipe) => recipe.category === 'dessert'
     )
 

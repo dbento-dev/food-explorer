@@ -40,7 +40,7 @@ export function EditFormDish() {
   const [description, setDescription] = useState('')
 
   const imageURL = image
-    ? `${api.defaults.baseURL}/files/${image}`
+    ? `${api().defaults.baseURL}/files/${image}`
     : avatarPlaceholderPng
 
   const [avatar, setAvatar] = useState(imageURL)

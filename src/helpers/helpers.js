@@ -6,7 +6,7 @@ export function isAdminUser(scope) {
 
 export function generateImageUrl(image) {
   if (!image) return
-  const imageUrl = `${api.defaults.baseURL}/files/${image}`
+  const imageUrl = `${api().defaults.baseURL}/files/${image}`
 
   return imageUrl
 }

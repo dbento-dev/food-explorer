@@ -15,7 +15,7 @@ import { useAuth } from '../../hooks/auth'
 import { generateImageUrl } from '../../helpers/helpers'
 import { Spinner } from '../../components/Spinner'
 import { getRecipeById } from '../../services/recipes/getRecipeById'
-import { toast } from 'react-toastify'
+import errorHandler from '../../helpers/errorHandler'
 
 export function Details() {
   const { isAdmin } = useAuth()
@@ -42,7 +42,7 @@ export function Details() {
         setData(response)
         setIsLoading(false)
       } catch (error) {
-        toast.error(error.response.data.message)
+        errorHandler(error)
         setData({})
         setIsLoading(false)
       }

@@ -44,7 +44,7 @@ export function SignUp() {
   function createUser(data) {
     const { name, email, password } = data
     setIsLoading(true)
-    api
+    api()
       .post('/users', {
         name,
         email,

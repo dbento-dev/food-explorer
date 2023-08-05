@@ -6,6 +6,6 @@ export const deleteFavorite = async ({ favoriteId }) => {
       favorite_id: favoriteId
     }
   }
-  const response = await api.delete('/favorites', config)
+  const response = await api().delete('/favorites', config)
   return response.data
 }
