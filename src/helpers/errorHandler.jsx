@@ -44,9 +44,15 @@ const errorHandler = (err) => {
   }
 
   if (notAuthorizedCounter === 1) {
-    return errorNotification(
+    errorNotification(
       'Sua sessão expirou, por favor, entre novamente com seu login e senha.'
     )
+
+    setTimeout(() => {
+      window.location.href = '/login'
+    }, 1000)
+
+    return
   }
 
   if (notAuthorizedCounter > 0 || serverErrorCounter > 0) return null

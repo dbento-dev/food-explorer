@@ -15,7 +15,6 @@ import { getRecipes } from '../../services/recipes/getRecipes'
 import { getFavoritesRecipes } from '../../services/favorites/getFavorites'
 import { useDebounce } from '../../hooks/useDebounce'
 import errorHandler from '../../helpers/errorHandler'
-import { useNavigate } from 'react-router-dom'
 
 export function Home() {
   const { isLoadingFavorite } = useFavorites()
@@ -30,8 +29,6 @@ export function Home() {
   const [isLoading, setIsLoading] = useState(true)
 
   const queryWithDebounce = useDebounce(search, 500)
-
-  const navigate = useNavigate()
 
   useEffect(() => {
     if (isLoadingFavorite) {
@@ -50,7 +47,6 @@ export function Home() {
         })
         .catch((error) => {
           errorHandler(error)
-          navigate('/login')
           setIsLoading(false)
           return []
         })
