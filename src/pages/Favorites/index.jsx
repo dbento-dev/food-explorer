@@ -6,7 +6,7 @@ import { Container, Content, FavoriteCard } from './styles'
 import { Spinner } from '../../components/Spinner'
 import { useFavorites } from '../../hooks/favorites'
 import { getFavoritesRecipes } from '../../services/favorites/getFavorites'
-import { toast } from 'react-toastify'
+import errorHandler from '../../helpers/errorHandler'
 
 export function Favorites() {
   const [isLoading, setIsLoading] = useState(true)
@@ -33,7 +33,7 @@ export function Favorites() {
           setIsLoading(false)
         }
       } catch (error) {
-        toast.error(error.response.data.message)
+        errorHandler(error)
         setIsLoading(false)
       }
     }

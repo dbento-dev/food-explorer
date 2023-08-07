@@ -1,7 +1,7 @@
 import axios from 'axios'
 import {
-  interceptorsResponseSuccess,
-  interceptorsResponseWithAuthError
+  interceptorsResponseError,
+  interceptorsResponseSuccess
 } from './interceptores'
 
 export const api = () => {
@@ -20,7 +20,7 @@ export const api = () => {
 
   network.interceptors.response.use(
     (response) => interceptorsResponseSuccess(response),
-    (error) => interceptorsResponseWithAuthError(error)
+    (error) => interceptorsResponseError(error)
   )
   return network
 }

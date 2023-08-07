@@ -9,6 +9,7 @@ import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { LoadingButton } from '../../components/Commons/LoadingButton'
+import errorHandler from '../../helpers/errorHandler'
 
 export function SignUp() {
   const navigate = useNavigate()
@@ -56,12 +57,8 @@ export function SignUp() {
         setIsLoading(false)
       })
       .catch((error) => {
+        errorHandler(error)
         setIsLoading(false)
-        if (error.response) {
-          toast.error(error.response.data.message)
-        } else {
-          toast.error('Ocorreu um erro inesperado')
-        }
       })
   }
 

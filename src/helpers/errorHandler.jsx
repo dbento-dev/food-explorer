@@ -10,10 +10,8 @@ const errorNotification = (message) => {
 
 const handleServerError = (error) => {
   if (error?.response?.status === 500) {
-    console.log('entrei no handleServerError', error)
     serverErrorCounter += 1
   } else {
-    console.log('entrei no handleServerError else', error)
     serverErrorCounter = 0
   }
 }
@@ -33,9 +31,11 @@ const handleRequestNotAuthorized = (error) => {
   }
 }
 
-const errorHandler = (err) => {
-  handleServerError(err)
-  handleRequestNotAuthorized(err)
+const errorHandler = (error) => {
+  const message = error?.response?.data?.message || null
+
+  handleServerError(error)
+  handleRequestNotAuthorized(error)
 
   if (serverErrorCounter === 1) {
     return errorNotification(
@@ -56,6 +56,8 @@ const errorHandler = (err) => {
   }
 
   if (notAuthorizedCounter > 0 || serverErrorCounter > 0) return null
+
+  return message && errorNotification(message)
 }
 
 export default errorHandler

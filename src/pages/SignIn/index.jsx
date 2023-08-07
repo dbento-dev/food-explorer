@@ -8,7 +8,6 @@ import logoSVG from '../../assets/logo.svg'
 import { LoadingButton } from '../../components/Commons/LoadingButton'
 
 import { useAuth } from '../../hooks/auth'
-import errorHandler from '../../helpers/errorHandler'
 
 export function SignIn() {
   const { signIn, isLoading } = useAuth()
@@ -17,16 +16,12 @@ export function SignIn() {
   const handleSignIn = async (data) => {
     const { email, password } = data
 
-    try {
-      await signIn({
-        email,
-        password
-      })
-
+    await signIn({
+      email,
+      password
+    }).then(() => {
       navigate('/')
-    } catch (error) {
-      errorHandler(error)
-    }
+    })
   }
 
   const signInFormSchema = z.object({

@@ -22,6 +22,7 @@ import { api } from '../../services/api'
 import { Spinner } from '../../components/Spinner'
 import { postRecipe } from '../../services/recipes/postRecipe'
 import { toast } from 'react-toastify'
+import errorHandler from '../../helpers/errorHandler'
 
 export function FormDish() {
   const navigate = useNavigate()
@@ -107,14 +108,8 @@ export function FormDish() {
         }
       }
     } catch (error) {
+      errorHandler(error)
       setIsLoading(false)
-      if (error.response) {
-        toast.error(error.response.data.message)
-      } else {
-        toast.error(
-          'Não foi possível adicionar o prato, tente novamente mais tarde.'
-        )
-      }
     }
   }
 

@@ -6,6 +6,8 @@ import { toast } from 'react-toastify'
 
 import jwt_decode from 'jwt-decode'
 
+import errorHandler from '../helpers/errorHandler'
+
 export const AuthContext = createContext()
 
 function AuthProvider({ children }) {
@@ -29,15 +31,10 @@ function AuthProvider({ children }) {
 
       setData({ token, user, isAdmin })
       setIsLoading(false)
-
       toast.info(`Seja bem-vindo, ${capitalizeString(user?.name)}!`)
     } catch (error) {
       setIsLoading(false)
-      if (error.response) {
-        toast.error(error.response.data.message)
-      } else {
-        toast.error('Não foi possível realizar o login, tente novamente')
-      }
+      errorHandler(error)
     }
   }
 

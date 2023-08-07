@@ -25,6 +25,7 @@ import { deleteRecipeById } from '../../services/recipes/deleteRecipeById'
 import { putRecipeById } from '../../services/recipes/putRecipeById'
 import { patchRecipeImage } from '../../services/recipes/patchRecipeImage'
 import { toast } from 'react-toastify'
+import errorHandler from '../../helpers/errorHandler'
 
 export function EditFormDish() {
   const navigate = useNavigate()
@@ -69,14 +70,8 @@ export function EditFormDish() {
       navigate('/')
       setIsLoading(false)
     } catch (error) {
+      errorHandler(error)
       setIsLoading(false)
-      if (error.response) {
-        toast.error(error.response.data.message)
-      } else {
-        toast.error(
-          'Não foi possível atualizar o prato, tente novamente mais tarde.'
-        )
-      }
     }
   }
 
