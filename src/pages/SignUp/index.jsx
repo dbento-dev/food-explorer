@@ -57,8 +57,8 @@ export function SignUp() {
         setIsLoading(false)
       })
       .catch((error) => {
-        errorHandler(error)
         setIsLoading(false)
+        errorHandler(error)
       })
   }
 

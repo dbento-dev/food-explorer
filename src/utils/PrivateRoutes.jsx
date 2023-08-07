@@ -1,8 +1,7 @@
 import { Outlet, Navigate } from 'react-router-dom'
-import { useAuth } from '../hooks/auth'
 
 export const PrivateRoutes = () => {
-  const { token } = useAuth()
+  const token = localStorage.getItem('@foodexplorer:token')
 
   return token ? <Outlet /> : <Navigate to="/login" replace />
 }

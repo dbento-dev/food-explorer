@@ -13,7 +13,9 @@ export function SignIn() {
   const { signIn, isLoading } = useAuth()
   const navigate = useNavigate()
 
-  const handleSignIn = async (data) => {
+  const handleSignIn = async (data, e) => {
+    e.preventDefault()
+
     const { email, password } = data
 
     await signIn({
@@ -27,10 +29,13 @@ export function SignIn() {
   const signInFormSchema = z.object({
     email: z
       .string()
-      .email('Email inválido')
       .nonempty('Email é obrigatório')
+      .email('Email inválido')
       .toLowerCase(),
-    password: z.string().min(6, 'Senha deve ter pelo menos 6 caracteres')
+    password: z
+      .string()
+      .nonempty('Senha é obrigatória')
+      .min(6, 'Senha deve ter pelo menos 6 caracteres')
   })
 
   const {
