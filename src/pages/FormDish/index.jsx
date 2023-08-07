@@ -42,7 +42,6 @@ export function FormDish() {
     : avatarPlaceholderPng
 
   const [avatar, setAvatar] = useState(imageURL)
-  // eslint-disable-next-line no-unused-vars
   const [avatarFile, setAvatarFile] = useState(null)
   const [isLoading, setIsLoading] = useState(false)
   const [search, setSearch] = useState('')
@@ -68,7 +67,8 @@ export function FormDish() {
     )
   }
 
-  async function handleNewDish() {
+  async function handleNewDish(e) {
+    e.preventDefault()
     if (!avatarFile || !name || !category || !price || !description) {
       alert('Preencha todos os campos!')
       return
@@ -83,34 +83,24 @@ export function FormDish() {
 
     setIsLoading(true)
 
-    try {
-      if (avatarFile) {
-        const formData = new FormData()
-        formData.append('image', avatarFile)
-        formData.append('name', name)
-        formData.append('category', category)
-        formData.append('price', price)
-        formData.append('description', description)
+    const formData = new FormData()
+    formData.append('image', avatarFile)
+    formData.append('name', name)
+    formData.append('category', category)
+    ingredients.map((ingredient) => formData.append('ingredients', ingredient))
+    formData.append('price', price)
+    formData.append('description', description)
 
-        ingredients.map((ingredient) => {
-          formData.append('ingredients', ingredient)
-        })
-
-        const response = await postRecipe({ data: formData })
-
-        if (response) {
-          toast.success(response.message)
-          navigate('/')
-          setIsLoading(false)
-          return
-        } else {
-          toast.success('Prato adicionado!')
-        }
-      }
-    } catch (error) {
-      errorHandler(error)
-      setIsLoading(false)
-    }
+    await postRecipe({ data: formData })
+      .then((response) => {
+        toast.success(response.message)
+        navigate('/')
+        setIsLoading(false)
+      })
+      .catch((error) => {
+        errorHandler(error)
+        setIsLoading(false)
+      })
   }
 
   function handleChangeAvatar(e) {

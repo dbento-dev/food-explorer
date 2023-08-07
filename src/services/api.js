@@ -13,7 +13,6 @@ export const api = () => {
     baseURL: baseUrl,
     timeout: 999990000,
     headers: {
-      'Content-Type': 'application/json',
       Authorization: `Bearer ${token}`
     }
   })
