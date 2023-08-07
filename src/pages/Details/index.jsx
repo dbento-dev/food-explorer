@@ -79,6 +79,7 @@ export function Details() {
 
                 {!isAdmin ? (
                   <div>
+                    {/* TODO: Implementar o botão de adicionar */}
                     <RxMinus />
                     <span>01</span>
                     <RxPlus />
