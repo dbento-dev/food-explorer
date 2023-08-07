@@ -24,7 +24,7 @@ export function Header({ search, setSearch }) {
 
   const handleLogout = () => {
     signOut()
-    navigate('/')
+    navigate('/login')
   }
 
   function handleAddDish() {

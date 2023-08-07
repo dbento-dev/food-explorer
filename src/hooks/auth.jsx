@@ -42,6 +42,7 @@ function AuthProvider({ children }) {
     localStorage.removeItem('@foodexplorer:token')
     localStorage.removeItem('@foodexplorer:user')
     setData({})
+    toast.info('Logout realizado.')
   }
 
   const isTokenValid = (_token) => {
@@ -60,7 +61,7 @@ function AuthProvider({ children }) {
 
     const isAdmin = isAdminUser(JSON.parse(user)?.is_admin)
 
-    if (!isTokenValid(token)) {
+    if (token && !isTokenValid(token)) {
       signOut()
     }
 
