@@ -162,11 +162,7 @@ export function Home() {
                 </Slider>
               </Section>
             )}
-            {recipesList?.length === 0 && !isLoading && (
-              <Section>
-                <Empty />
-              </Section>
-            )}
+            {recipesList?.length === 0 && !isLoading && <Empty />}
           </StDetails>
         </Content>
       </main>
