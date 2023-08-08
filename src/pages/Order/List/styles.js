@@ -22,9 +22,13 @@ export const StList = styled.div`
   gap: 1.6rem;
   align-items: center;
 
-  .divider {
+  .order-item-container {
     width: 100%;
-    border-top: 1px solid ${({ theme }) => theme.COLORS.DARK_1000};
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.8rem 0;
+    border-bottom: 1px solid ${({ theme }) => theme.COLORS.DARK_1000};
   }
 
   > .empty {

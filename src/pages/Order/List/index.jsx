@@ -13,10 +13,9 @@ export function List({ data }) {
       <StTitle>Meu pedido</StTitle>
       <StList>
         {data?.map((item) => (
-          <>
+          <div className="order-item-container" key={item?.id}>
             <OrderItem key={item?.id} data={item} />
-            <div className="divider" />
-          </>
+          </div>
         ))}
 
         {data?.length === 0 && (
