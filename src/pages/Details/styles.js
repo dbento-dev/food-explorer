@@ -81,35 +81,39 @@ export const Content = styled.div`
         flex-wrap: wrap;
       }
 
-      > div:last-child {
+      > .card-buttons {
+        width: 100%;
         display: flex;
         flex-direction: row;
         align-items: center;
-        gap: 1.6rem;
         justify-content: center;
+        gap: 1.6rem;
+        margin-top: 1.6rem;
 
-        margin-top: 2rem;
+        #counter-buttons {
+          max-width: 13rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 1.4rem;
 
-        > svg {
-          color: ${({ theme }) => theme.COLORS.LIGHT_300};
-          font-size: 2.4rem;
+          > svg {
+            color: ${({ theme }) => theme.COLORS.LIGHT_100};
+            font-size: 2.4rem;
 
-          &:hover {
-            cursor: pointer;
+            &:hover {
+              cursor: pointer;
+            }
+          }
+          > span {
+            color: ${({ theme }) => theme.COLORS.LIGHT_100};
+            font-size: 1.6rem;
           }
         }
 
-        > span {
-          font-family: 'Roboto', sans-serif;
-          font-size: 2rem;
-          font-weight: 700;
-          color: ${({ theme }) => theme.COLORS.LIGHT_300};
-        }
-
-        > button {
+        > div:last-child {
           width: 100%;
-          max-width: 26rem;
-          height: 3.8rem;
+          max-width: 15rem;
         }
       }
     }
@@ -167,34 +171,15 @@ export const Content = styled.div`
           flex-wrap: wrap;
         }
 
-        > div:last-child {
-          display: flex;
-          flex-direction: row;
-          align-items: center;
-          gap: 1.6rem;
-          justify-content: center;
+        > .card-buttons {
+          justify-content: flex-start;
 
-          margin-top: 2rem;
-
-          > svg {
-            color: ${({ theme }) => theme.COLORS.LIGHT_300};
-            font-size: 2.4rem;
-
-            &:hover {
-              cursor: pointer;
-            }
+          #counter-buttons {
+            justify-content: flex-start;
           }
 
-          > span {
-            font-family: 'Roboto', sans-serif;
-            font-size: 2rem;
-            font-weight: 700;
-            color: ${({ theme }) => theme.COLORS.LIGHT_300};
-          }
-
-          > button {
-            width: 16rem;
-            height: 4.8rem;
+          > div:last-child {
+            max-width: 18rem;
           }
         }
       }

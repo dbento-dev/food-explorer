@@ -17,9 +17,14 @@ import { Spinner } from '../../components/Spinner'
 import { getRecipeById } from '../../services/recipes/getRecipeById'
 import errorHandler from '../../helpers/errorHandler'
 import { Empty } from '../../components/Empty'
+import { useCart } from '../../hooks/cart'
+import { LoadingButton } from '../../components/LoadingButton'
 
 export function Details() {
   const { isAdmin } = useAuth()
+  const { handleAddToCart, currentItemLoading } = useCart()
+
+  const [count, setCount] = useState(1)
 
   const params = useParams()
 
@@ -31,6 +36,25 @@ export function Details() {
 
   const handleEditRecipe = (id) => {
     navigate(`/edit/${id}`)
+  }
+
+  const handleAdd = () => {
+    const cart = {
+      count,
+      ...data
+    }
+    handleAddToCart(cart)
+  }
+
+  const handleIncrementCount = () => {
+    setCount((prevState) => prevState + 1)
+  }
+
+  const handleDecrementCount = () => {
+    if (count <= 1) {
+      return
+    }
+    setCount((prevState) => prevState - 1)
   }
 
   useEffect(() => {
@@ -76,20 +100,24 @@ export function Details() {
                   <div>
                     {data?.ingredients?.map((ingredient) => {
                       const { id, name } = ingredient
-                      return <Tag key={id} title={name} />
+                      return <Tag key={String(id)} title={name} />
                     })}
                   </div>
 
                   {!isAdmin ? (
-                    <div>
-                      {/* TODO: Implementar o botão de adicionar */}
-                      <RxMinus />
-                      <span>01</span>
-                      <RxPlus />
+                    <div className="card-buttons">
+                      <div id="counter-buttons">
+                        <RxMinus onClick={handleDecrementCount} />
+                        <span>{count}</span>
+                        <RxPlus onClick={handleIncrementCount} />
+                      </div>
 
-                      <Button
+                      <LoadingButton
                         title={`incluir ∙ R$ ${data?.price}`}
-                        buttontype="warning"
+                        buttontype="primary"
+                        onClick={handleAdd}
+                        currentItemLoading={currentItemLoading}
+                        data={data}
                       />
                     </div>
                   ) : (
