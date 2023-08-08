@@ -16,6 +16,7 @@ import { generateImageUrl } from '../../helpers/helpers'
 import { Spinner } from '../../components/Spinner'
 import { getRecipeById } from '../../services/recipes/getRecipeById'
 import errorHandler from '../../helpers/errorHandler'
+import { Empty } from '../../components/Empty'
 
 export function Details() {
   const { isAdmin } = useAuth()
@@ -59,47 +60,54 @@ export function Details() {
         {!isLoading && (
           <Content>
             <ButtonText to="/" title="voltar" icon={RxCaretLeft} />
-            <div className="dish">
-              <div className="dishImage">
-                <img
-                  src={generateImageUrl(data?.image)}
-                  alt="Imagem do prato selecionado"
-                />
-              </div>
 
-              <div className="dishDetails">
-                <h2>{data?.name}</h2>
-                <p>{data?.description}</p>
-                <div>
-                  {data?.ingredients?.map((ingredient) => {
-                    const { id, name } = ingredient
-                    return <Tag key={id} title={name} />
-                  })}
+            {data?.name && (
+              <div className="dish">
+                <div className="dishImage">
+                  <img
+                    src={generateImageUrl(data?.image)}
+                    alt="Imagem do prato selecionado"
+                  />
                 </div>
 
-                {!isAdmin ? (
+                <div className="dishDetails">
+                  <h2>{data?.name}</h2>
+                  <p>{data?.description}</p>
                   <div>
-                    {/* TODO: Implementar o botão de adicionar */}
-                    <RxMinus />
-                    <span>01</span>
-                    <RxPlus />
+                    {data?.ingredients?.map((ingredient) => {
+                      const { id, name } = ingredient
+                      return <Tag key={id} title={name} />
+                    })}
+                  </div>
 
-                    <Button
-                      title={`incluir ∙ R$ ${data?.price}`}
-                      buttontype="warning"
-                    />
-                  </div>
-                ) : (
-                  <div>
-                    <Button
-                      title="Editar prato"
-                      onClick={() => handleEditRecipe(data?.id)}
-                      buttontype="warning"
-                    />
-                  </div>
-                )}
+                  {!isAdmin ? (
+                    <div>
+                      {/* TODO: Implementar o botão de adicionar */}
+                      <RxMinus />
+                      <span>01</span>
+                      <RxPlus />
+
+                      <Button
+                        title={`incluir ∙ R$ ${data?.price}`}
+                        buttontype="warning"
+                      />
+                    </div>
+                  ) : (
+                    <div>
+                      <Button
+                        title="Editar prato"
+                        onClick={() => handleEditRecipe(data?.id)}
+                        buttontype="warning"
+                      />
+                    </div>
+                  )}
+                </div>
               </div>
-            </div>
+            )}
+
+            {!data?.name && (
+              <Empty message="Não foi possível carregar o prato, tente novamente!" />
+            )}
           </Content>
         )}
 
