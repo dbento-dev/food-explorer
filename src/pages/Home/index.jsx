@@ -89,9 +89,9 @@ export function Home() {
       (recipe) => recipe.category === 'dessert'
     )
 
-    setDishList(_dishList)
-    setDrinkList(_drinkList)
-    setDessertList(_dessertList)
+    setDishList(_dishList.sort((a, b) => a.name.localeCompare(b.name)))
+    setDrinkList(_drinkList.sort((a, b) => a.name.localeCompare(b.name)))
+    setDessertList(_dessertList.sort((a, b) => a.name.localeCompare(b.name)))
   }, [recipesList])
 
   return (
