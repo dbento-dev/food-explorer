@@ -97,7 +97,7 @@ export function Details() {
                 <div className="dishDetails">
                   <h2>{data?.name}</h2>
                   <p>{data?.description}</p>
-                  <div>
+                  <div className="ingredients-tags">
                     {data?.ingredients?.map((ingredient) => {
                       const { id, name } = ingredient
                       return <Tag key={String(id)} title={name} />
@@ -121,7 +121,7 @@ export function Details() {
                       />
                     </div>
                   ) : (
-                    <div>
+                    <div className="dish-button">
                       <Button
                         title="Editar prato"
                         onClick={() => handleEditRecipe(data?.id)}

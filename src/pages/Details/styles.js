@@ -72,7 +72,7 @@ export const Content = styled.div`
         color: ${({ theme }) => theme.COLORS.LIGHT_300};
       }
 
-      > div {
+      > .ingredients-tags {
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -114,6 +114,22 @@ export const Content = styled.div`
         > div:last-child {
           width: 100%;
           max-width: 15rem;
+        }
+      }
+
+      > .dish-button {
+        width: 100%;
+      }
+    }
+  }
+
+  @media ${device.tablet} {
+    > .dish {
+      > .dishDetails {
+        > .dish-button {
+          max-width: 25rem;
+          display: flex;
+          align-self: center;
         }
       }
     }
@@ -181,6 +197,11 @@ export const Content = styled.div`
           > div:last-child {
             max-width: 18rem;
           }
+        }
+
+        > .dish-button {
+          max-width: 15rem;
+          align-self: flex-start;
         }
       }
     }
