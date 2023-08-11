@@ -6,11 +6,8 @@ export const Container = styled.div`
 
   display: flex;
   align-items: center;
-
   background-color: ${({ theme }) => theme.COLORS.DARK_900};
-
   border-radius: 5px;
-
   padding: 0 1.2rem;
 
   > select {
@@ -25,7 +22,7 @@ export const Container = styled.div`
 
     option {
       background-color: ${({ theme }) => theme.COLORS.DARK_900};
-      color: ${({ theme }) => theme.COLORS.LIGHT_500};
+      color: ${({ theme }) => theme.COLORS.LIGHT_100};
     }
   }
 `

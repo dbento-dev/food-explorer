@@ -1,6 +1,6 @@
 import { Container } from './styles'
 
-export function Select({ icon: Icon, ...rest }) {
+export function Select({ ...rest }) {
   return (
     <Container>
       <select type="text" {...rest} />
