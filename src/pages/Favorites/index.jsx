@@ -7,6 +7,7 @@ import { Spinner } from '../../components/Spinner'
 import { useFavorites } from '../../hooks/favorites'
 import { getFavoritesRecipes } from '../../services/favorites/getFavorites'
 import errorHandler from '../../helpers/errorHandler'
+import { Empty } from '../../components/Empty'
 
 export function Favorites() {
   const [isLoading, setIsLoading] = useState(true)
@@ -49,31 +50,38 @@ export function Favorites() {
         {!isLoading && (
           <Content>
             <h1>Meus favoritos</h1>
-            <ul className="card-list">
-              {favoriteList.map((recipe) => (
-                <li key={String(recipe.id)}>
-                  <FavoriteCard>
-                    <img
-                      src={generateImageUrl(recipe?.image)}
-                      alt="Image do prato"
-                    />
-                    <div>
-                      <span>{recipe.name}</span>
 
+            {favoriteList.length === 0 && (
+              <Empty message="Nenhum prato favorito encontrado!" />
+            )}
+
+            {favoriteList.length > 0 && (
+              <ul className="card-list">
+                {favoriteList.map((recipe) => (
+                  <li key={String(recipe.id)}>
+                    <FavoriteCard>
+                      <img
+                        src={generateImageUrl(recipe?.image)}
+                        alt="Image do prato"
+                      />
                       <div>
-                        <span
-                          onClick={() =>
-                            handleRemoveFavorite({ id: recipe?.recipe_id })
-                          }
-                        >
-                          Remover dos favoritos
-                        </span>
+                        <span>{recipe.name}</span>
+
+                        <div>
+                          <span
+                            onClick={() =>
+                              handleRemoveFavorite({ id: recipe?.recipe_id })
+                            }
+                          >
+                            Remover dos favoritos
+                          </span>
+                        </div>
                       </div>
-                    </div>
-                  </FavoriteCard>
-                </li>
-              ))}
-            </ul>
+                    </FavoriteCard>
+                  </li>
+                ))}
+              </ul>
+            )}
           </Content>
         )}
       </main>

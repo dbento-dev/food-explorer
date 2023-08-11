@@ -25,8 +25,6 @@ export const Container = styled.div`
   }
 
   @media ${device.laptop} {
-    border: 1px solid red;
-
     h1 {
       font-size: 3.6rem;
     }

@@ -194,12 +194,5 @@ export const Banner = styled.div`
 `
 
 export const StDetails = styled.div`
-  /* width: 100%; */
-  /* height: calc(100% - 12rem); */
-  /* border: 1px solid red; */
-
-  /* @media ${device.laptop} {
-    border: 1px solid red;
-    height: calc(100% - 38rem);
-  } */
+  width: 100%;
 `
