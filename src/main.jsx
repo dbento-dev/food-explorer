@@ -13,8 +13,7 @@ import { CartProvider } from './hooks/cart'
 import { AppRoutes } from './routes/AppRoutes'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  // <React.StrictMode>
-  <>
+  <React.StrictMode>
     <ThemeProvider theme={theme}>
       <GlobalStyles />
       <AuthProvider>
@@ -26,6 +25,5 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       </AuthProvider>
     </ThemeProvider>
     <ToastContainer theme="dark" limit={5} autoClose={2000} />
-  </>
-  // </React.StrictMode>
+  </React.StrictMode>
 )
