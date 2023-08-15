@@ -181,4 +181,4 @@ Entre em contato! 👋🏽
 
 [![Twitter Badge](https://img.shields.io/badge/-@dbentodev-1ca0f1?style=flat-square&labelColor=1ca0f1&logo=twitter&logoColor=white&link=https://twitter.com/dbentodev)](https://twitter.com/dbentodev)
 [![Linkedin Badge](https://img.shields.io/badge/-David-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/david-bento/)](https://www.linkedin.com/in/david-bento/)
-[![Gmail Badge](https://img.shields.io/badge/-dbento26@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:dbento26@gmail.com)](mailto:dbento26@gmail.com)
+[![Gmail Badge](https://img.shields.io/badge/-dfbento26@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:dbento26@gmail.com)](mailto:dfbento26@gmail.com)
